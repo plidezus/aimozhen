@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre, 
+form,fieldset,input,textarea,p,blockquote,th,td { 
+	padding: 0; 
+	margin: 0; 
+	font-size:13px;
+	font-family:Arial;
+	word-wrap:break-word;
+} 
+table,img { 
+	border: none; 
+} 
+address,caption,cite,code,dfn,em,strong,th,var { 
+	font-weight: normal; 
+	font-style: normal; 
+} 
+ol,ul { 
+	list-style: none; 
+} 
+caption,th { 
+	text-align: left; 
+} 
+h1,h2,h3,h4,h5,h6 { 
+	font-weight: normal; 
+	font-size: 100%; 
+} 
+q:before,q:after { 
+	content:''; 
+} 
+abbr,acronym { 
+	border: 0; 
+}
+.clearfix{
+	clear:both;
+}
+
+
+a{ 
+	color:#000; 
+	text-decoration:none;
+}
+a:hover{ 
+	color:#00F; 
+}
+a.button{
+  padding:3px 20px;
+  color:#FFF;
+  background:#7C7C7C;
+  border:none;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  -moz-box-shadow:0 1px 0 #ffffff;
+  cursor:pointer;
+}
+a.button:hover{
+  background:#5DA1E1;
+}
+
+body{
+	background:#F2F2F2;
+	width:960px;
+	margin:20px auto;
+}
+
+header{
+	margin-bottom:20px;
+	position:relative;
+}
+header h1{
+	font-size:14px;
+	font-weight:bold;
+}
+header p.menu{
+	position: absolute;
+	left: 220px;
+	top: 2px;
+}
+header p.user{
+	position: absolute;
+	right: 0;
+	top: 2px;
+}
+
+.hiddenParent .hidden{
+	display:none;
+}
+.hiddenParent:hover .hidden{
+	display:inline;
+}
+
+ul.sidebar{ width:200px; float:left; }
+ul.sidebar li{ line-height:3em; border-bottom:1px solid #BABABA; }
+ul.sidebar li.current a{ color:#FFF; background:#7C7C7C; padding:4px 6px;
+	-webkit-border-radius:6px; -moz-border-radius:6px;}
+
+.content{ background:#FFF; padding:20px; width:700px; float:right; }
+.content h2{ font-weight:bold; font-size:20px; line-height:1.5em; margin-bottom:20px; }
+.content h2 a{ font-weight:normal; font-size:13px; }
+.content ul li{ line-height:2em; }
+
+form p{ margin-bottom:10px; }
+form p label{width:80px; float:left; }
+form p label.invisible{ visibility:hidden; }
+form input[type="text"],
+form input[type="password"]{ border:1px solid #F2F2F2; font-size:13px; padding:4px 6px;}
+form textarea{ border:1px solid #F2F2F2; font-size:13px; padding:4px 6px; height:150px; width:500px; }
+.cleditorMain{ float:left; }
