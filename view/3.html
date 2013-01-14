@@ -12,9 +12,8 @@
     <link href="../media/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-	background-image: url(../images/web_bg.jpg);
+        padding-top: 60px;
+        padding-bottom: 40px;
       }
     </style>
     <link href="../media/css/bootstrap-responsive.css" rel="stylesheet">
@@ -27,7 +26,7 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
   </head>
 
-  <body>
+  <body background="../images/web_bg.jpg">
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -43,10 +42,8 @@
   <input class="span2" id="appendedInputButton" type="text">
   <button class="btn" type="button">Go!</button>
 </div> /search -->
-<div id="card-button" style="float:right">
+<div id="card-button">
   <button class="btn btn-block btn-red" type="button" style=" width:40px; height:30px"><img src="../images/plus.png" /></button></div>
-<div id="user" style="float:right; margin-right:20px; padding:7px 0 0 0">
-  <img width="28" height="28" src="../images/at.jpg"/> <a href="#"><span style="color: #E1E1E1; font-weight: 500;">Gavin Foo</span></a></div>
 
             </div>
             
@@ -59,18 +56,43 @@
     <div class="container" style="margin:30px auto 20px auto">
 
       <div class="row">
-              <div class="span12" style="margin:0"> 
+      <!--左侧个人名片 -->
+        <div class="span3"> 
+        	<div class="shadow" style="padding:15px;">
+                <div id="card-top" style="margin-bottom:65px">
+                    <div id="avatar" class="float-left"><img src="../images/at.jpg" width="50" height="50" /></div>
+                    <div id="detailed" class="float-left" style="margin-left:10px">
+                        <div id="name">Gavin Foo</div>
+                        <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
+                    </div>    
+                </div>
+        		<div id="card-button"><button class="btn btn-block btn-red" type="button">关注 Ta</button></div>
+      		</div>	
+        	<div id="my-list" style="margin-top:30px">
+            <ul class="nav nav-list">
+				<li class="active"><a href="#"><i class="icon-home icon-white"></i>分享的视频</a></li>
+				<li><a href="#"><i class="icon-book"></i>收藏的视频</a></li>
+				<li><a href="#"><i class="icon-pencil"></i>评论过的视频</a></li>
+			</ul>
+            </div>
+        </div>
+      
+      <!--左侧个人名片 -->
+              <div class="span9"> 
      
               <!-- 作品-->
-        <div class="span3 shadow" style="padding:10px; margin-bottom:20px;">
-        <div id="card-button"><button class="btn btn-block btn-red" type="button" ><img style="float:left; padding:4px 0 0 10px;" src="../images/plus.png" /><span style=" margin-left: -15px;">我也要分享</span></button></div>
-        <div class="hr1" style="margin-top:10px;"></div>
-        <div id="welcome" style="margin-top:5px;">
-        <p><?=$user_count?>位镇民，<?=$video_count?>部视频</p>
-          <p>欢迎您来到艾墨镇，如果您是第一次来到这里，我建议您随意逛逛。</p>
-          <p>如果您开始喜欢这里，那或许您更愿意住在这里。</p>
-          <p>如果您已经在这里安家，欢迎您<a data-toggle="modal" data-title="lala" href="http://127.0.0.1/#login">回来</a>。</p>
-        </div>
+        <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
+                        <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
+                        <div class="post-title">Rockit For Me</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
+						<div style="height:160px" ></div>
+            			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
+                        <div class="hr1"></div>
+                        <div class="post-author"  style=" margin-top:10px;">
+                        <div id="avatar" class="float-left"><img src="../images/at_32.jpg" width="32" height="32" /></div>
+                    <div id="post-detailed" class="float-left" style="margin-left:10px">
+                        <div id="post-author" style="color: #666666;font-size: 12px">Gavin Foo  分享</div>
+                    </div></div>
         </div>
         <!-- /作品--> 
                       <!-- 作品-->
@@ -92,7 +114,7 @@
         <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
                         <div class="post-title">Rockit For Me</div>
-                        <div class="img-rounded post-image" style="background: url('../images/exm2.jpg') no-repeat center center;"></div>     					</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
 						<div style="height:160px" ></div>
             			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
                         <div class="hr1"></div>
@@ -107,7 +129,7 @@
         <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
                         <div class="post-title">Rockit For Me</div>
-                        <div class="img-rounded post-image" style="background: url('../images/exm3.jpg') no-repeat center center;"></div>     					</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
 						<div style="height:160px" ></div>
             			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
                         <div class="hr1"></div>
@@ -122,7 +144,7 @@
         <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
                         <div class="post-title">Rockit For Me</div>
-                        <div class="img-rounded post-image" style="background: url('../images/exm4.jpg') no-repeat center center;"></div>     					</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
 						<div style="height:160px" ></div>
             			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
                         <div class="hr1"></div>
@@ -137,7 +159,7 @@
         <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
                         <div class="post-title">Rockit For Me</div>
-                        <div class="img-rounded post-image" style="background: url('../images/exm5.jpg') no-repeat center center;"></div>     					</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
 						<div style="height:160px" ></div>
             			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
                         <div class="hr1"></div>
@@ -152,7 +174,7 @@
         <div class="span3 shadow" style="height:260px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="#"><div style=" width:210px; height:160px;background: url('../images/play.png') no-repeat center center;">&nbsp;</div></a></span>
                         <div class="post-title">Rockit For Me</div>
-                        <div class="img-rounded post-image" style="background: url('../images/exm6.jpg') no-repeat center center;"></div>     					</div>
+                        <div class="img-rounded post-image" style="background: url('../images/exm1.jpg') no-repeat center center;"></div>     					</div>
 						<div style="height:160px" ></div>
             			<div class="post-explain" style="font-size:12px;" >胡戈新作《天龙八部3》爆笑微电影—在线播放—优酷网，视频高清在线观看</div>
                         <div class="hr1"></div>
@@ -170,6 +192,11 @@
       </div>
     </div> <!-- /上方 -->
     
+        <div class="container">
+
+      <div class="row">
+      
+      </div>
       
       <hr>
 

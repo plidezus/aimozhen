@@ -67,7 +67,7 @@ class Video extends Mysql{
 			return '';
 		
 		return <<<CONTENT
-   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf" allowFullScreen="true" quality="high" width="750" height="443" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
 CONTENT;
 	}
 
@@ -77,7 +77,7 @@ CONTENT;
 		} else
 			return '';
 		return <<<CONTENT
-<embed src="http://www.tudou.com/l/{$id}/&resourceId=0_05_05_99&iid=141206757/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>
+<embed src="http://www.tudou.com/l/{$id}/&resourceId=0_05_05_99&iid=141206757/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="750" height="443"></embed>
 CONTENT;
 	}
 
@@ -87,7 +87,7 @@ CONTENT;
 		} else
 			return '';
 		return <<<CONTENT
-<embed src="http://player.ku6.com/refer/{$id}/v.swf" width="480" height="400" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="from=ku6"></embed>
+<embed src="http://player.ku6.com/refer/{$id}/v.swf" width="750" height="443" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" wmode="opaque" mode="transparent" flashvars="from=ku6"></embed>
 CONTENT;
 	}
 }

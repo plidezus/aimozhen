@@ -10,47 +10,95 @@ include 'view/base/header.php';
 $comments = $video->comments();
 ?>
 <div class="container">
-	<div class="row">
-		<div class="span3">
-            <ul class="well nav nav-list">
-                <li class="nav-header"><a href="user.php?id=<?=$video->userid?>">
-	                <img src="<?=$user->avatar()->link(240)?>" />
-                </a></li>
-                <li><a class="ajax" href="ajax/fav.php?id=<?=$video->id?>">收藏动画</a></li>
-                <li><a href="ajax/share.php?id=<?=$video->id?>">分享动画</a></li>
-	        </ul>
-   		</div>
-		<div class="span9">
-			<div id="video">
-				<?=$video->content()?>
-			</div>
-			<div class="well">
-				<h4><?=$user->username?></h4>
-				<p>收藏(<?=intval($video->like)?>) 查看(<?=intval($video->viewed)?>) <?=date('Y.m.d', $video->createdTime)?></p>
-				<p><?=$video->description?></p>
-			</div>
-			<div class="well">
-				<h4>评论(<?=count($comments)?>)</h4>
-				<ul>
-					<? foreach($comments as $each_comment) {?>
-					<li style="color:#999">
-						<p><?=$each_comment->user()->username?> <span style="float: right"><?=date('Y-m-d H:m', $each_comment->createdTime)?></span></p>
-						<p><?=$each_comment->comment?></p>
-					</li>
-					<? } ?>
-				</ul>
-			</div>
-			<div class="well">
-				<form class="ajax" method="POST" action="ajax/post_comment.php?id=<?=$video->id?>">
-					<h4>发表评论</h4><br />
-					<input type="hidden" name="id" value="<?=$video->id?>" />
-					<textarea name="comment" style="width:95%;height:10em;"></textarea><br />
-					<input type="submit" value="发表" class="btn btn-primary" />
-				</form>
-			</div>
-		</div>
-	</div>
+      <div class="row">
+      
+                    <div class="span8"> 
+      <!-- 观看区域-->
+      <div id="content-video" class="shadow" style="padding:10px;">
+     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;"><?=$video->title?></div>
+      	<?=$video->content()?>
+      	<div id="content-others" style="margin-top:10px;">
+        <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" >点此收藏</a>
+      		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
+       	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<a class="bds_tsina"></a>
+<a class="bds_renren"></a>
+<a class="bds_douban"></a>
+<a class="bds_diandian"></a>
+<a class="bds_twi"></a>
+<a class="bds_fbook"></a>
+<a class="bds_mshare"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
 </div>
+
+<!-- Baidu Button END --></div></div>
+        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;">
+		 <?php
+if($video->description=="")
+{  ?>
+这个ATer很懒，什么也没留下
+<?php  }else{ ?>
+<?php echo $video->description; } ?>
+	</div>
+      </div>
+      <!-- /观看区域-->
+      
+            <!-- 评论-->
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
+      	<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"aimozhen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+      </div>
+      <!-- /评论-->
+			  </div>
+      
+      <!--左侧个人名片 -->
+        <div class="span3"> 
+        	<div class="shadow" style="padding:10px; margin-bottom:20px;">
+                <div id="card-top" style="margin-bottom:50px">
+                    <div id="avatar" class="float-left"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></div>
+                    <div id="detailed" class="float-left" style="margin-left:10px">
+                        <div id="name"><a href="user.php?id=<?=$video->userid?>"><span style="color: #202020;"><?=$user->username?></a></span></div>
+                        <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
+                    </div>    
+                </div>
+      		</div>	
+            
+            
+            <div class="shadow" style="padding:5px 10px 10px 10px;">
+                <div id="post-ta-top" style="margin-bottom:50px">
+                TA的分享
+  
+                </div>
+      		</div>
+            
+        	<div id="my-list" style="margin-top:30px">
+            <ul class="nav nav-list">
+				<li class="active"><a href="#"><i class="icon-home icon-white"></i>正在观看</a></li>
+				<li><a href="ajax/fav.php?id=<?=$video->id?>"><i class="icon-book"></i>收藏这个视频</a></li>
+				<li><a href="#"><i class="icon-pencil"></i>评论这个视频</a></li>
+			</ul>
+            </div>
+        </div>
+      
+      <!--左侧个人名片 -->
+      </div>
+    </div> <!-- /上方 -->
+
 <?php
 include 'view/base/footer.php';
 ?>

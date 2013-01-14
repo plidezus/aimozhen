@@ -4,8 +4,8 @@ ob_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
 if (Visitor::login($username, $password)) {
-	echo "<script>alert('ç™»å½•æˆåŠŸ')</script>";
+	echo "<script>alert('µÇÂ¼³É¹¦')</script>";
 } else {
-	echo "<script>alert('ç™»å½•å¤±è´¥')</script>";
+	echo "<script>alert('µÇÂ¼Ê§°Ü')</script>";
 }
-echo "<script>window.location = '" . ($_SERVER['HTTP_REFERER'] ?: '/index.php') . "'</script>";
+echo "<script>window.location = '" . ($_SERVER['HTTP_REFERER'] ?: '/') . "'</script>";

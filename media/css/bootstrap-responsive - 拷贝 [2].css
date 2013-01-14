@@ -61,7 +61,7 @@
   display: inherit !important;
 }
 
-
+@media (min-width: 1200px) {
   .row {
     margin-left: -20px;
     *zoom: 1;
@@ -78,8 +78,8 @@
   [class*="span"] {
     float: left;
     min-height: 1px;
-   /*  margin-left: 30px; */
-   }
+    margin-left: 30px;
+  }
   .container,
   .navbar-static-top .container,
   .navbar-fixed-top .container,
@@ -96,7 +96,7 @@
     width: 970px;
   }
   .span9 {
-    width: 790px;
+    width: 870px;
   }
   .span8 {
     width: 770px;
@@ -543,3 +543,11 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+}
+
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
