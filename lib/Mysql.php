@@ -12,8 +12,8 @@ class Mysql {
 	 */
 	public static function client() {
 		if (!isset(self::$client)) {
-			self::$client = new mysqli('localhost', 'username', 'password');
-			self::$client->select_db('database');
+			self::$client = new mysqli('localhost', 'root', '');
+			self::$client->select_db('aimozhen');
 			self::$client->query('SET NAMES UTF8');
 		}
 		return self::$client;
@@ -27,7 +27,6 @@ class Mysql {
 	
 	public function load($id) {
 		$class_name = static::$class_name ?: get_called_class();
-		
 		$result = $this->client()->query("select * from {$class_name} where `id` = '$id' limit 1");
 		
 		if ($result->num_rows) {
