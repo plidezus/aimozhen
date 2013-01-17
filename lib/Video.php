@@ -8,6 +8,7 @@ class Video extends Mysql{
 	public $viewed;
 	public $tags;
 	public $createdTime;
+	public $imageUrl;
 	
 	const VIDEO_TYPE_YOUKU = 1;
 	const VIDEO_TYPE_TUDOU = 2;
