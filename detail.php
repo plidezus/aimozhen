@@ -34,11 +34,10 @@ include 'view/base/header.php';
 <!-- Baidu Button END --></div></div>
         <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent : 28px;line-height:22px">
 		 <?php
-if($video->description=="")
-{  ?>
-这个ATer很懒，什么也没留下
-<?php  }else{ ?>
-<?php echo $video->description; } ?>
+		if($video->description==""){ ?> 
+		这个ATer很懒，什么也没留下
+		<?  }else{ ?> 
+		<? echo $video->description; } ?>
 	</div>
       </div>
       <!-- /观看区域-->
@@ -95,9 +94,12 @@ if($video->description=="")
             
         	<div id="my-list" style="margin-top:30px">
             <ul class="nav nav-list">
-				<li class="active"><a href="#"><i class="icon-home icon-white"></i>正在观看</a></li>
-				<li><a href="ajax/fav.php?id=<?=$video->id?>"><i class="icon-book"></i>收藏这个视频</a></li>
-				<li><a href="#"><i class="icon-pencil"></i>评论这个视频</a></li>
+				<li class="active"><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
+                		 <? if($user->username==$visitor->username) {  ?>
+				<li><a href="/edit.php?id=<?=$video->id?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
+				<li><a href="#"><i class="icon-trash"></i> 删除这个视频</a></li>
+						<?  }else{ } ?>
+
 			</ul>
             </div>
         </div>
