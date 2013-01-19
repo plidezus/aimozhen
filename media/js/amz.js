@@ -6,3 +6,12 @@ $(function(){
         return false;
     });
 });
+
+
+$(function(){
+    $(".playbutton").hover(function(){
+        $(this).find("span").show();
+    },function(){
+        $(this).find("span").hide();
+    });
+});

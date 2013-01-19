@@ -1,6 +1,6 @@
 <?php
-include "include/init.php";
-include 'view/base/header.php';
+include "../include/init.php"; $pagename = "hot" ;
+include '../view/base/header.php';
 ?>
     <div class="container" style="margin:30px auto 20px auto">
 
@@ -12,12 +12,12 @@ include 'view/base/header.php';
         <div class="span3 shadow" style="padding:10px; margin-bottom:20px;">
         <div id="card-button">
         
-        <? if ($visitor->id) { ?>
+                <? if ($visitor->id) { ?>
                               <a href="#share" role="button" class="btn btn-block btn-red" data-toggle="modal"><img style="float:left; padding:4px 0 0 10px;" src="../images/plus.png" /><span style=" margin-left: -15px;">我也要分享</span></a></div>
 					<? } else { ?>
                              <a href="#login" role="button" class="btn btn-block btn-red" data-toggle="modal"><img style="float:left; padding:4px 0 0 10px;" src="../images/plus.png" /><span style=" margin-left: -15px;">分享前请登录</span></a></div>
 					<? } ?>
- 
+        
         <div class="hr1" style="margin-top:10px;"></div>
         <div id="welcome" style="margin-top:5px;">
         <p><?=$user_count?>位镇民，<?=$video_count?>部视频</p>
@@ -31,14 +31,14 @@ include 'view/base/header.php';
       
       <?
 				$video = new Video();
-				$videos = $video->find(array('order' => 'id desc'));
+				$videos = $video->find(array('order' => '`like` desc, id desc'));
 
 				foreach ($videos as $video) {
 					$user = new User($video->userid);
 					?>
                      <!-- 作品-->
-        <?php
-require 'view/base/post.php';
+                <?php
+require '../view/base/post.php';
 ?>
         <!-- /作品--> 
 					<?
@@ -51,5 +51,5 @@ require 'view/base/post.php';
     </div> <!-- /上方 -->
     
 <?php
-require_once 'view/base/footer.php';
+require_once '../view/base/footer.php';
 ?>

@@ -6,29 +6,37 @@ $user = new User($video->userid);
 ?>
 <div class="container">
 	<div class="row">
-		<div class="span3">
-            <ul class="well nav nav-list">
-                <li class="nav-header"><?=$visitor->username?></small></li>
-                <li><a data-toggle="modal" href="#invite">邀请入住</a></li>
-                <li><a href="my/index.php">我的分享</a></li>
-                <li><a href="my/like.php">喜欢的人</a></li>
-                <li><a href="my/fav.php">好片收藏</a></li>
-                <li><a href="my/comment.php" title="我的评论">闲言碎语</a></li>
-                <li><a href="logout.php">登出</a></li>
-            </ul>
-		</div>
+<div class="span3"> 
+        	<div class="shadow" style="padding:15px;">
+                <div id="card-top" style="margin-bottom:50px">
+                    <div id="avatar" class="float-left"><a href="<?=$visitor->avatar()->editLink()?>"><img src="<?=$visitor->avatar()->link(50)?>" width="50" height="50" /></a></div>
+                    <div id="detailed" class="float-left" style="margin-left:10px">
+                        <div id="name"><?=$visitor->username?></div>
+                        <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
+                    </div>    
+                </div>
+      		</div>	
+        	<div id="my-list" style="margin-top:30px">
+            <ul class="nav nav-list">
+				<li class="active"><a href="#"><i class="icon-home icon-white"></i>发布作品</a></li>
+                <li><a href="/my/"><i class="icon-home icon-white"></i>我的分享</a></li>
+				<li><a href="/my/like.php"><i class="icon-book"></i>喜欢的人</a></li>
+				<li><a href="/my/fav.php"><i class="icon-pencil"></i>好片收藏</a></li>
+                <li><a href="/logout.php"><i class="icon-pencil"></i>登出</a></li>
+			</ul>
+            </div>
+        </div>
 		<div class="span9">
 			<div class="alert alert-success">
-				<h3 class="alert-heading">成功啦！</h3>
-				<p>其实，你已经发布成功了<small>(<a target="_blank" href="detail.php?id=<?=$video->id?>">去看看</a>)</small>。但是如果你想继续完善一下，镇民们会非常开心。</p>
-				<p>当然，您也可以选择以后再编辑您的视频详细信息~</p>
+				<h3 class="alert-heading">最后一步 <span style="font-size: 12px">(2/3)</span></h3>
+				<p>您只需要再填写一下介绍信息就可以与镇民们分享这部视频了！</p>
 			</div>
 			<form class="form-horizontal" action="ajax/edit_video.php" method="POST">
 				<input type="hidden" name="id" value="<?=$video->id?>" />
 				<div class="control-group">
 					<label class="control-label" for="input01">标题：</label>
 					<div class="controls">
-						<input type="text" class="input span4" id="input01" name="title" placeholder="试试你喜欢的网站~" value="<?=$video->title?>">
+						<input type="text" class="input span4" id="input01" name="title" placeholder="视频的名字" value="<?=$video->title?>">
 					</div>
 				</div>
 				<div class="control-group">
@@ -44,8 +52,8 @@ $user = new User($video->userid);
 					</div>
 				</div>
 				<div class="form-actions">
-					<input type="submit" class="btn btn-primary" value="恩，就这样吧！" />
-					<a href="detail.php?id=<?=$video->id?>" class="btn">我很懒，还是算了~</a>
+					<input type="submit" class="btn btn-red" value="恩，就这样吧！" />
+					
 				</div>
 			</form>
 		</div>

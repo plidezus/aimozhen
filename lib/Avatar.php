@@ -5,7 +5,6 @@
  */
 class Avatar {
 	public $email;
-	public $default = 'http://aimozhen.com/images/koala.jpg';
 
 	public function __construct($email) {
 		$this->email = $email;

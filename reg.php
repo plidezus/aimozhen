@@ -6,9 +6,9 @@ if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
 <div class="container">
 	<div class="row">
 		<div class="span3">
-			<?
-				include 'view/base/sidebar.php';
-			?>
+			 <?
+				//include 'view/base/sidebar.php';
+			?> 
 		</div>
 
 		<div class="span9">

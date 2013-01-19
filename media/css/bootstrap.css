@@ -2055,11 +2055,11 @@ table th[class*="span"],
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-top: 1px;
+  margin-top: 4px;
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("../../images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -5923,4 +5923,28 @@ float: left;
 	border: none;
 	border-top: 1px solid #e3e3e3;
 	margin: 0 0;
+}
+#issue{
+	display: block;
+	width: 50px;
+	height: 50px;
+	padding:5px 0px 0 0;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	text-decoration: none;
+	background-color: #CCCCCC;
+}
+#issue span{
+	display: block;
+	color: #666666;
+} 
+#issue span:hover{ 
+	color:#000; 
+	background-color: #CCCCCC;
+} 
+#issue span{ 
+	font-size:14px; 
+	text-align:center; 
+	margin-top:2px; 
 }

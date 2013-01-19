@@ -1,4 +1,5 @@
 <?php
+$pagename = "index" ;
 session_start();
 function __autoload($class) {
 	$class = str_replace('\\', DIRECTORY_SEPARATOR, $class);

@@ -6,8 +6,6 @@ $video->save();
 $user = new User($video->userid);
 
 include 'view/base/header.php';
-
-$comments = $video->comments();
 ?>
 <div class="container">
       <div class="row">
@@ -15,7 +13,7 @@ $comments = $video->comments();
                     <div class="span8"> 
       <!-- 观看区域-->
       <div id="content-video" class="shadow" style="padding:10px;">
-     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;"><?=$video->title?></div>
+     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold; font-size:18px;"><?=$video->title?></div>
       	<?=$video->content()?>
       	<div id="content-others" style="margin-top:10px;">
         <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" >点此收藏</a>
@@ -34,7 +32,7 @@ $comments = $video->comments();
 </div>
 
 <!-- Baidu Button END --></div></div>
-        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;">
+        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent : 28px;line-height:22px">
 		 <?php
 if($video->description=="")
 {  ?>
@@ -64,6 +62,15 @@ if($video->description=="")
 <!-- Duoshuo Comment END -->
       </div>
       <!-- /评论-->
+      
+      <!-- 相关-->
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">相关动画推荐：</div>
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:0px 10px;">
+      	<script type="text/javascript" id="wumiiRelatedItems"></script>
+      </div>
+      <!-- /相关-->
+      
+      
 			  </div>
       
       <!--左侧个人名片 -->
@@ -98,6 +105,17 @@ if($video->description=="")
       <!--左侧个人名片 -->
       </div>
     </div> <!-- /上方 -->
+
+<script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = "<?=$video->title?>"; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
+    var wumiiSitePrefix = "http://aimozhen.com/";
+    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+</script>
+<script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+
 
 <?php
 include 'view/base/footer.php';

@@ -10,41 +10,44 @@ $video = new Video();
 $video->userid = $user->id;;
 $video_count = $video->count();
 ?>
-<div class="container">
-	<div class="row">
-		<div class="span3">
-            <ul class="well nav nav-list">
-                <li class="nav-header"><a href="user.php?id=<?=$video->userid?>">
-                    <img src="<?=$user->avatar()->link(240)?>" />
-                </a></li>
-                <li><a href="ajax/like.php?id=<?=$user->id?>">喜欢他</a></li>
-                <li><a href="user/detail.php?id=<?=$user->id?>">了解他</a></li>
-            </ul>
-		</div>
-		<div class="span9">
-			<div style="text-align: right;line-height: 37px;margin-bottom: 10px;color:#999">
-				<a href="ajax/like.php?id=<?=$user_id?>">喜欢 <?=$user->username?></a> <?=$video_count?>部视频
-			</div>
-			<ul class="thumbnails">
-	<?
+    <div class="container" style="margin:30px auto 20px auto">
+
+      <div class="row">
+      <!--左侧个人名片 -->
+        <div class="span3"> 
+        	<div class="shadow" style="padding:15px;">
+                <div id="card-top" style="margin-bottom:65px">
+                    <div id="avatar" class="float-left"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></div>
+                    <div id="detailed" class="float-left" style="margin-left:10px">
+                        <div id="name"><?=$user->username?></div>
+                        <div id="birday" style="color: #ABABAB; font-size: 12px">分享了<?=$video_count?>部作品</div>
+                    </div>    
+                </div>
+        		<div id="card-button">
+                <a href="ajax/like.php?id=<?=$user->id?>" role="button" class="btn btn-block btn-red">关注 Ta</a>
+      		</div>	
+
+        </div></div>
+      
+      <!--左侧个人名片 -->
+              <div class="span9"> 
+     	<?
 		$video = new Video();
 		$video->userid = $user_id;
 		$videos = $video->find(array('order' => 'id desc'));
 		foreach ($videos as $video) {
 			$user = new User($video->userid);
 	?>
-				<li class="span3">
-					<div class="thumbnail">
-						<a href="detail.php?id=<?=$video->id?>"><img src="<?=$video->imageUrl?>" style="width:100%;height:160px;" /></a>
-					</div>
-				</li>
+      <!-- 作品-->
+		<?php include HTDOCS_DIR . "/view/base/post.php"; ?>
+      <!-- /作品--> 
 	<?
 		}
 	?>
-			</ul>
-		</div>
-	</div>
-</div>
+
+			  </div>
+      </div>
+    </div> <!-- /上方 -->
 <?php
 include 'view/base/footer.php';
 ?>
