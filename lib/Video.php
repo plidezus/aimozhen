@@ -44,6 +44,8 @@ class Video extends Mysql{
 				return $this->tudou_content();
 			case self::VIDEO_TYPE_KU6:
 				return $this->ku6_content();
+			case self::VIDEO_TYPE_56:
+				return $this->_56_content();
 			default :
 				return $this->url;
 		}
@@ -74,21 +76,35 @@ CONTENT;
 
 	private function tudou_content() {
 		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
-			$id = $matches[1];
-		} else
-			return '';
-		return <<<CONTENT
-<embed src="http://www.tudou.com/l/{$id}/&resourceId=0_05_05_99&iid=141206757/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="750" height="443"></embed>
+			return <<<CONTENT
+<embed src="http://www.tudou.com/l/{$matches[0]}/&resourceId=0_05_05_99&iid=141206757/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="750" height="443"></embed>
 CONTENT;
+		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
+			return <<<CONTENT
+<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>
+CONTENT;
+		}
+
 	}
 
 	private function ku6_content() {
-		if (preg_match("/\/{.*?}\.html$/", $this->url, $matches)) {
+		if (preg_match("/\/(.*?)\.html$/", $this->url, $matches)) {
 			$id = $matches[1];
 		} else
 			return '';
 		return <<<CONTENT
 <embed src="http://player.ku6.com/refer/{$id}/v.swf" width="750" height="443" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" wmode="opaque" mode="transparent" flashvars="from=ku6"></embed>
+CONTENT;
+	}
+
+	private function _56_content() {
+		if (preg_match("/v_(.*?)\.html$/", $this->url, $matches)) {
+			$id = $matches[1];
+		} else
+			return $this->url;
+
+		return <<<CONTENT
+<embed src='http://player.56.com/cpm_$id.swf'  type='application/x-shockwave-flash' width='480' height='405' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
 CONTENT;
 	}
 }
