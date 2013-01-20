@@ -2,10 +2,10 @@
 include "include/init.php";
 include 'view/base/header.php';
 ?>
-    <div class="container" style="margin:30px auto 20px auto">
+	<div style="text-align:center; width:100%; color:#AAA">艾墨镇共有 <?=$video_count?> 部视频作品与您分享</div>
+    <div class="container" style="margin:20px auto 20px auto">
 
       <div class="row">
-      
               <div class="span12" style="margin:0"> 
            <? if (!$visitor->id) { ?>
       <!-- 作品-->

@@ -47,7 +47,7 @@ if($video->description=="")
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>
       <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
       	<!-- Duoshuo Comment BEGIN -->
-	<div class="ds-thread"></div>
+	<div class="ds-thread" data-thread-key="<?=$video->id?>" data-title="<?=$video->title?>"></div>
 	<script type="text/javascript">
 	var duoshuoQuery = {short_name:"aimozhen"};
 	(function() {
@@ -110,11 +110,10 @@ if($video->description=="")
     var wumiiPermaLink = ""; //请用代码生成文章永久的链接
     var wumiiTitle = "<?=$video->title?>"; //请用代码生成文章标题
     var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
-    var wumiiSitePrefix = "http://aimozhen.com/";
+    var wumiiSitePrefix = "http://www.aimozhen.com/";
     var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
 </script>
 <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
-
 
 
 <?php
