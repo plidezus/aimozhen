@@ -26,17 +26,20 @@
     <h3 id="myModalLabel">邀请注册</h3>
   </div>
     <div class="modal-body">
-    <form class="form">
-            <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
-            <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
-        </form>
+	    <form class="form">
+	        <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
+            <div id="message"></div>
+	        <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
+	    </form>
     </div>
 </div>
 <script>
-    $('#get_invite').click(function(){
-        jQuery.get('/ajax/invite.php', {email : $('#email_input').val()}, function(data){
-            $('#message').html(data);
-        });
+    $(function(){
+	    jQuery('#get_invite').click(function(){
+            jQuery.get('/ajax/invite.php', {email : $('#email_input').val()}, function(data){
+                $('#message').html(data);
+            });
+        })
+        jQuery('#my-sidebar a[href="<?=$_SERVER['REQUEST_URI']?>"]').parent().addClass('active');
     });
-	$('#my-sidebar a[href="<?=$_SERVER['REQUEST_URI']?>"]').parent().addClass('active');
 </script>

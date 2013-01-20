@@ -15,7 +15,6 @@
 
     <!-- javascript
     ================================================== -->
-    <script src="http://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script> 
     <script src="/media/js/bootstrap.js"></script>
     <script src="/media/js/amz.js"></script>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=652974" ></script>

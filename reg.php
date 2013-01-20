@@ -1,4 +1,5 @@
 <?php
+include "include/init.php";
 include 'view/base/header.php';
 if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
 	) header("LOCATION:index.php");

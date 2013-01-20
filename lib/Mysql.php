@@ -27,6 +27,7 @@ class Mysql {
 	
 	public function load($id) {
 		$class_name = static::$class_name ?: get_called_class();
+		
 		$result = $this->client()->query("select * from {$class_name} where `id` = '$id' limit 1");
 		
 		if ($result->num_rows) {
