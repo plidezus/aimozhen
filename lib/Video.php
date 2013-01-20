@@ -81,7 +81,7 @@ CONTENT;
 CONTENT;
 		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
 			return <<<CONTENT
-<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>
+<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="750" height="443"></embed>
 CONTENT;
 		}
 
@@ -104,7 +104,7 @@ CONTENT;
 			return $this->url;
 
 		return <<<CONTENT
-<embed src='http://player.56.com/cpm_$id.swf'  type='application/x-shockwave-flash' width='480' height='405' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
+<embed src='http://player.56.com/cpm_$id.swf'  type='application/x-shockwave-flash' width='750' height='443' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
 CONTENT;
 	}
 }
