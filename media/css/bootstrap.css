@@ -152,7 +152,7 @@ textarea {
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 30px;
+  min-height: 40px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -1632,6 +1632,22 @@ input.search-query {
   -webkit-border-radius: 15px;
      -moz-border-radius: 15px;
           border-radius: 15px;
+}
+
+input.share-video {
+  padding-right: 14px;
+  padding-right: 4px \9;
+  padding-left: 14px;
+  padding-left: 4px \9;
+  height:40px;
+  -webkit-input-placeholder { color:#fff; }
+
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+  margin-bottom: 0;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 
 /* Allow for input prepend/append in search forms */
@@ -4930,8 +4946,10 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal-header {
-  padding: 9px 15px;
+  padding: 9px 20px;
   border-bottom: 1px solid #eee;
+  background-color:#1b1b1b;
+  color:#f5f5f5;
 }
 
 .modal-header .close {
@@ -4939,13 +4957,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal-header h3 {
-  margin: 0;
-  line-height: 30px;
+	font-size:16px;
+  	margin: 0;
+  	line-height: 30px;
+	color:#f5f5f5;
 }
 
 .modal-body {
   max-height: 400px;
-  padding: 15px;
+  padding: 10px 10px 0px 10px;
   overflow-y: auto;
 }
 
