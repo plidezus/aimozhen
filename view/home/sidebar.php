@@ -29,7 +29,11 @@
 	    <form class="form">
 	        <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
             <div id="message"></div>
-	        <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
+	        <p>
+		    <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
+            <a id="copy_url" href="###" class="btn btn-red hide">复制到剪贴板</a>
+	        </p>
+
 	    </form>
     </div>
 </div>
@@ -37,6 +41,12 @@
     $(function(){
 	    jQuery('#get_invite').click(function(){
             jQuery.get('/ajax/invite.php', {email : $('#email_input').val()}, function(data){
+	            if (data != '请填写Email哦！') {
+                    $('#get_invite').hide();
+                    $('#copy_url').show().click(function(){
+                        window.clipboardData.setData('text', $('#message input').html());
+                    });
+                }
                 $('#message').html(data);
             });
         })
