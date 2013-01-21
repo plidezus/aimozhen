@@ -33,15 +33,13 @@ include 'view/base/header.php';
 
 <!-- Baidu Button END --></div></div>
         <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent : 28px;line-height:22px">
-		 <?php
-if($video->description=="")
-{  ?>
-这个ATer很懒，什么也没留下
-<?php  }else{ ?>
-<?php echo $video->description; } ?>
+		 <? if($video->description==""){ ?> 这个ATer很懒，什么也没留下 <? }else{ echo $video->description; } ?>
 	</div>
       </div>
       <!-- /观看区域-->
+      收藏回馈数值（TEST）
+      <?php 
+	  echo (Action::isFav($user, $video)) ;?><br />
       
             <!-- 评论-->
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>

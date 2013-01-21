@@ -11,7 +11,7 @@ class Action extends Mysql{
 	public static function isFav($user, $video) {
 		$finder = new self;
 		$finder->type = self::TYPE_FAV;
-		$finder->userid = $user->id;
+		$finder->userid = $visitor->id;
 		$finder->target = $video->id;
 		return $finder->count() > 0 ;
 	}
