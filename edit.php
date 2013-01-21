@@ -3,6 +3,7 @@ include "include/init.php";
 include 'view/base/header.php';
 $video = new Video($_GET['id']);
 $user = new User($video->userid);
+$tags = Tag::getAllPreTags();
 ?>
 <div class="container">
 	<div class="row">
@@ -42,6 +43,15 @@ $user = new User($video->userid);
 				<div class="control-group">
 					<label class="control-label" for="input01">标签：</label>
 					<div class="controls">
+						<select name="pre_tag" id="pre_tag" class="span1">
+							<?php
+								foreach ($tags as $each_tag) {
+							?>
+									<option value=<?=$each_tag->id?>><?=$each_tag->name?></option>
+							<?
+								}
+							?>
+						</select>
 						<input type="text" class="input span4" id="input01" name="tags" placeholder="用空格分开哦亲！" value="<?=$video->tags?>">
 					</div>
 				</div>
