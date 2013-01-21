@@ -1,6 +1,8 @@
 <?php
 include "include/init.php";
 include 'view/base/header.php';
+$page_size = 12;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 0;
 ?>
     <div class="container" style="margin:30px auto 20px auto">
 
@@ -31,7 +33,7 @@ include 'view/base/header.php';
       
       <?
 				$video = new Video();
-				$videos = $video->find(array('order' => 'id desc'));
+				$videos = $video->find(array('order' => 'id desc', 'limit' => $page * $page_size . ', ' . $page_size));
 
 				foreach ($videos as $video) {
 					$user = new User($video->userid);
@@ -48,8 +50,16 @@ require 'view/base/post.php';
 
 			  </div>
       </div>
+	    <div class="row"><p style="text-align: center">
+<?php
+for ($i=0; $i<ceil($video_count / $page_size); $i++) {
+	?>
+<a href="?p=<?=$i?>"><span class="label label-info"><?=$i+1?></span></a>
+<?
+}
+?>
+        </p> </div>
     </div> <!-- /上方 -->
-    
 <?php
 require_once 'view/base/footer.php';
 ?>
