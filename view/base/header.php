@@ -51,7 +51,7 @@ $user_count = $_user->count();
 </div> /search -->
 <div id="card-button" style="float:right; ">
 <? if ($visitor->id) { ?>
-                      <a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:40px;padding-top:7px;" data-toggle="modal"><img src="/images/plus.png" /></a> </div>
+                      <a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;padding-top:3px; margin:7px 30px 0 0;" data-toggle="modal">分享视频</a> </div>
 					<? } else { ?>
                      <a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:40px;float:right" data-toggle="modal">登录</a>
                      </div>
