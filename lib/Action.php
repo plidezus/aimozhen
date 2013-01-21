@@ -8,6 +8,13 @@ class Action extends Mysql{
 	public $target;
 	public $createdTime;
 
+	public static function isFav($user, $video) {
+		$finder = new self;
+		$finder->type = self::TYPE_FAV;
+		$finder->userid = $user->id;
+		$finder->target = $video->id;
+		return $finder->count() > 0 ;
+	}
 }
 
 ?>

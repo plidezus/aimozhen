@@ -149,5 +149,9 @@ class Mysql {
 	protected function encode($v) {
 		return "'" . $this->client()->real_escape_string($this->{$v}) . "'";
 	}
+
+	public static function loader() {
+		return new static();
+	}
 }
 ?>
