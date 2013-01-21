@@ -70,18 +70,18 @@ class Video extends Mysql{
 			return '';
 		
 		return <<<CONTENT
-   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf" allowFullScreen="true" quality="high" width="750" height="443" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
+   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf?VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="750" height="443" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
 CONTENT;
 	}
 
 	private function tudou_content() {
 		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
 			return <<<CONTENT
-<embed src="http://www.tudou.com/l/{$matches[0]}/&resourceId=0_05_05_99&iid=141206757/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="750" height="443"></embed>
+<embed src="http://www.tudou.com/l/{$matches[0]}/&resourceId=0_05_05_99&iid=141206757&autoPlay=true/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="750" height="443"></embed>
 CONTENT;
 		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
 			return <<<CONTENT
-<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="750" height="443"></embed>
+<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05&autoPlay=true/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="750" height="443"></embed>
 CONTENT;
 		}
 
@@ -104,7 +104,7 @@ CONTENT;
 			return $this->url;
 
 		return <<<CONTENT
-<embed src='http://player.56.com/cpm_$id.swf'  type='application/x-shockwave-flash' width='750' height='443' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
+<embed src='http://player.56.com/renrenshare_$id.swf'  type='application/x-shockwave-flash' width='750' height='443' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
 CONTENT;
 	}
 }

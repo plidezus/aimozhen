@@ -46,6 +46,13 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 0;
 		<? }?>
 		  </div>
       </div>
+      <div class="row"><p style="text-align: center">
+
+<? for ($i=0; $i<ceil($video_count / $page_size); $i++) {?>
+<a href="?p=<?=$i?>"><span class="label label-info"><?=$i+1?></span></a>
+<? }?>
+
+        </p> </div>
     </div> <!-- /上方 -->
     
 <?php
