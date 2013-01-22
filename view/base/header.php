@@ -30,7 +30,7 @@ $user_count = $_user->count();
     <![endif]-->
 
     <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 
   <body background="/images/web_bg.jpg">
