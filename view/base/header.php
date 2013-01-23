@@ -7,24 +7,40 @@ $user_count = $_user->count();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <title>艾墨镇，ATer的小村子</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AnimeTaste">
-    <meta name="author" content="AnimeTaste">
-	<meta name="apple-itunes-app" content="app-id=444912104">
-    <meta name="apple-itunes-app" content="app-id=578126052">
-    <!-- Le styles -->
-    <link href="/media/css/bootstrap.css" rel="stylesheet">
-    <link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
+<meta charset="utf-8">
+<title>艾墨镇，ATer的小村子</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AnimeTaste">
+<meta name="author" content="AnimeTaste">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<!-- Le styles -->
+<link href="/media/css/bootstrap.css" rel="stylesheet">
+<link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/media/jBox/jquery.jBox-2.3.min.js"></script>
+	<script type="text/javascript" src="/media/jBox/jquery.jBox-zh-CN.js"></script>
+	<link type="text/css" rel="stylesheet" href="/media/jBox/jbox.css"/>
+
+<? $url=explode("?",$_SERVER['REQUEST_URI']);$num =(count($url))-1;
+if ($url[$num]=="welcome") { 
+	if ($visitor->id) {
+		echo "<script> $(function(){ $.jBox.tip('欢迎回来！别忘记分享几部好作品哟！', 'success');}); </script>";} 
+		} 
+if ($url[$num]=="err") {
+	echo "<script> $(function(){ $.jBox.tip('登录失败！用户名或密码错误！', 'error');}); </script>";}
+if ($url[$num]=="bye") {
+	echo "<script> $(function(){ $.jBox.tip('记得有空常来哦！', 'success');}); </script>";}
+ ?>
+    
+
+</script>
 </head>
 
   <body background="/images/web_bg.jpg">
