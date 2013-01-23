@@ -694,21 +694,6 @@ dd {
   margin-left: 180px;
 }
 
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #666;
-}
-.hr2 {
-  margin: 5px 0;
-  border: 0;
-  border-top: 1px dashed #666;
-}
-.hr3 {
-  margin: 10px 0;
-  border: 0;
-  border-top: 1px dashed #666;
-}
 
 abbr[title],
 abbr[data-original-title] {
@@ -5980,6 +5965,12 @@ float: left;
 	height: 10px;
 	border: none;
 	border-top: 1px solid #D3D3D3;
+	margin: 0 0;
+}
+.hr1{
+	height: 1px;
+	border: none;
+	border-top: 1px solid #e3e3e3;
 	margin: 0 0;
 }
 #issue{
