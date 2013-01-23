@@ -1,5 +1,5 @@
 ﻿
-        <div class="span3 shadow" style="height:314px;padding:10px; margin-bottom:20px;">
+        <div class="span3 shadow" style="height:332px;padding:10px; margin-bottom:20px;">
                         <div class="playbutton"><span><a href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"><div style=" width:210px; height:160px;background: url('/images/play.png') no-repeat center center;">&nbsp;</div></a></span>
           <div class="img-rounded post-image" style="background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;"></div>     					</div>
                         <div class="post-title"><a href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"><?= $video->title ?></a></div>

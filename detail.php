@@ -32,8 +32,8 @@ include 'view/base/header.php';
 </div>
 
 <!-- Baidu Button END --></div></div>
-        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent :0px;line-height:22px">
-		 <? if($video->description==""){ ?> 这个ATer很懒，什么也没留下 <? }else{ echo $video->description; } ?>
+        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent :0px;">
+		 <? if($video->description==""){ ?> 这个ATer很懒，什么也没留下 <? }else{ echo nl2br($video->description); } ?>
 	</div>
       </div>
       <!-- /观看区域-->

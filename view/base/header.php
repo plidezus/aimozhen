@@ -16,12 +16,6 @@ $user_count = $_user->count();
     <meta name="apple-itunes-app" content="app-id=578126052">
     <!-- Le styles -->
     <link href="/media/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
     <link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -53,7 +47,7 @@ $user_count = $_user->count();
 <? if ($visitor->id) { ?>
                       <a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;padding-top:3px; margin:7px 30px 0 0;" data-toggle="modal">分享视频</a> </div>
 					<? } else { ?>
-                     <a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:40px;float:right" data-toggle="modal">登录</a>
+                     <a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:40px;float:right;margin:7px 30px 0 0;" data-toggle="modal">登录</a>
                      </div>
 					<? } ?>
                     <? if ($visitor->id) { ?>

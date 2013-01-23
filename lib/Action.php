@@ -11,17 +11,10 @@ class Action extends Mysql{
 	public static function isFav($user, $video) {
 		$finder = new self;
 		$finder->type = self::TYPE_FAV;
-		$finder->userid = $user->id;
+		$finder->userid = $visitor->id;
 		$finder->target = $video->id;
 		return $finder->count() > 0 ;
 	}
-
-	public static function isLiked($user, $target_user) {
-		$finder = new self;
-		$finder->type = self::TYPE_LIKE_USER;
-		$finder->userid = $user->id;
-		$finder->target = $target_user->id;
-		return $finder->count() > 0 ;	}
 }
 
 ?>
