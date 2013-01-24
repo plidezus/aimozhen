@@ -85,8 +85,29 @@ include 'view/base/header.php';
             
             
             <div class="shadow" style="padding:5px 10px 10px 10px;">
-                <div id="post-ta-top" style="margin-bottom:50px">
+                <div id="post-ta-top" style="margin-bottom:60px;">
                 TA的分享
+                <div style="float:left; margin-top:5px;">
+                     	<?
+		$out=1;
+		$video = new Video();
+		$videos = $video->find(array('order' => 'id desc'));
+		foreach ($videos as $video) {
+			$user = new User($video->userid);
+	?>
+    
+     <? if($out<3){ ?> 
+      <!-- 作品-->
+        <a  style="float:left; width:54px; height:54px; margin-right:12px;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+      <!-- /作品--> 
+	 <? }else{ ?> 
+      <!-- 作品-->
+		<a  style="float:left; width:54px; height:54px; margin-right:0px;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+      <!-- /作品--> 
+      <? } ?>
+
+	<? if($out==3) break; else$out++;}?>
+                </div>
   
                 </div>
       		</div>
