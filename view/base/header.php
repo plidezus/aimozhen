@@ -69,7 +69,7 @@ if ($url[$num]=="bye") {
                     <? if ($visitor->id) { ?>
                     <div id="user" style="float:right; margin-right:20px; padding:7px 0 0 0"> 
                      <div class="btn-group">
-  <a data-toggle="dropdown" href="#"><img width="28" height="28" style=" margin:-13px 5px 0 0" src="<?=$visitor->avatar()->link(28)?>"/><span style="color: #E1E1E1; font-weight: 500;font-size: 14px"><?=$visitor->username?></span></a>
+  <a data-toggle="dropdown" href="#"><img width="24" height="24" style=" margin:-13px 5px 0 0" src="<?=$visitor->avatar()->link(24)?>"/><span style="color: #E1E1E1; font-weight: 500;font-size: 14px"><?=$visitor->username?></span></a>
   <ul class="dropdown-menu">
     <li><a href="/home/videos/"><i class="icon-film"></i> 我的分享</a></li>
     <li><a href="/home/likes/"><i class="icon-heart"></i> 我的收藏</a></li>
