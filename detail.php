@@ -90,7 +90,9 @@ include 'view/base/header.php';
                 <div style="float:left; margin-top:5px;">
                      	<?
 		$out=1;
+		$user_id = $video->userid;
 		$video = new Video();
+		$video->userid = $user_id;
 		$videos = $video->find(array('order' => 'id desc'));
 		foreach ($videos as $video) {
 			$user = new User($video->userid);
