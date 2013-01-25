@@ -35,6 +35,8 @@ if ($url[$num]=="welcome") {
 		} 
 if ($url[$num]=="err") {
 	echo "<script> $(function(){ $.jBox.tip('登录失败！用户名或密码错误！', 'error');}); </script>";}
+if ($url[$num]=="login") {
+	echo "<script> $(function(){ $.jBox.tip('请您先登录！', 'error');}); </script>";}
 if ($url[$num]=="bye") {
 	echo "<script> $(function(){ $.jBox.tip('记得有空常来哦！', 'success');}); </script>";}
  ?>

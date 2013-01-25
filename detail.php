@@ -84,10 +84,10 @@ include 'view/base/header.php';
       		</div>	
             
             
-            <div class="shadow" style="padding:5px 10px 10px 10px;">
-                <div id="post-ta-top" style="margin-bottom:60px;">
+            <div class="shadow" style="padding:5px 10px 10px 10px;height:215px;">
+                <div id="post-ta-top">
                 TA的分享
-                <div style="float:left; margin-top:5px;">
+                <div style="margin-top:5px;">
                      	<?
 		$out=1;
 		$user_id = $video->userid;
@@ -98,17 +98,17 @@ include 'view/base/header.php';
 			$user = new User($video->userid);
 	?>
     
-     <? if($out<3){ ?> 
+     <? if(($out==3)||($out==6)||($out==9)){ ?> 
       <!-- 作品-->
-        <a  style="float:left; width:54px; height:54px; margin-right:12px;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+        <a  style="float:left; width:54px; height:54px; margin:0 0 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;background-size:100px 100px;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
       <!-- /作品--> 
 	 <? }else{ ?> 
       <!-- 作品-->
-		<a  style="float:left; width:54px; height:54px; margin-right:0px;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+		<a  style="float:left; width:54px; height:54px; margin:0 12px 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center; background-size:100px 100px;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
       <!-- /作品--> 
       <? } ?>
 
-	<? if($out==3) break; else$out++;}?>
+	<? if($out==9) break; else$out++;}?>
                 </div>
   
                 </div>

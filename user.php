@@ -1,7 +1,7 @@
 <?php
 include "include/init.php";
 include 'view/base/header.php';
-if (!$visitor->id) header("LOCATION:index.php");
+if (!$visitor->id) header("LOCATION:/?login");
 
 $user_id = $_GET['id'];
 $user = new User($user_id);
