@@ -1,7 +1,7 @@
 <?php
 include "../include/init.php"; $pagename = "hot" ;
 include '../view/base/header.php';
-$page_size = 12;
+$page_size = 23;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 0;
 ?>
 	<div style="text-align:center; width:100%; color:#AAA">艾墨镇共有 <?=$video_count?> 部视频作品与您分享</div>
