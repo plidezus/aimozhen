@@ -100,11 +100,11 @@ include 'view/base/header.php';
     
      <? if(($out==3)||($out==6)||($out==9)){ ?> 
       <!-- 作品-->
-        <a  style="float:left; width:54px; height:54px; margin:0 0 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;background-size:140% 140%;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+        <a  style="float:left; width:54px; height:54px; margin:0 0 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;background-size:200% 140%;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
       <!-- /作品--> 
 	 <? }else{ ?> 
       <!-- 作品-->
-		<a  style="float:left; width:54px; height:54px; margin:0 12px 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center; background-size:180% 140%;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
+		<a  style="float:left; width:54px; height:54px; margin:0 12px 10px 0;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center; background-size:200% 140%;" href="/detail.php?id=<?= $video->id ?>" title="<?= $video->title ?>" target="_blank"></a>
       <!-- /作品--> 
       <? } ?>
 
