@@ -117,7 +117,7 @@ include 'view/base/header.php';
         	<div id="my-list" style="margin-top:30px">
             <ul class="nav nav-list">
 				<li class="active"><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
-                		 <? if(($user->username==$visitor->username)||($visitor->id<5)) {  ?>
+                		 <? if(($user->username==$visitor->username)||($visitor->id==1)||($visitor->id==2)||($visitor->id==3)||($visitor->id==4)) {  ?>
 				<li><a href="/edit.php?id=<?=$video->id?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
 				<li><a href="#"><i class="icon-trash"></i> 删除这个视频</a></li>
 						<?  }else{ } ?>
