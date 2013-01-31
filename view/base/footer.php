@@ -1,10 +1,10 @@
 ﻿
       <div id="footer" style="text-align: center; font-size: 12px; color:#C0C0C0">
-        <p>&copy; Designed by Animetaste.net | Built on  Bootstrap | Contact us | Follow us: <a href="http://weibo.com/animetaste" class="sina">新浪</a>
+        <p>&copy; <a href="http://animetaste.org/" target="_blank">ANIMETASTE.org</a> | Bootstrap | <a href="/about" target="_blank">About US</a> |  <a href="http://weibo.com/animetaste" class="sina">新浪</a>
 						<a href="http://site.douban.com/108892/" class="douban">豆瓣</a>
-						<a href="http://animetaste.diandian.com/" class="diandian">点点</a></p>
+						<a href="http://animetaste.diandian.com/" class="diandian">点点</a> | <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备13003160号</a></p>
         <p>&nbsp;</p>
-      </div>
+</div>
 
     </div> <!-- /下方 -->
     <a id="issue" href="/issue/">   

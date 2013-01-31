@@ -39,6 +39,8 @@ if ($url[$num]=="login") {
 	echo "<script> $(function(){ $.jBox.tip('请您先登录！', 'error');}); </script>";}
 if ($url[$num]=="bye") {
 	echo "<script> $(function(){ $.jBox.tip('记得有空常来哦！', 'success');}); </script>";}
+if ($url[$num]=="wrong") {
+	echo "<script> $(function(){ $.jBox.tip('您没有权限修改他人的视频~', 'success');}); </script>";}
  ?>
     
 

@@ -1,5 +1,6 @@
 <?php
 include "include/init.php";
+if ((!$visitor->id)||(!$visitor->id==1)||(!$visitor->id==2)||(!$visitor->id==3)||(!$visitor->id==4)) header("LOCATION:/?wrong");
 include 'view/base/header.php';
 $video = new Video($_GET['id']);
 $user = new User($video->userid);
@@ -11,7 +12,7 @@ $tags = Tag::getAllPreTags();
       <div class="span11 shadow" > 
       <div id="title" style="padding:20px;">
       	<span style="color: #2C2C2C; font-size: 18px; font-weight: bold;">还差一步</span><br />
-      	<span style="color: #7F7F7F; font-weight: bold;">好吃看得见</span>
+      	<span style="color: #7F7F7F; font-weight: bold;">给镇民们介绍一下这部视频吧</span>
 		<div class="hr2"></div>
 	  </div>
       <!-- 编辑区域--> 
@@ -28,7 +29,7 @@ $tags = Tag::getAllPreTags();
 				<div class="control-group">
 					<label class="control-label2" for="input01">标签</label>
 					<div class="controls2">
-						<select name="pre_tag" id="pre_tag" class="span1">
+						<select name="pre_tag" id="pre_tag" class="span1" style="width:110px">
 							<?php
 								foreach ($tags as $each_tag) {
 							?>
@@ -37,7 +38,7 @@ $tags = Tag::getAllPreTags();
 								}
 							?>
 						</select>
-					  <input type="text" class="input span4" id="input01" name="tags" style="width:283px" placeholder="用空格分开哦亲！" value="<?=$video->tags?>">
+					  <input type="text" class="input span3" id="input01" name="tags" style="width:243px" placeholder="用空格分开哦亲！" value="<?=$video->tags?>">
 					</div>
 				</div>
 				<div class="control-group">
