@@ -2,50 +2,62 @@
 include "include/init.php";
 include 'view/base/header.php';
 if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
-	) header("LOCATION:index.php");
+	) header("LOCATION:/");
 ?>
-<div class="container">
-	<div class="row">
-		<div class="span3">
-			 <?
-				//include 'view/base/sidebar.php';
-			?> 
-		</div>
+    <div class="container" style="margin:30px auto 20px auto">
 
-		<div class="span9">
-			<form class="form-horizontal" action="ajax/add_user.php" method="POST">
-				<input type="hidden" value="<?=$_GET['s']?>" />
-				<div class="control-group">
-					<label class="control-label" for="input01">昵称</label>
-					<div class="controls">
-						<input type="text" class="input span3" id="input01" name="name" placeholder="好名字是好生活的开始~">
+      <div class="row">
+      <div class="span11 shadow" > 
+      <div id="title" style="padding:20px;">
+      	<span style="color: #2C2C2C; font-size: 18px; font-weight: bold;">加入我们</span><br />
+      	<span style="color: #7F7F7F; font-weight: bold;">欢迎来到艾墨镇！</span>
+		<div class="hr2"></div>
+	  </div>
+      <!-- 编辑区域--> 
+	  <div class="span6" style="margin-left:0;padding:0 0 0 20px;"> 
+      
+
+      <form class="form-horizontal" id="reg" action="ajax/add_user.php" method="POST">
+      <input type="hidden" value="<?=$_GET['s']?>" />
+				<div class="control-group" id="namegroup">
+					<label class="control-label2" for="name">昵称 </label>
+					<div class="controls2">
+						<input type="text" class="input-xlarge" id="name" name="name" placeholder="好名字是好生活的开始~">
+                         <span class="help-inline" id="nameInfo"></span>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="input01">Email：</label>
-					<div class="controls">
-						<input type='input' readonly value='<?=$_GET['email']?>'/>
+					<label class="control-label2" for="input01">Email </label>
+					<div class="controls2">
+                        <input class="input-xlarge" id="email" name="email" type="text" readonly value="<?=$_GET['email']?>" />
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">密码：</label>
-					<div class="controls">
-						<input type="password" name="password" />
+				<div class="control-group" id="pass1group">
+					<label class="control-label2" for="pass1">密码 </label>
+					<div class="controls2">
+						<input class="input-xlarge" type="password" id="pass1" name="pass1" />
+                        <span class="help-inline" id="pass1Info"></span>
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">重复密码：</label>
-					<div class="controls">
-						<input type="password" name='repassword' />
+				<div class="control-group" id="pass2group">
+					<label class="control-label2" for="pass2">重复 </label>
+					<div class="controls2">
+						<input class="input-xlarge" type="password" id="pass2" name='pass2' />
+                        <span class="help-inline" id="pass2Info"></span>
 					</div>
 				</div>
-				<div class="form-actions">
-					<input type="submit" class="btn btn-primary" value="我要安家" />
+				<div style="margin:10px 0 0 60px;">
+					<input id="send" name="send" type="submit" class="btn btn-red" value="恩，就这样吧！" />
+					
 				</div>
-			</form>
+		</form>
 		</div>
-	</div>
-</div>
-<?php
+		<!-- /编辑区域-->
+      </div>
+      
+      </div>
+    </div> <!-- /上方 -->
+    <script src="include/reg/validation.js"></script>
+	<?php
 include 'view/base/footer.php';
 ?>

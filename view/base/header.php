@@ -23,28 +23,10 @@ $user_count = $_user->count();
 	<![endif]-->
 
 <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="/media/jBox/jquery.jBox-2.3.min.js"></script>
-	<script type="text/javascript" src="/media/jBox/jquery.jBox-zh-CN.js"></script>
-	<link type="text/css" rel="stylesheet" href="/media/jBox/jbox.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-<? $url=explode("?",$_SERVER['REQUEST_URI']);$num =(count($url))-1;
-if ($url[$num]=="welcome") { 
-	if ($visitor->id) {
-		echo "<script> $(function(){ $.jBox.tip('欢迎回来！别忘记分享几部好作品哟！', 'success');}); </script>";} 
-		} 
-if ($url[$num]=="err") {
-	echo "<script> $(function(){ $.jBox.tip('登录失败！用户名或密码错误！', 'error');}); </script>";}
-if ($url[$num]=="login") {
-	echo "<script> $(function(){ $.jBox.tip('请您先登录！', 'error');}); </script>";}
-if ($url[$num]=="bye") {
-	echo "<script> $(function(){ $.jBox.tip('记得有空常来哦！', 'success');}); </script>";}
-if ($url[$num]=="wrong") {
-	echo "<script> $(function(){ $.jBox.tip('您没有权限修改他人的视频~', 'success');}); </script>";}
- ?>
-    
+<? include "include/info.php";?>
 
-</script>
 </head>
 
   <body background="/images/web_bg.jpg">
@@ -58,11 +40,19 @@ if ($url[$num]=="wrong") {
               <li><a href="http://animetaste.net/" target="_blank">AT</a></li>
             </ul>
             <div class="navbar-form pull-right">
-<!--search 
-<div class="input-append">
-  <input class="span2" id="appendedInputButton" type="text">
-  <button class="btn" type="button">Go!</button>
-</div> /search -->
+
+<!--<div class="input-append">
+ <form class="form-search" action="http://www.baidu.com/baidu">
+<input type="text" name="word" class="input-medium search-query">
+<button type="submit" value="Baidu 搜索" class="btn">Search</button>
+
+<input name=tn type=hidden value="bds">
+<input name=cl type=hidden value="3">
+<input name=ct type=hidden value="2097152">
+<input name=si type=hidden value="aimozhen.com">
+</form>
+</div> -->
+
 <div id="card-button" style="float:right; ">
 <? if ($visitor->id) { ?>
                       <a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;padding-top:3px; margin:7px 30px 0 0;" data-toggle="modal">分享视频</a> </div>

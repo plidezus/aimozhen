@@ -89,7 +89,7 @@ include 'view/base/header.php';
                 TA的分享
                 <div style="margin-top:5px;">
                      	<?
-		$oldid=$video->id ;$out=1;
+		$old=$video ;$out=1;
 		$user_id = $video->userid;
 		$video = new Video();
 		$video->userid = $user_id;
@@ -118,11 +118,16 @@ include 'view/base/header.php';
             <ul class="nav nav-list">
 				<li class="active"><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
                 		 <? if(($user->username==$visitor->username)||($visitor->id==1)||($visitor->id==2)||($visitor->id==3)||($visitor->id==4)) {  ?>
-				<li><a href="/edit.php?id=<?=$oldid ?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
+				<li><a href="/edit.php?id=<?=$old->id ?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
 				<li><a href="#"><i class="icon-trash"></i> 删除这个视频</a></li>
 						<?  }else{ } ?>
 
 			</ul>
+            </div>
+            
+            <div id="video-tag" style="margin-top:30px">
+            TAGS：<br />
+			<?= $old->tags ?>
             </div>
         </div>
       
