@@ -25,7 +25,7 @@ $user_count = $_user->count();
 <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-<? include "include/info.php";?>
+<?php include BASE_PATH."include/info.php";?>
 
 </head>
 

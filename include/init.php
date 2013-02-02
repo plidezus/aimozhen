@@ -1,4 +1,5 @@
 <?php
+
 $pagename = "index" ;
 session_start();
 function __autoload($class) {
@@ -7,3 +8,4 @@ function __autoload($class) {
 }
 $visitor = Visitor::user();
 define('HTDOCS_DIR', __DIR__ . '/..');
+define('BASE_PATH',$_SERVER['DOCUMENT_ROOT']);

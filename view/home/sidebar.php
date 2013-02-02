@@ -22,16 +22,17 @@
         
 <div id="invite" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <button type="button" class="close" style="color: #FFFFFF" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">邀请注册</h3>
   </div>
     <div class="modal-body">
 	    <form class="form">
 	        <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
             <div id="message"></div>
+            <p></p>
 	        <p>
 		    <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
-            <a id="copy_url" href="###" class="btn btn-red hide">复制到剪贴板</a>
+            <a id="copy_url" href="###" class="btn btn-red hide">复制链接到剪贴板并请你的好友访问</a>
 	        </p>
 
 	    </form>

@@ -4,5 +4,5 @@
 	}
 ?>
 <input style="width:90%;"
-       value="http://www.aimozhen.com/reg.php?email=<?=$_GET['email']?>&s=<?=md5($_GET['email'] . 'check')?>" />
+       value="http://aimozhen.com/reg.php?email=<?=$_GET['email']?>&s=<?=md5($_GET['email'] . 'check')?>" />
 

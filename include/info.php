@@ -1,4 +1,4 @@
-	<script type="text/javascript" src="/media/jBox/jquery.jBox-2.3.min.js"></script>
+﻿	<script type="text/javascript" src="/media/jBox/jquery.jBox-2.3.min.js"></script>
 	<script type="text/javascript" src="/media/jBox/jquery.jBox-zh-CN.js"></script>
 	<link type="text/css" rel="stylesheet" href="/media/jBox/jbox.css"/>
     
@@ -17,4 +17,6 @@ if ($url[$num]=="wrong") {
 	echo "<script> $(function(){ $.jBox.tip('您没有权限修改他人的视频~', 'success');}); </script>";}
 if ($url[$num]=="reg") {
 	echo "<script> $(function(){ $.jBox.tip('恭喜你！注册成功！', 'success');}); </script>";}
+if ($url[$num]=="regged") {
+	echo "<script> $(function(){ $.jBox.tip('对不起！您已经是注册会员了！', 'success');}); </script>";}
  ?>
