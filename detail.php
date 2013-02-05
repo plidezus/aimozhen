@@ -4,10 +4,12 @@ $video = new Video($_GET['id']);
 $video->viewed += 1;
 $video->save();
 $user = new User($video->userid);
+$tag = new Tag($video->pre_tag);
 
 include 'view/base/header.php';
 ?>
 <div class="container">
+<div class="row"> <div class="span8 breadcrumb"> <a href="/">艾墨镇</a> > <a href="/tag/?id=<?=$video->pre_tag?>"><?=$tag->name?></a> > <a href="#"><?=$video->title?></a></div></div>
       <div class="row">
       
                     <div class="span8"> 
@@ -138,8 +140,8 @@ include 'view/base/header.php';
 <script type="text/javascript">
     var wumiiPermaLink = ""; //请用代码生成文章永久的链接
     var wumiiTitle = "<?=$video->title?>"; //请用代码生成文章标题
-    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
-    var wumiiSitePrefix = "http://www.aimozhen.com/";
+    var wumiiTags = "<? echo preg_replace('/\s/',',',$old->tags);?>"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
+    var wumiiSitePrefix = "http://aimozhen.com/";
     var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
 </script>
 <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>

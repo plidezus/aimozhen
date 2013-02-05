@@ -6,7 +6,8 @@ $video = new Video($_GET['id']);
 $user = new User($video->userid);
 $tags = Tag::getAllPreTags();
 ?>
-    <div class="container" style="margin:30px auto 20px auto">
+    <div class="container" style="margin:0px auto 20px auto">
+<div class="row"> <div class="span8 breadcrumb" style="margin-bottom:15px;"> <a href="/">艾墨镇</a> > <a href="#">编辑视频</a> > <a href="#"><?=$video->title?></a></div></div>
 
       <div class="row">
       <div class="span11 shadow" > 
@@ -33,7 +34,7 @@ $tags = Tag::getAllPreTags();
 							<?php
 								foreach ($tags as $each_tag) {
 							?>
-									<option value=<?=$each_tag->id?>><?=$each_tag->name?></option>
+									<option value=<?=$each_tag->id?> <? if($video->pre_tag==$each_tag->id){ ?> selected="selected" <? } ?>><?=$each_tag->name?></option>
 							<?
 								}
 							?>

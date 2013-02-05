@@ -12,8 +12,8 @@ $new_tag = new Tag($_POST['pre_tag']);
 $new_tag->count ++;
 $new_tag->save();
 
-
 $video->title = $_POST['title'];
+$video->pre_tag = $_POST['pre_tag'];
 $video->tags = $_POST['tags'];
 $video->description = $_POST['description'];
 $video->save();

@@ -4663,7 +4663,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #000000 \9;
 }
 
-.breadcrumb {
+._breadcrumb {
   padding: 8px 15px;
   margin: 0 0 20px;
   list-style: none;
@@ -4673,19 +4673,19 @@ input[type="submit"].btn.btn-mini {
           border-radius: 4px;
 }
 
-.breadcrumb li {
+._breadcrumb li {
   display: inline-block;
   *display: inline;
   text-shadow: 0 1px 0 #ffffff;
   *zoom: 1;
 }
 
-.breadcrumb .divider {
+._breadcrumb .divider {
   padding: 0 5px;
   color: #ccc;
 }
 
-.breadcrumb .active {
+._breadcrumb .active {
   color: #999999;
 }
 
@@ -5992,3 +5992,14 @@ float: left;
 	position:absolute;
 	z-index:100;
 }
+.breadcrumb {
+	margin-bottom: 10px;
+	color: #818181;
+	}
+.breadcrumb a {
+	color: #818181;
+	}
+.breadcrumb a:hover{
+	color: #424242;
+	text-decoration: none;
+	}

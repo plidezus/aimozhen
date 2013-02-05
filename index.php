@@ -2,7 +2,7 @@
 include "include/init.php";
 include 'view/base/header.php';
 $page_size = 23;
-$page = isset($_GET['p']) ? intval($_GET['p']) : 0;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 $tags = Tag::getAllPreTags();
 ?>
 	<div style="text-align:center; width:100%; color:#AAA">艾墨镇共有 <?=$video_count?> 部视频作品与您分享</div>
@@ -35,7 +35,7 @@ $tags = Tag::getAllPreTags();
         <div id="welcome" style="margin-top:5px;">
         <p><?=$user_count?>位镇民，<?=$video_count?>部视频</p>
           <p><? foreach ($tags as $each_tag) { ?>
-				<?=$each_tag->name?>
+                <a href="/tag/?id=<?=$each_tag->id?>" role="button" class="btn btn-mini" style=" width:60px;margin:0 10px 5px 15px"><?=$each_tag->name?></span></a>
 				<? } ?>
           </p>
         </div>
@@ -43,7 +43,7 @@ $tags = Tag::getAllPreTags();
 			 <? } ?>
       <?
 				$video = new Video();
-				$videos = $video->find(array('order' => 'id desc', 'limit' => $page * $page_size . ', ' . $page_size));
+				$videos = $video->find(array('order' => 'id desc', 'limit' => ($page-1) * $page_size . ', ' . $page_size));
 
 				foreach ($videos as $video) {
 					$user = new User($video->userid);
@@ -58,8 +58,8 @@ $tags = Tag::getAllPreTags();
       </div>
       <div class="row"><p style="text-align: center">
 
-<? for ($i=0; $i<ceil($video_count / $page_size); $i++) {?>
-<a href="?p=<?=$i?>"><span class="btn btn-red"><?=$i+1?></span></a>
+<? for ($i=1; $i<ceil($video_count / $page_size); $i++) {?>
+<a href="?p=<?=$i?>"><span class="btn btn-red"><?=$i?></span></a>
 <? }?>
 
         </p> </div>

@@ -12,7 +12,7 @@ class Mysql {
 	 */
 	public static function client() {
 		if (!isset(self::$client)) {
-			self::$client = new mysqli('localhost', 'root', '');
+			self::$client = new mysqli('localhost', 'animetaste', 'tasteanime!');
 			self::$client->select_db('aimozhen');
 			self::$client->query('SET NAMES UTF8');
 		}

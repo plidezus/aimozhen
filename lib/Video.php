@@ -7,6 +7,7 @@ class Video extends Mysql{
 	public $like;
 	public $viewed;
 	public $tags;
+	public $pre_tag;
 	public $createdTime;
 	public $imageUrl;
 	
