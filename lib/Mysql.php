@@ -76,6 +76,19 @@ class Mysql {
 		return current($result->fetch_row());
 	}
 	
+	public function delete($option = array()) {
+		$table_name = static::$class_name ?: get_called_class();
+		$id_str = '';
+		if (isset($option['id'])) {
+			$id_str =$option['id'];
+		}
+
+		$result = $sql = "delete from {$table_name} where id={$id_str}";;
+		
+		$result = self::client()->query($sql);
+		return $result;
+	}
+	
 	public function find($option = array()) {
 		$table_name = static::$class_name ?: get_called_class();
 

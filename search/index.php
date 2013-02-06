@@ -8,9 +8,8 @@ $video_count = $tag->count;
 
 $video = new Video();
 $url=explode("=",$_SERVER['REQUEST_URI']);
-$page_size = 23;
+$page_size = 24;
 $page = isset($url[2]) ? intval($url[2]) : 1;
-$tags = Tag::getAllPreTags();
 ?>
 	<div style="text-align:center; width:100%; color:#AAA">共有 <?=$video_count?> 部视频作品被标记为 <?=$tag->name?></div>
 
@@ -19,10 +18,9 @@ $tags = Tag::getAllPreTags();
     
       <div class="row">
   <div class="span12" style="margin:0"> 
-  <?php include HTDOCS_DIR . "/view/base/login.php"; ?>
      	<?
 		$video = new Video();
-		$video->pre_tag = $tag_id;
+		$video->title = "RETRACE";
 		$videos = $video->find(array('order' => 'id desc', 'limit' => ($page-1) * $page_size . ', ' . $page_size));
 		foreach ($videos as $video) {
 			$user = new User($video->userid);

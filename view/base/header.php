@@ -8,7 +8,7 @@ $user_count = $_user->count();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
-<title>艾墨镇，ATer的小村子</title>
+<title><?=$sitename?>，ATer的小村子</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="AnimeTaste">
 <meta name="author" content="AnimeTaste">
@@ -37,7 +37,7 @@ $user_count = $_user->count();
             <ul class="nav">
               <?php if ($pagename=="index"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/">首页</a></li>
               <?php if ($pagename=="hot"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/hot/">热榜</a></li>
-              <li><a href="http://animetaste.net/" target="_blank">AT</a></li>
+              <li><a href="http://animetaste.org/" target="_blank">AT</a></li>
             </ul>
             <div class="navbar-form pull-right">
 

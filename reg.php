@@ -10,7 +10,7 @@ if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
       <div class="span11 shadow" > 
       <div id="title" style="padding:20px;">
       	<span style="color: #2C2C2C; font-size: 18px; font-weight: bold;">加入我们</span><br />
-      	<span style="color: #7F7F7F; font-weight: bold;">欢迎来到艾墨镇！</span>
+      	<span style="color: #7F7F7F; font-weight: bold;">欢迎来到<?=$sitename?>！</span>
 		<div class="hr2"></div>
 	  </div>
       <!-- 编辑区域--> 

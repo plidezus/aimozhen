@@ -13,10 +13,16 @@ if ($url[$num]=="login") {
 	echo "<script> $(function(){ $.jBox.tip('请您先登录！', 'error');}); </script>";}
 if ($url[$num]=="bye") {
 	echo "<script> $(function(){ $.jBox.tip('记得有空常来哦！', 'success');}); </script>";}
+	
 if ($url[$num]=="wrong") {
-	echo "<script> $(function(){ $.jBox.tip('您没有权限修改他人的视频~', 'success');}); </script>";}
+	echo "<script> $(function(){ $.jBox.tip('您没有权限修改他人的视频~', 'error');}); </script>";}
+if ($url[$num]=="delete") {
+	echo "<script> $(function(){ $.jBox.tip('你已经成功删除该视频分享！', 'success');}); </script>";}
+	
 if ($url[$num]=="reg") {
 	echo "<script> $(function(){ $.jBox.tip('恭喜你！注册成功！', 'success');}); </script>";}
 if ($url[$num]=="regged") {
-	echo "<script> $(function(){ $.jBox.tip('对不起！您已经是注册会员了！', 'success');}); </script>";}
+	echo "<script> $(function(){ $.jBox.tip('对不起！您已经是注册会员了！', 'error');}); </script>";}
+if ($url[$num]=="rereg") {
+	echo "<script> $(function(){ $.jBox.tip('你好！您的信息已经成功变更，请你使用新的信息重新登录！', 'success');}); </script>";}
  ?>

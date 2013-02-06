@@ -9,9 +9,9 @@ include '../view/base/header.php';
                     <div class="span8"> 
       <!-- 观看区域-->
       <div id="content-video" class="shadow" style="padding:10px;">
-     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;">艾墨镇 问题反馈页面</div>
+     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;"><?=$sitename?> 问题反馈页面</div>
         <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;">
-		      	亲爱的ATer们欢迎来到艾墨镇！<br />
+		      	亲爱的ATer们欢迎来到<?=$sitename?>！<br />
 我们的站点正在内测中。<br />
 如果您发现问题或者有什么建议与意见请在下方的留言框中提出<br />
 我们将尽快给您答复<br />

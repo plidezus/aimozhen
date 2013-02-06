@@ -3,7 +3,7 @@
                 <div id="card-top" style="margin-bottom:50px">
                     <div id="avatar" class="float-left"><a href="<?=$visitor->avatar()->editLink()?>"><img src="<?=$visitor->avatar()->link(50)?>" width="50" height="50" /></a></div>
                     <div id="detailed" class="float-left" style="margin-left:10px">
-                        <div id="name"><?=$visitor->username?></div>
+                        <div id="cardname"><?=$visitor->username?></div>
                         <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
                     </div>    
                 </div>

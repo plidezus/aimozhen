@@ -45,7 +45,7 @@
     <form action="ajax/post.php" method="POST" >
         <div class="modal-body">
             <input type="text" name="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>
-			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，ku6等视频网站<br />艾墨镇的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
+			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，ku6等视频网站<br /><?=$sitename?>的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
  			 <input type="submit" value="发布" class="btn btn-red"/>
         </div>
     </form>

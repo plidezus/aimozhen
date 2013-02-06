@@ -9,7 +9,7 @@ $tag = new Tag($video->pre_tag);
 include 'view/base/header.php';
 ?>
 <div class="container">
-<div class="row"> <div class="span8 breadcrumb"> <a href="/">艾墨镇</a> > <a href="/tag/?id=<?=$video->pre_tag?>"><?=$tag->name?></a> > <a href="#"><?=$video->title?></a></div></div>
+<div class="row"> <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="/tag/?id=<?=$video->pre_tag?>"><?=$tag->name?></a> > <a href="#"><?=$video->title?></a></div></div>
       <div class="row">
       
                     <div class="span8"> 
@@ -119,9 +119,9 @@ include 'view/base/header.php';
         	<div id="my-list" style="margin-top:30px">
             <ul class="nav nav-list">
 				<li class="active"><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
-                		 <? if(($user->username==$visitor->username)||($visitor->id==1)||($visitor->id==2)||($visitor->id==3)||($visitor->id==4)) {  ?>
+                		 <? if(($visitor->id == $old->userid)||($visitor->group==1)) {  ?>
 				<li><a href="/edit.php?id=<?=$old->id ?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
-				<li><a href="#"><i class="icon-trash"></i> 删除这个视频</a></li>
+				<li><a href="#" onClick="jbox_delete_video()"><i class="icon-trash"></i> 删除这个视频</a></li>
 						<?  }else{ } ?>
 
 			</ul>
@@ -137,6 +137,20 @@ include 'view/base/header.php';
       </div>
     </div> <!-- /上方 -->
 
+<script type="text/javascript">
+function jbox_delete_video() {
+    var submit = function (v, h, f) {
+        if (v == true)
+            window.location.href='/ajax/delete_video.php?id=<?=$old->id?>';
+        else
+            jBox.tip("已经取消", 'info');
+
+        return true;
+    };
+    // 自定义按钮
+    $.jBox.confirm("亲！你真的打算删除这条分享吗？", "删除提示", submit, { buttons: { '是滴': true, '还是算了': false} });
+}
+</script>
 <script type="text/javascript">
     var wumiiPermaLink = ""; //请用代码生成文章永久的链接
     var wumiiTitle = "<?=$video->title?>"; //请用代码生成文章标题

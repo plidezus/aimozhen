@@ -1,6 +1,7 @@
 <?php
 
 $pagename = "index" ;
+$sitename = "艾墨镇" ;
 session_start();
 function __autoload($class) {
 	$class = str_replace('\\', DIRECTORY_SEPARATOR, $class);

@@ -1,13 +1,13 @@
 <?php
 include "include/init.php";
-if ((!$visitor->id)||(!$visitor->id==1)||(!$visitor->id==2)||(!$visitor->id==3)||(!$visitor->id==4)) header("LOCATION:/?wrong");
 include 'view/base/header.php';
 $video = new Video($_GET['id']);
 $user = new User($video->userid);
 $tags = Tag::getAllPreTags();
+if(($visitor->id != $video->userid) && ($visitor->group != 1)) header("LOCATION:/?wrong");
 ?>
     <div class="container" style="margin:0px auto 20px auto">
-<div class="row"> <div class="span8 breadcrumb" style="margin-bottom:15px;"> <a href="/">艾墨镇</a> > <a href="#">编辑视频</a> > <a href="#"><?=$video->title?></a></div></div>
+<div class="row"> <div class="span8 breadcrumb" style="margin-bottom:15px;"> <a href="/"><?=$sitename?></a> > <a href="#">编辑视频</a> > <a href="#"><?=$video->title?></a></div></div>
 
       <div class="row">
       <div class="span11 shadow" > 
