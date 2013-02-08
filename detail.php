@@ -14,11 +14,16 @@ include 'view/base/header.php';
       
                     <div class="span8"> 
       <!-- 观看区域-->
+      <div id="thumbnail" style="display:none;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;"><img src="<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>" /></div>
       <div id="content-video" class="shadow" style="padding:10px;">
      	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold; font-size:18px;"><?=$video->title?></div>
       	<?=$video->content()?>
       	<div id="content-others" style="margin-top:10px;">
+		<?php if (Action::isFav($visitor, $video)) {?>
+        <a href="ajax/fav.php?id=<?=$video->id?>&cancel=1" role="button" class="btn btn-inverse ajax" >取消收藏</a>
+		<? } else { ?>
         <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" >点此收藏</a>
+		<?php }?>
       		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
        	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>'}">
@@ -152,11 +157,11 @@ function jbox_delete_video() {
 }
 </script>
 <script type="text/javascript">
-    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
-    var wumiiTitle = "<?=$video->title?>"; //请用代码生成文章标题
+    var wumiiPermaLink = "http://aimozhen.com/detail.php?id=<?= $old->id ?>"; //请用代码生成文章永久的链接
+    var wumiiTitle = "<?=$old->title?>"; //请用代码生成文章标题
     var wumiiTags = "<? echo preg_replace('/\s/',',',$old->tags);?>"; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
     var wumiiSitePrefix = "http://aimozhen.com/";
-    var wumiiParams = "&num=5&mode=3&pf=JAVASCRIPT";
+    var wumiiParams = "&num=6&mode=3&pf=JAVASCRIPT";
 </script>
 <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
 
