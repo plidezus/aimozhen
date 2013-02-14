@@ -19,11 +19,15 @@ include 'view/base/header.php';
      	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold; font-size:18px;"><?=$video->title?></div>
       	<?=$video->content()?>
       	<div id="content-others" style="margin-top:10px;">
-		<?php if (Action::isFav($visitor, $video)) {?>
+        <?php if (!$visitor->id){?>
+        <a href="#login" role="button" data-toggle="modal" class="btn btn-red" >登录后可收藏</a>
+        <?php }?>
+		<?php if ($visitor->id){
+		if (Action::isFav($visitor, $video)) {?>
         <a href="ajax/fav.php?id=<?=$video->id?>&cancel=1" role="button" class="btn btn-inverse ajax" >取消收藏</a>
 		<? } else { ?>
         <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" >点此收藏</a>
-		<?php }?>
+		<?php }}?>
       		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
        	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->title?> | <?=$sitedesc?>'}">
