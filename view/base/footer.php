@@ -42,7 +42,7 @@
     <button type="button" class="close" style="color: #FFFFFF" aria-hidden="true" data-dismiss="modal">×</button>
     <h3 id="ModalLabel">分享动画</h3>
   </div>    <div class="modal-body">
-    <form action="ajax/post.php" id="post" method="POST" >
+    <form action="/ajax/post.php" id="post" method="POST" >
         <div class="modal-body">
                 <div class="control-group" id="urlgroup">
             <input type="text" name="url" id="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>

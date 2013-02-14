@@ -792,6 +792,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -1609,16 +1610,14 @@ select:focus:required:invalid:focus {
 }
 
 input.search-query {
-  padding-right: 14px;
+  padding-right: 4px;
   padding-right: 4px \9;
-  padding-left: 14px;
-  padding-left: 4px \9;
+  padding-left: 8px;
+  padding-left: 8px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
 
   margin-bottom: 0;
-  -webkit-border-radius: 15px;
-     -moz-border-radius: 15px;
-          border-radius: 15px;
+
 }
 
 input.share-video {
@@ -4258,15 +4257,14 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-search .search-query {
-	padding: 4px 14px;
+	padding: 4px 8px;
 	margin-bottom: 0;
 	font-family: "微软雅黑", sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	line-height: 1;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	width:100px;
+
 }
 
 .navbar-static-top {
@@ -4531,7 +4529,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .navbar-inner {
 	background-color: #272727;
 	border-color: #252525;
-	background-image: url(../../images/logo2012.png);
+	/* [disabled]background-image: url(../../images/logo2012.png); */
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -4619,7 +4617,8 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .navbar-search .search-query:focus,
 .navbar-inverse .navbar-search .search-query.focused {
-  padding: 5px 15px;
+  padding: 4px 8px;
+  width:150px;
   color: #333333;
   text-shadow: 0 1px 0 #ffffff;
   background-color: #ffffff;

@@ -9,7 +9,7 @@
                         <div class="post-author"  style=" margin-top:10px;">
                         <div id="avatar" class="float-left"><a href="/user.php?id=<?=$video->userid?>" ><img src="<?=$user->avatar()->link(32)?>" width="32" height="32" /></a></div>
                     <div id="post-detailed" class="float-left" style="margin-left:10px">
-                        <div id="post-author" style="color: #666666;font-size: 12px"><a href="/user.php?id=<?=$video->userid?>" ><?=$user->username?></a>分享</div>
+                        <div id="post-author" style="color: #666666;font-size: 12px"><a href="/user.php?id=<?=$video->userid?>" ><?=$user->username?></a> 分享</div>
                     </div></div>
         </div>
        
