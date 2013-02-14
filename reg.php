@@ -57,7 +57,7 @@ if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
       
       </div>
     </div> <!-- /上方 -->
-    <script src="include/reg/validation.js"></script>
+    <script src="include/validation/reg.js"></script>
 	<?php
 include 'view/base/footer.php';
 ?>

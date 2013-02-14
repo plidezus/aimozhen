@@ -12,7 +12,7 @@ class Mysql {
 	 */
 	public static function client() {
 		if (!isset(self::$client)) {
-			self::$client = new mysqli('localhost', '', '');
+			self::$client = new mysqli('localhost', 'root', '');
 			self::$client->select_db('aimozhen');
 			self::$client->query('SET NAMES UTF8');
 		}
@@ -95,11 +95,15 @@ class Mysql {
 		$where_str = $this->getQuery();
 		
 		$option_str = '';
-		
+
+		if (isset($option['search'])) {
+			$option_str .= "`title` LIKE '%".trim($option['search'])."%'";
+			$where_str = '';
+		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
 		}
-
+		
 		if (!isset($option['limit'])) {
 			$option['limit'] = 40;
 		}

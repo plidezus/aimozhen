@@ -1,6 +1,6 @@
 <?php
-include "../include/init.php";
-include '../view/base/header.php';
+include "../../include/init.php";
+include '../../view/base/header.php';
 
 ?>
 <div class="container">
@@ -54,5 +54,5 @@ include '../view/base/header.php';
     </div> <!-- /上方 -->
 
 <?php
-include '../view/base/footer.php';
+include '../../view/base/footer.php';
 ?>

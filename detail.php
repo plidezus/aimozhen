@@ -26,7 +26,7 @@ include 'view/base/header.php';
 		<?php }?>
       		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
        	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>'}">
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->title?> | <?=$sitedesc?>'}">
 <a class="bds_tsina"></a>
 <a class="bds_renren"></a>
 <a class="bds_douban"></a>
@@ -44,9 +44,6 @@ include 'view/base/header.php';
 	</div>
       </div>
       <!-- /观看区域-->
-      收藏回馈数值（TEST）
-      <?php 
-	  echo (Action::isFav($user, $video)) ;?><br />
       
             <!-- 评论-->
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>
@@ -85,7 +82,7 @@ include 'view/base/header.php';
                     <div id="avatar" class="float-left"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></div>
                     <div id="detailed" class="float-left" style="margin-left:10px">
                         <div id="name"><a href="user.php?id=<?=$video->userid?>"><span style="color: #202020;"><?=$user->username?></a></span></div>
-                        <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
+                        <div id="birday" style="color: #ABABAB; font-size: 11px">发表于<?=(date("Y年m月d日",$video->createdTime));?></div>
                     </div>    
                 </div>
       		</div>	

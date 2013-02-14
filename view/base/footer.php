@@ -7,7 +7,7 @@
 </div>
 
     </div> <!-- /下方 -->
-    <a id="issue" href="/issue/">   
+    <a id="issue" href="/page/issue/">   
   <span>用户<br />反馈</span> 
 </a>
 
@@ -42,13 +42,18 @@
     <button type="button" class="close" style="color: #FFFFFF" aria-hidden="true" data-dismiss="modal">×</button>
     <h3 id="ModalLabel">分享动画</h3>
   </div>    <div class="modal-body">
-    <form action="ajax/post.php" method="POST" >
+    <form action="ajax/post.php" id="post" method="POST" >
         <div class="modal-body">
-            <input type="text" name="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>
-			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，ku6等视频网站<br /><?=$sitename?>的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
- 			 <input type="submit" value="发布" class="btn btn-red"/>
+                <div class="control-group" id="urlgroup">
+            <input type="text" name="url" id="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>
+            <span class="help-inline" id="urlInfo"></span>
+			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，56等视频网站<br /><?=$sitename?>的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
+        		</div>
+ 			 <input id="send" type="submit" value="发布" class="btn btn-red"/>
+
         </div>
     </form>
+    <script src="/include/validation/post.js"></script>
 </div></div>  
 
 

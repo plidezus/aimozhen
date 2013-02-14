@@ -57,7 +57,7 @@ include '../../view/base/header.php';
 		</form>
 		</div>
 		<!-- /编辑区域-->
-        <script src="/include/reg/validation.js"></script>
+        <script src="/include/validation/reg.js"></script>
       </div>
 
       </div>

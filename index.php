@@ -3,7 +3,6 @@ include "include/init.php";
 include 'view/base/header.php';
 $page_size = 23;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
-$tags = Tag::getAllPreTags();
 ?>
 	<div style="text-align:center; width:100%; color:#AAA"><?=$sitename?>共有 <?=$video_count?> 部视频作品与您分享</div>
     <div class="container" style="margin:20px auto 20px auto">
@@ -29,8 +28,8 @@ $tags = Tag::getAllPreTags();
       </div>
       <div class="row"><p style="text-align: center">
 
-<? for ($i=1; $i<ceil($video_count / $page_size); $i++) {?>
-<a href="?p=<?=$i?>"><span class="btn btn-red"><?=$i?></span></a>
+<? for ($i=1; $i<=ceil($video_count / $page_size); $i++) {?>
+<a href="?p=<?=$i?>"><span <? if(($i == $page)||(($i == 1)&&($page == 1))) { ?> class="btn btn-red disabled" <? } else { ?> class="btn btn-red" <? }?>><?=$i?></span></a> 
 <? }?>
 
         </p> </div>

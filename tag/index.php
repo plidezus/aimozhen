@@ -1,21 +1,19 @@
 <?php
-include "../include/init.php";
+include "../include/init.php";$pagename = "tag";
 include '../view/base/header.php';
-
 $tag_id = $_GET['id'];
 $tag = new Tag($tag_id);
 $video_count = $tag->count;
 
 $video = new Video();
-$url=explode("=",$_SERVER['REQUEST_URI']);
+
 $page_size = 23;
-$page = isset($url[2]) ? intval($url[2]) : 1;
-$tags = Tag::getAllPreTags();
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
 	<div style="text-align:center; width:100%; color:#AAA">共有 <?=$video_count?> 部视频作品被标记为 <?=$tag->name?></div>
 
 <div class="container">
-<div class="row"> <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="/tag/?id=<?=$tag_id?>"><?=$tag->name?></a></div></div>
+<div class="row"> <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">标签分类</a> > <a href="#"><?=$tag->name?></a></div></div>
     
       <div class="row">
   <div class="span12" style="margin:0"> 
@@ -37,8 +35,9 @@ $tags = Tag::getAllPreTags();
       </div>
       <div class="row"><p style="text-align: center">
 
-<? for ($i=1; $i<ceil($video_count / $page_size); $i++) {?>
-<a href="/tag/?id=<?=$tag_id?>?p=<?=$i?>"><span class="btn btn-red"><?=$i?></span></a>
+<? for ($i=1; $i<=ceil($video_count / $page_size); $i++) { ?>
+<a href="/tag/?id=<?=$tag_id?>&p=<?=$i?>"><span <? if(($i == $page)||(($i == 1)&&($page == 1))) { ?> class="btn btn-red disabled" <? } else { ?> class="btn btn-red" <? }?>><?=$i?></span></a>
+
 <? }?>
 
         </p> </div>
