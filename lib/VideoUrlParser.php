@@ -105,7 +105,7 @@ class VideoUrlParser
             $data = false;
         }
 
-        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" quality=\"high\" width=\"480\" height=\"400\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
+        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" wmode=\"opaque\" quality=\"high\" width=\"750\" height=\"443\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
         return $data;
     }
     /**
@@ -316,7 +316,7 @@ class VideoUrlParser
         if ($retval) {
             $json = json_decode($retval, true);
 
-            $data['img'] = $json['info']['img'];
+            $data['img'] = $json['info']['bimg'];
             $data['title'] = $json['info']['Subject'];
             $data['url'] = $url;
             $data['swf'] = "http://player.56.com/v_{$matches[1]}.swf";

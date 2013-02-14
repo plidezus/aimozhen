@@ -41,6 +41,12 @@ $(document).ready(function(){
 			urlInfo.text("来自56视频 验证通过 请继续点击发布");
 			return true;
 		}
+		if(url.val().indexOf('video.sina.com.cn')>-1){
+			urlgroup.removeClass("error");
+			urlgroup.addClass("info");
+			urlInfo.text("来自新浪博客 验证通过 请继续点击发布");
+			return true;
+		}
 		//if it's valid
 		else{
 			urlgroup.removeClass("info");

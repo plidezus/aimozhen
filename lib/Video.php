@@ -13,7 +13,7 @@ class Video extends Mysql{
 	
 	const VIDEO_TYPE_YOUKU = 1;
 	const VIDEO_TYPE_TUDOU = 2;
-	const VIDEO_TYPE_KU6 = 3;
+	const VIDEO_TYPE_SINA = 3;
 	const VIDEO_TYPE_56 = 4;
 	const VIDEO_TYPE_UNKNOW = -1;
 
@@ -28,8 +28,8 @@ class Video extends Mysql{
 			return self::VIDEO_TYPE_YOUKU;
 		} elseif (strpos($this->url, 'tudou')) {
 			return self::VIDEO_TYPE_TUDOU;
-		} elseif (strpos($this->url, 'ku6')) {
-			return self::VIDEO_TYPE_KU6;
+		} elseif (strpos($this->url, 'video.sina.com.cn')) {
+			return self::VIDEO_TYPE_SINA;
 		} elseif (strpos($this->url, '56.com')) {
 			return self::VIDEO_TYPE_56;
 		} else {
@@ -43,8 +43,8 @@ class Video extends Mysql{
 				return $this->youku_content();
 			case self::VIDEO_TYPE_TUDOU:
 				return $this->tudou_content();
-			case self::VIDEO_TYPE_KU6:
-				return $this->ku6_content();
+			case self::VIDEO_TYPE_SINA:
+				return $this->sina_content();
 			case self::VIDEO_TYPE_56:
 				return $this->_56_content();
 			default :
@@ -88,13 +88,11 @@ CONTENT;
 
 	}
 
-	private function ku6_content() {
-		if (preg_match("/\/(.*?)\.html$/", $this->url, $matches)) {
-			$id = $matches[1];
-		} else
-			return '';
+	private function sina_content() {
+			$info = VideoUrlParser::parse($this->url);
+			$content = $info['object'];
 		return <<<CONTENT
-<embed src="http://player.ku6.com/refer/{$id}/v.swf" width="750" height="443" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" wmode="opaque" mode="transparent" flashvars="from=ku6"></embed>
+			$content
 CONTENT;
 	}
 
