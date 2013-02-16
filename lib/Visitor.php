@@ -14,9 +14,9 @@ class Visitor {
 		return self::$user;
 	}
 	
-	public static function login($username, $password) {
+	public static function login($email, $password) {
 		$user = new User();
-		$user->username = $username;
+		$user->email = $email;
 		$find = reset($user->find(array('limit' => 1)));
 		if ($find && $find->password == md5($password)) {
 			$_SESSION['user_id'] = $find->id;

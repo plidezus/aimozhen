@@ -1,8 +1,18 @@
 <?php
 include "include/init.php";
-include 'view/base/header.php';
-if ($visitor->id || $_GET['s'] != md5($_GET['email'] . 'check')
-	) header("LOCATION:/?regged");
+
+$exists_user = new User();
+$exists_user->email = $_GET['email'];
+if ($exists_user->count()){
+	header('LOCATION:/?reemail');
+} else {
+	if ($visitor->id)
+	  {header("LOCATION:/?regged");}
+	elseif ($_GET['s'] != md5($_GET['email'] . 'check'))
+	  {header("LOCATION:/?regwrong");}
+	else 
+	  {include 'view/base/header.php';}
+}
 ?>
     <div class="container" style="margin:30px auto 20px auto">
 

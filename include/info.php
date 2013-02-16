@@ -9,7 +9,7 @@ if ($url[$num]=="welcome") {
 		echo "<script> $(function(){ $.jBox.tip('欢迎回来！别忘记分享几部好作品哟！', 'success');}); </script>";} 
 		} 
 if ($url[$num]=="err") {
-	echo "<script> $(function(){ $.jBox.tip('登录失败！用户名或密码错误！', 'error');}); </script>";}
+	echo "<script> $(function(){ $.jBox.tip('登录失败！电子邮件或密码错误！', 'error');}); </script>";}
 if ($url[$num]=="login") {
 	echo "<script> $(function(){ $.jBox.tip('请您先登录！', 'error');}); </script>";}
 if ($url[$num]=="bye") {
@@ -26,6 +26,10 @@ if ($url[$num]=="reg") {
 	echo "<script> $(function(){ $.jBox.tip('恭喜你！注册成功！', 'success');}); </script>";}
 if ($url[$num]=="regged") {
 	echo "<script> $(function(){ $.jBox.tip('对不起！您已经是注册会员了！', 'error');}); </script>";}
+if ($url[$num]=="reemail") {
+	echo "<script> $(function(){ $.jBox.tip('对不起！这个电子邮件已经被注册过！', 'error');}); </script>";}
+if ($url[$num]=="regwrong") {
+	echo "<script> $(function(){ $.jBox.tip('对不起！验证地址有误，请核实后再注册！', 'error');}); </script>";}
 if ($url[$num]=="rereg") {
 	echo "<script> $(function(){ $.jBox.tip('你好！您的信息已经成功变更，请你使用新的信息重新登录！', 'success');}); </script>";}
  ?>

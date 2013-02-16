@@ -12,5 +12,9 @@ if ($exists_video->count()){
 	$video->createdTime = time();
 	$video->userid = Visitor::user()->id;
 	$video->save();
+		
+	$new_tag = new Tag(1);
+	$new_tag->count ++;
+	$new_tag->save();
 	header('LOCATION:../edit.php?id=' . $video->id);
 }

@@ -15,6 +15,7 @@ $tags = Tag::getAllPreTags();
 <meta name="author" content="AnimeTaste">
 <meta property="wb:webmaster" content="dbd6a845d21f945c" />
 
+
 <!-- Le styles -->
 <link href="/media/css/bootstrap.css" rel="stylesheet">
 <link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
@@ -49,7 +50,7 @@ $tags = Tag::getAllPreTags();
 							<? } ?>
                         </ul>
               </li>
-              <?php if ($pagename=="hot"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/">热榜</a></li>
+              <?php if ($pagename=="hot"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/hot">热榜</a></li>
             </ul>
             
 			<ul class="nav nav-pills pull-right">
@@ -76,6 +77,7 @@ $tags = Tag::getAllPreTags();
                         <li><a href="/home/videos/"><i class="icon-film"></i> 我的分享</a></li>
                         <li><a href="/home/likes/"><i class="icon-heart"></i> 我的收藏</a></li>
                         <li><a href="/home/following/"><i class="icon-star"></i> 关注的人</a></li>
+                        <li><a data-toggle="modal" href="#invite"><i class="icon-gift"></i> 邀请入住</a></li>
                         <li><a href="/home/settings/"><i class="icon-cog"></i> 修改信息</a></li>
                         <li class="divider"></li>
                         <li class="nav-header">系统功能</li>

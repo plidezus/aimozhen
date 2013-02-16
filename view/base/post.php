@@ -7,7 +7,7 @@
 						<div class="post-infor">查看<?=intval($video->viewed)?>次 <span class="ds-thread-count" data-thread-key="<?= $video->id ?>"></span>评论</div>
                         <div class="hr1"></div>
                         <div class="post-author"  style=" margin-top:10px;">
-                        <div id="avatar" class="float-left"><a href="/user.php?id=<?=$video->userid?>" ><img src="<?=$user->avatar()->link(32)?>" width="32" height="32" /></a></div>
+                        <div id="avatar" class="float-left" style="height:32px; width:32px;"><a href="/user.php?id=<?=$video->userid?>" ><img width="32" height="32" src="<?=$user->avatar()->link(32)?>" /></a></div>
                     <div id="post-detailed" class="float-left" style="margin-left:10px">
                         <div id="post-author" style="color: #666666;font-size: 12px"><a href="/user.php?id=<?=$video->userid?>" ><?=$user->username?></a> 分享</div>
                     </div></div>

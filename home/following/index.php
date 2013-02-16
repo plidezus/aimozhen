@@ -4,6 +4,28 @@ if (!$visitor->id) header("LOCATION:/");
 $homename = "following" ;
 include '../../view/base/header.php';
 
+if($visitor->first == 1)
+	{
+	$action = new Action();
+	$action->userid = $visitor->id;
+	$action->type = 1;
+	$action->target = 423;
+	$action->createdTime = time();
+	$action->save();
+	
+	$action = new Action();
+	$action->userid = $visitor->id;
+	$action->type = 2;
+	$action->target = 3 ;
+	$action->createdTime = time();
+	$action->save();
+	
+	$user = new User($visitor->id);
+	$user->first = 0;
+	$user->save();
+		}
+
+
 $action = new Action();
 $action->type = Action::TYPE_LIKE_USER;
 $action->userid = $visitor->id;

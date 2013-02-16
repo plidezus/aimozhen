@@ -21,6 +21,46 @@
 	var bds_config = {'wbUid':3163946864};
 	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
 	</script>
+    
+    <? if ($visitor->id) { ?>
+<div id="invite" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" style="color: #FFFFFF" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">邀请注册</h3>
+  </div>
+    <div class="modal-body">
+	    <form class="form">
+	        <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
+            <div id="message"></div>
+            <p></p>
+	        <p>
+		    <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
+            <a id="copy_url" href="###" class="btn btn-red hide">复制链接到剪贴板并请你的好友访问</a>
+	        </p>
+
+	    </form>
+    </div>
+</div>
+<script>
+    $(function(){
+	    jQuery('#get_invite').click(function(){
+            jQuery.get('/ajax/invite.php', {email : $('#email_input').val()}, function(data){
+	            if (data != '请填写Email哦！') {
+                    $('#get_invite').hide();
+                    $('#copy_url').show().click(function(){
+                        window.clipboardData.setData('text', $('#message input').html());
+                    });
+                }
+                $('#message').html(data);
+            });
+        })
+        jQuery('#my-sidebar a[href="<?=$_SERVER['REQUEST_URI']?>"]').parent().addClass('active');
+    });
+</script>
+    
+    <? }?>
+    
+    
 
 <div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -30,8 +70,8 @@
     <div class="modal-body">
     <form action="/login.php" method="POST">
         <div class="modal-body">
-            用户名：<input type="text" name="username" /> <br />
-            　密码：<input type="password" name="password" /> <br />
+				邮件&nbsp;&nbsp;<input type="text" name="email" /> <br />
+				密码&nbsp;&nbsp;<input type="password" name="password" /> <br />
             <input type="submit" value="登录" class="btn btn-red"/>
         </div>
     </form>

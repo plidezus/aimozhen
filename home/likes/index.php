@@ -3,6 +3,28 @@ include "../../include/init.php";
 if (!$visitor->id) header("LOCATION:/");
 $homename = "likes" ;
 include '../../view/base/header.php';
+
+if($visitor->first == 1)
+	{
+	$action = new Action();
+	$action->userid = $visitor->id;
+	$action->type = 1;
+	$action->target = 423;
+	$action->createdTime = time();
+	$action->save();
+	
+	$action = new Action();
+	$action->userid = $visitor->id;
+	$action->type = 2;
+	$action->target = 3 ;
+	$action->createdTime = time();
+	$action->save();
+	
+	$user = new User($visitor->id);
+	$user->first = 0;
+	$user->save();
+		}
+
 $video = new Video();
 $video->userid = $visitor->id;
 $video_count = $video->count();

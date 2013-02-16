@@ -4,7 +4,8 @@
                     <div id="avatar" class="float-left"><a href="<?=$visitor->avatar()->editLink()?>"><img src="<?=$visitor->avatar()->link(50)?>" width="50" height="50" /></a></div>
                     <div id="detailed" class="float-left" style="margin-left:10px">
                         <div id="cardname"><?=$visitor->username?></div>
-                        <div id="birday" style="color: #ABABAB; font-size: 12px">2010年11月08日加入</div>
+                        <? $days = abs(time() - $visitor->createdTime)/86400;?>
+                        <div id="birday" style="color: #ABABAB; font-size: 12px">已入住<?=floor($days)?>天</div>
                     </div>    
                 </div>
       		</div>	
@@ -13,44 +14,7 @@
                 <?php if ($homename=="videos"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/videos/"><i class="icon-home icon-white"></i> 我的分享</a></li>
                 <?php if ($homename=="likes"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/likes/"><i class="icon-heart"></i> 我的收藏</a></li>
 				<?php if ($homename=="following"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/following/"><i class="icon-star"></i> 关注的人</a></li>
-                <li><a data-toggle="modal" href="#invite"><i class="icon-gift"></i> 邀请入住</a></li>
-                <?php if ($homename=="settings"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/settings/"><i class="icon-cog"></i> 修改信息</a></li>
-                <li><a href="/logout.php"><i class="icon-off"></i> 登出</a></li>
 			</ul>
             </div>
         </div>
         
-<div id="invite" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" style="color: #FFFFFF" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">邀请注册</h3>
-  </div>
-    <div class="modal-body">
-	    <form class="form">
-	        <input class="span4" type="email" id="email_input" placeholder="如果你喜欢这里，写下他/她的Email，把他/她拉来陪你吧。"/><br />
-            <div id="message"></div>
-            <p></p>
-	        <p>
-		    <a id="get_invite" href="###" class="btn btn-red">获取邀请信</a>
-            <a id="copy_url" href="###" class="btn btn-red hide">复制链接到剪贴板并请你的好友访问</a>
-	        </p>
-
-	    </form>
-    </div>
-</div>
-<script>
-    $(function(){
-	    jQuery('#get_invite').click(function(){
-            jQuery.get('/ajax/invite.php', {email : $('#email_input').val()}, function(data){
-	            if (data != '请填写Email哦！') {
-                    $('#get_invite').hide();
-                    $('#copy_url').show().click(function(){
-                        window.clipboardData.setData('text', $('#message input').html());
-                    });
-                }
-                $('#message').html(data);
-            });
-        })
-        jQuery('#my-sidebar a[href="<?=$_SERVER['REQUEST_URI']?>"]').parent().addClass('active');
-    });
-</script>

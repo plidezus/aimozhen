@@ -33,14 +33,15 @@ $video_count = count($videos);
 	?>
 		  </div>
       </div>
-      <div class="row"><p style="text-align: center">
-
-<? for ($i=1; $i<=ceil($video_count / $page_size); $i++) { ?>
-<a href="/search/?s=<?=$search?>&p=<?=$i?>"><span <? if(($i == $page)||(($i == 1)&&($page == 1))) { ?> class="btn btn-red disabled" <? } else { ?> class="btn btn-red" <? }?>><?=$i?></span></a>
-
-<? }?>
-
-        </p> </div>
+        
+		<div class="row">
+            <div class="pagination pagination-small pagination-centered">
+                <?php require_once HTDOCS_DIR . "/include/page.php";;
+                    $subPagess=new SubPages($page_size,$video_count,$page,10,"/search/?s=".$search."&p=",2);
+                ?>
+            </div>
+ 		</div>
+        
     </div> <!-- /上方 -->
 <?php
 include '../view/base/footer.php';

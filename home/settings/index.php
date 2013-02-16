@@ -33,7 +33,7 @@ include '../../view/base/header.php';
 				<div class="control-group">
 					<label class="control-label2" for="input01">Email </label>
 					<div class="controls2">
-                        <input class="input-xlarge" id="email" name="email" type="text" value="<?=$visitor->email?>" />
+                        <input class="input-xlarge" id="email" name="email" readonly type="text" value="<?=$visitor->email?>" />
 					</div>
 				</div>
 				<div class="control-group" id="pass1group">

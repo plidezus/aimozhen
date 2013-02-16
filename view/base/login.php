@@ -19,7 +19,9 @@
         <a href="#share" role="button" class="btn btn-block btn-red" data-toggle="modal"><img style="float:left; padding:4px 0 0 10px;" src="../images/plus.png" /><span style=" margin-left: -15px;">我也要分享</span></a></div>
         <div class="hr1" style="margin-top:10px;"></div>
         <div id="welcome" style="margin-top:5px;">
-          <p><? foreach ($tags as $each_tag) { ?>
+          <p>
+		  <a href="/" role="button" class="btn btn-mini" style=" width:60px;margin:0 10px 5px 15px">全部分类</span></a>
+		  <? foreach ($tags as $each_tag) { ?>
                 <a href="/tag/?id=<?=$each_tag->id?>" role="button" class="btn btn-mini" style=" width:60px;margin:0 10px 5px 15px"><?=$each_tag->name?></span></a>
 				<? } ?>
           </p>

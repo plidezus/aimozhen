@@ -1,8 +1,8 @@
 <?php
 include "include/init.php";
-include 'view/base/header.php';
-if (!$visitor->id) header("LOCATION:/?login");
 
+if (!$visitor->id) header("LOCATION:/?login");
+include 'view/base/header.php';
 $user_id = $_GET['id'];
 $user = new User($user_id);
 
@@ -31,7 +31,12 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
                     </div>    
                 </div>
         		<div id="card-button">
-                <a href="ajax/like.php?id=<?=$user->id?>" role="button" class="btn btn-block btn-red">关注 Ta</a>
+                <?php if ($visitor->id){
+		if (Action::isLiked($visitor, $user)) {?>
+        <a href="/ajax/like.php?id=<?=$user->id?>&cancel=1" role="button" class="btn btn-inverse btn-block" >取消收藏</a>
+		<? } else { ?>
+        <a href="/ajax/like.php?id=<?=$user->id?>" role="button" class="btn btn-red btn-block" >关注 TA</a>
+		<?php }}?>
       		</div>	
 
         </div></div>
@@ -54,14 +59,15 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 
 			  </div>
       </div>
-      <div class="row"><p style="text-align: center">
-
-<? for ($i=1; $i<=ceil($video_count / $page_size); $i++) { ?>
-<a href="/user.php?id=<?=$user->id?>&p=<?=$i?>"><span <? if(($i == $page)||(($i == 1)&&($page == 1))) { ?> class="btn btn-red disabled" <? } else { ?> class="btn btn-red" <? }?>><?=$i?></span></a>
-
-<? }?>
-
-        </p> </div>
+        
+		<div class="row">
+            <div class="pagination pagination-small pagination-centered">
+                <?php require_once HTDOCS_DIR . "/include/page.php";;
+                    $subPagess=new SubPages($page_size,$video_count,$page,10,"/user.php?id=".$user->id."&p=",2);
+                ?>
+            </div>
+ 		</div>
+        
     </div> <!-- /上方 -->
 <?php
 include 'view/base/footer.php';

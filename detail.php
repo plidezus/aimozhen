@@ -83,7 +83,7 @@ include 'view/base/header.php';
         <div class="span3"> 
         	<div class="shadow" style="padding:10px; margin-bottom:20px;">
                 <div id="card-top" style="margin-bottom:50px">
-                    <div id="avatar" class="float-left"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></div>
+                    <div id="avatar" class="float-left"><a href="user.php?id=<?=$video->userid?>"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></a></div>
                     <div id="detailed" class="float-left" style="margin-left:10px">
                         <div id="name"><a href="user.php?id=<?=$video->userid?>"><span style="color: #202020;"><?=$user->username?></a></span></div>
                         <div id="birday" style="color: #ABABAB; font-size: 11px">发表于<?=(date("Y年m月d日",$video->createdTime));?></div>

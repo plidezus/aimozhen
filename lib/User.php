@@ -4,6 +4,8 @@ class User extends Mysql{
 	public $password;
 	public $email;
 	public $group;
+	public $createdTime;
+	public $first;
 
 	public function avatar() {
 		return new Avatar($this->email);

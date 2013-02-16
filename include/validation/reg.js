@@ -38,6 +38,7 @@ $(document).ready(function(){
 	function validateName(){
 		//if it's NOT valid
 		if(name.val().length < 4){
+			namegroup.removeClass("info");
 			namegroup.addClass("error");
 			nameInfo.text("请不小少于三个字！");
 			return false;
