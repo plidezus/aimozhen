@@ -9,10 +9,12 @@ $tags = Tag::getAllPreTags();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
+<? if($pagename == "detail") ($sitedesc = $video->title . " | " . $sitedesc) ?>
 <title><?=$sitedesc?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AnimeTaste">
-<meta name="author" content="AnimeTaste">
+<meta name="description" content="AIMOZHEN 艾墨镇 分享动画分享精彩">
+<meta name="author" content="艾墨镇">
+<meta name="keywords" content="aimozhen,艾墨镇,动画" />
 <meta property="wb:webmaster" content="dbd6a845d21f945c" />
 
 

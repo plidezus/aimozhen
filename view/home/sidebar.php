@@ -9,7 +9,7 @@
                     </div>    
                 </div>
       		</div>	
-        	<div id="my-list" style="margin-top:30px">
+        	<div  class="shadow" id="my-list" style="padding:15px;margin-top:30px">
             <ul class="nav nav-list">
                 <?php if ($homename=="videos"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/videos/"><i class="icon-home icon-white"></i> 我的分享</a></li>
                 <?php if ($homename=="likes"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/home/likes/"><i class="icon-heart"></i> 我的收藏</a></li>

@@ -1,5 +1,5 @@
 <?php
-include "include/init.php";
+include "include/init.php";$pagename = "detail" ;
 $video = new Video($_GET['id']);
 if (!$video->id) {
 	header("LOCATION:/page/404/");
