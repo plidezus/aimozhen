@@ -40,6 +40,9 @@ class Mysql {
 	}
 	
 	public static function loads($ids) {
+		if (empty($ids)) {
+			return array();
+		}
 		$class_name = static::$class_name ?: get_called_class();
 		$ids_str = join(',', $ids);
 		$result = self::client()->query("select * from {$class_name} where `id` IN ({$ids_str})");

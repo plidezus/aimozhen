@@ -1,6 +1,10 @@
 <?php
 include "include/init.php";
 $video = new Video($_GET['id']);
+if (!$video->id) {
+	header("LOCATION:/page/404/");
+	exit;
+}
 $video->viewed += 1;
 $video->save();
 $user = new User($video->userid);
