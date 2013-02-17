@@ -85,14 +85,14 @@ include 'view/base/header.php';
                 <div id="card-top" style="margin-bottom:50px">
                     <div id="avatar" class="float-left"><a href="user.php?id=<?=$video->userid?>"><img src="<?=$user->avatar()->link(50)?>" width="50" height="50" /></a></div>
                     <div id="detailed" class="float-left" style="margin-left:10px">
-                        <div id="name"><a href="user.php?id=<?=$video->userid?>"><span style="color: #202020;"><?=$user->username?></a></span></div>
+                        <div id="name"><a href="user.php?id=<?=$video->userid?>"><span style="color: #202020;"><?=$user->username?></span></a></div>
                         <div id="birday" style="color: #ABABAB; font-size: 11px">发表于<?=(date("Y年m月d日",$video->createdTime));?></div>
                     </div>    
                 </div>
       		</div>	
             
             
-            <div class="shadow" style="padding:5px 10px 10px 10px;height:215px;">
+            <div class="shadow" style="padding:5px 10px 10px 10px;height:215px;margin-bottom:20px;">
                 <div id="post-ta-top">
                 TA的分享
                 <div style="margin-top:5px;">
@@ -122,16 +122,17 @@ include 'view/base/header.php';
                 </div>
       		</div>
             
-        	<div id="my-list" style="margin-top:30px">
+            <!-- 视频管理-->
+            <? if(($visitor->id == $old->userid)||($visitor->group==1)) {  ?>
+        	<div id="my-list" class="shadow" style="padding:10px; margin-bottom:20px;">
+            <div style="margin-bottom:5px;"><strong>视频管理</strong></div>
             <ul class="nav nav-list">
-				<li class="active"><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
-                		 <? if(($visitor->id == $old->userid)||($visitor->group==1)) {  ?>
 				<li><a href="/edit.php?id=<?=$old->id ?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
 				<li><a href="#" onClick="jbox_delete_video()"><i class="icon-trash"></i> 删除这个视频</a></li>
-						<?  }else{ } ?>
-
+						
 			</ul>
             </div>
+            <?  }else{ } ?>
             
             <div id="video-tag" style="margin-top:30px">
             TAGS：<br />

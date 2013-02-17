@@ -1,0 +1,291 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>AniHere! 中传动院日常作品库</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AniHere! 中国传媒大学 动画与数字艺术学院 学生日常作品库">
+<meta name="author" content="中国传媒大学 动画与数字艺术学院">
+<link rel="shortcut icon" href="/favicon.ico" >
+
+<!-- Le styles -->
+<link href="/media/css/bootstrap.css" rel="stylesheet">
+<link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+﻿	<script type="text/javascript" src="/media/jBox/jquery.jBox-2.3.min.js"></script>
+	<script type="text/javascript" src="/media/jBox/jquery.jBox-zh-CN.js"></script>
+	<link type="text/css" rel="stylesheet" href="/media/jBox/jbox.css"/>
+    
+
+</head>
+
+  <body background="/images/web_bg.jpg">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+		<div class="container" style="padding-top:2px;">
+     		<!-- 左侧菜单栏 -->
+            <div style="float:left; margin:7px 0 0 0"><a href="/"><img src="/images/logo.png" /></a></div>
+     		<ul class="nav nav-pills">
+              <li class="dropdown">                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">分类<b class="caret"></b></a>
+                        <ul class="dropdown-menu">   
+                        	<li><a href="/">全部视频<span style="float:right; color:#ABABAB">(55)</span></a></li>              
+                        	<li class="divider"></li>
+														<li><a href="/tag/?id=2">剧情短片 <span style="float:right; color:#ABABAB">(12)</span></a></li>
+														<li><a href="/tag/?id=11">动画短片 <span style="float:right; color:#ABABAB">(20)</span></a></li>
+														<li><a href="/tag/?id=4">广告/公益 <span style="float:right; color:#ABABAB">(1)</span></a></li>
+														<li><a href="/tag/?id=6">MOTION <span style="float:right; color:#ABABAB">(5)</span></a></li>
+														<li><a href="/tag/?id=7">试验短片 <span style="float:right; color:#ABABAB">(6)</span></a></li>
+														<li><a href="/tag/?id=9">预告/花絮 <span style="float:right; color:#ABABAB">(4)</span></a></li>
+														<li><a href="/tag/?id=8">ShowReel <span style="float:right; color:#ABABAB">(3)</span></a></li>
+														<li><a href="/tag/?id=3">MV <span style="float:right; color:#ABABAB">(2)</span></a></li>
+														<li><a href="/tag/?id=10">纪录片 <span style="float:right; color:#ABABAB">(1)</span></a></li>
+														<li><a href="/tag/?id=5">游戏CG <span style="float:right; color:#ABABAB">(0)</span></a></li>
+														<li><a href="/tag/?id=1">归类无能 <span style="float:right; color:#ABABAB">(1)</span></a></li>
+							                        </ul>
+              </li>
+              <li><a href="/hot">热榜</a></li>
+            </ul>
+            
+			<ul class="nav nav-pills pull-right">
+            	<!-- 搜索 -->
+                <div class="nav-collapse collapse" style="float:right;margin:-1px 30px 0 5px;">
+<form class="navbar-search pull-left" action="/ajax/search.php" method="POST">
+                      <input type="text" class="search-query" id="search" name="search" placeholder="搜索 ^_^">
+                    </form>
+      </div>
+				<div id="card-button" style="float:right; margin:-1px 5px 0 5px;">
+                <!-- 分享 -->
+										<a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;" data-toggle="modal">分享视频</a> </div>
+					                    
+				<!-- 头像模块 -->
+                    					<li class="dropdown" style="float:right;">
+                    <a style="padding:5px 10px 5px 5px;" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" href="#"><img width="24" height="24" style="" src="http://www.gravatar.com/avatar/ce6a338d7b4acad58d1c6e7a79db7bd4?d=http%3A%2F%2Fanihere.com%2Fimages%2Fahlogo.jpg&s=24"/>
+                    <b class="caret"></b> </a>
+                      <ul class="dropdown-menu">
+                        <li class="nav-header">AniHere !</li>
+                        <li><a href="/home/videos/"><i class="icon-film"></i> 我的分享</a></li>
+                        <li><a href="/home/likes/"><i class="icon-heart"></i> 我的收藏</a></li>
+                        <li><a href="/home/following/"><i class="icon-star"></i> 关注的人</a></li>
+                        <li><a href="/home/settings/"><i class="icon-cog"></i> 修改信息</a></li>
+                        <li class="divider"></li>
+                        <li class="nav-header">系统功能</li>
+                        <li><a href="/logout.php"><i class="icon-off"></i> 登出</a></li>
+                      </ul>
+					</li>
+					                    
+                    
+			 </ul>
+            <!-- /右侧模块 -->
+		 </div><!--/总菜单 -->
+      </div>
+      <div style="background-image:url(/images/bgline.png); background-repeat:repeat-x; height:2px"></div>
+    </div><div class="container">
+<div class="row"> <div class="span8 breadcrumb"> <a href="/">AniHere!</a> > <a href="/tag/?id=11">动画短片</a> > <a href="#">9分钟动画MV</a></div></div>
+      <div class="row">
+      
+                    <div class="span8"> 
+      <!-- 观看区域-->
+      <div id="thumbnail" style="display:none;background: url('http://p2.v.iask.com/596/85/70068242_2.jpg') no-repeat center center;"><img src="http://p2.v.iask.com/596/85/70068242_2.jpg" /></div>
+      <div id="content-video" class="shadow" style="padding:10px;">
+     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold; font-size:18px;">9分钟动画MV</div>
+      				<embed src="http://you.video.sina.com.cn/api/sinawebApi/outplayrefer.php/vid=70068242_1231088353_PU2xRnA8WWLK+l1lHz2stqkP7KQNt6nki2m1u1qsJgtaQ0/XM5GeYt0B6CvSAtkEqDhAQ5g/c/Yk0x8/s.swf" wmode="opaque" quality="high" width="750" height="443" align="middle" allowNetworking="all" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>      	<div id="content-others" style="margin-top:10px;">
+        		        <a href="ajax/fav.php?id=56" role="button" class="btn btn-red ajax" >点此收藏</a>
+		      		<span style="color: #999; margin-left:10px;">被围观21次 | 被收藏0次</span> 
+       	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'http://p2.v.iask.com/596/85/70068242_2.jpg','text':'9分钟动画MV | AniHere! 中传动院日常作品库'}">
+<a class="bds_tsina"></a>
+<a class="bds_renren"></a>
+<a class="bds_douban"></a>
+<a class="bds_diandian"></a>
+<a class="bds_twi"></a>
+<a class="bds_fbook"></a>
+<a class="bds_mshare"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+
+<!-- Baidu Button END --></div></div>
+        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent :0px;">
+		  这个ANIer很懒，什么也没留下 	</div>
+      </div>
+      <!-- /观看区域-->
+      
+            <!-- 评论-->
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
+      	<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-thread-key="video56" data-title="9分钟动画MV" data-category="动画短片" data-author-key="29"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"anihere"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+      </div>
+      <!-- /评论-->
+      
+      <!-- 相关-->
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">相关动画推荐：</div>
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:0px 10px;">
+      	<script type="text/javascript" id="wumiiRelatedItems"></script>
+      </div>
+      <!-- /相关-->
+      
+      
+			  </div>
+      
+      <!--左侧个人名片 -->
+        <div class="span3"> 
+        	<div class="shadow" style="padding:10px; margin-bottom:20px;">
+                <div id="card-top" style="margin-bottom:50px">
+                    <div id="avatar" class="float-left"><img src="http://www.gravatar.com/avatar/37329dc3caa03896dad6039e7456b698?d=http%3A%2F%2Fanihere.com%2Fimages%2Fahlogo.jpg&s=50" width="50" height="50" /></div>
+                    <div id="detailed" class="float-left" style="margin-left:10px">
+                        <div id="name"><span style="color: #202020;"><a href="user.php?id=29">kid.l</a></span></div>
+                        <div id="birday" style="color: #ABABAB; font-size: 11px">发表于2013年02月16日</div>
+                    </div>    
+                </div>
+      		</div>	
+            
+            
+            <div class="shadow" style="padding:5px 10px 10px 10px;height:215px;margin-bottom:20px;">
+                <div id="post-ta-top">
+                TA的分享
+                <div style="margin-top:5px;">
+                     	    
+      
+      <!-- 作品-->
+		<a  style="float:left; width:54px; height:54px; margin:0 12px 10px 0;background: url('http://p2.v.iask.com/596/85/70068242_2.jpg') no-repeat center center; background-size:200% 140%;" href="/detail.php?id=56" title="9分钟动画MV" target="_blank"></a>
+      <!-- /作品--> 
+      
+	                </div>
+  
+                </div>
+      		</div>
+            
+            <div class="shadow" style="padding:10px; margin-bottom:20px;">
+                <ul class="nav nav-list">
+				<li><a href="#"><i class="icon-home icon-white"></i> 正在观看</a></li>
+                <li><a href="/edit.php?id=56"><i class="icon-pencil"></i> 编辑这个视频</a></li>
+				<li><a href="#" onClick="jbox_delete_video()"><i class="icon-trash"></i> 删除这个视频</a></li>
+						
+			</ul>
+      		</div>
+            
+        	<div class="shadow" style="padding:10px; margin-bottom:20px;">
+            <div style="margin-bottom:5px;"><strong>视频管理</strong></div>
+            <ul class="nav nav-list">
+                <li><a href="/edit.php?id=56"><i class="icon-pencil"></i> 编辑这个视频</a></li>
+				<li><a href="#" onClick="jbox_delete_video()"><i class="icon-trash"></i> 删除这个视频</a></li>
+						
+			</ul>
+            </div>
+            
+            <div id="video-tag" style="margin-top:30px">
+            TAGS：<br />
+			            </div>
+        </div>
+      
+      <!--左侧个人名片 -->
+      </div>
+    </div> <!-- /上方 -->
+
+<script type="text/javascript">
+function jbox_delete_video() {
+    var submit = function (v, h, f) {
+        if (v == true)
+            window.location.href='/ajax/delete_video.php?id=56';
+        else
+            jBox.tip("已经取消", 'info');
+
+        return true;
+    };
+    // 自定义按钮
+    $.jBox.confirm("亲！你真的打算删除这条分享吗？", "删除提示", submit, { buttons: { '是滴': true, '还是算了': false} });
+}
+</script>
+<script type="text/javascript">
+    var wumiiPermaLink = "http://anihere.com/detail.php?id=56"; //请用代码生成文章永久的链接
+    var wumiiTitle = "9分钟动画MV"; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"    
+    var wumiiSitePrefix = "http://anihere.com/";
+    var wumiiParams = "&num=6&mode=2&pf=JAVASCRIPT";
+</script>
+<script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+
+﻿
+      <div id="footer" style="text-align: center; font-size: 12px; color:#C0C0C0">
+        <p>&copy; <a href="http://cucanima.com/" target="_blank">中传动院作品库</a> & <a href="http://animetaste.org/" target="_blank">ANIMETASTE</a> | BOOTSTRAP | <a href="/about" target="_blank">ABOUT US</a> |  <a href="http://e.weibo.com/cucanima" class="sina">新浪微博</a> | <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备12008886号</a><br />
+        本站采用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="license">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。</p>
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="license"><img alt="知识共享许可协议" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/cn/80x15.png" /></a>
+        <p>&nbsp;</p>
+</div>
+
+    </div> <!-- /下方 -->
+    <a id="issue" href="/page/issue/">   
+  <span>用户<br />反馈</span> 
+</a>
+
+    <!-- javascript
+    ================================================== -->
+    <script src="/media/js/bootstrap.js"></script>
+    <script src="/media/js/anihere.js"></script>
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=652974" ></script>
+	<script type="text/javascript" id="bdshell_js"></script>
+	<script type="text/javascript">
+	var bds_config = {'wbUid':2784574391};
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+	</script>
+<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" style="color: #FFFFFF" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">登录</h3>
+  </div>
+    <div class="modal-body">
+    <form action="/login.php" method="POST">
+        <div class="modal-body">
+			学号&nbsp;&nbsp;<input type="text" name="schoolid" /> <br />
+			密码&nbsp;&nbsp;<input type="password" name="password" /> <br />
+            <input type="submit" value="登录" class="btn btn-red"/>
+        </div>
+    </form>
+    </div>
+</div>
+<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" style="color: #FFFFFF" aria-hidden="true" data-dismiss="modal">×</button>
+    <h3 id="ModalLabel">分享动画</h3>
+  </div>    <div class="modal-body">
+    <form action="/ajax/post.php" id="post" method="POST" >
+        <div class="modal-body">
+                <div class="control-group" id="urlgroup">
+            <input type="text" name="url" id="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>
+            <span class="help-inline" id="urlInfo"></span>
+			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，56，新浪博客等视频网站<br />AniHere!的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
+        		</div>
+ 			 <input id="send" type="submit" value="发布" class="btn btn-red"/>
+
+        </div>
+    </form>
+    <script src="/include/validation/post.js"></script>
+</div></div>  
+
+
+</body>
+</html>
