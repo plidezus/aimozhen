@@ -34,7 +34,7 @@ include 'view/base/header.php';
 		<?php }}?>
       		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
        	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->title?> | <?=$sitedesc?>'}">
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'我在@艾墨镇 看到一部不错的动画： <?=$video->title?>  '}">
 <a class="bds_tsina"></a>
 <a class="bds_renren"></a>
 <a class="bds_douban"></a>
@@ -53,7 +53,15 @@ include 'view/base/header.php';
       </div>
       <!-- /观看区域-->
       
-            <!-- 评论-->
+      
+      <!-- 相关-->
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">相关动画推荐：</div>
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:0px 10px;">
+      	<script type="text/javascript" id="wumiiRelatedItems"></script>
+      </div>
+      <!-- /相关-->
+      
+                  <!-- 评论-->
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">评论一下：</div>
       <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
       	<!-- Duoshuo Comment BEGIN -->
@@ -72,15 +80,6 @@ include 'view/base/header.php';
 <!-- Duoshuo Comment END -->
       </div>
       <!-- /评论-->
-      
-      <!-- 相关-->
-      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">相关动画推荐：</div>
-      <div id="content-video" class="shadow" style=" margin-top:20px;padding:0px 10px;">
-      	<script type="text/javascript" id="wumiiRelatedItems"></script>
-      </div>
-      <!-- /相关-->
-      
-      
 			  </div>
       
       <!--左侧个人名片 -->

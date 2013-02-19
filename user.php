@@ -1,19 +1,17 @@
 <?php
-include "include/init.php";
+include "include/init.php";$pagename = "user" ;
 
-if (!$visitor->id) header("LOCATION:/?login");
-include 'view/base/header.php';
 $user_id = $_GET['id'];
 $user = new User($user_id);
-
+include 'view/base/header.php';
 $video = new Video();
-$video->userid = $user->id;;
+$video->userid = $user->id;
 $video_count = $video->count();
 
 $page_size = 33;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
-<div style="text-align:center; width:100%; color:#AAA">哟！你已经分享了 <?=$video_count?> 部视频作品！</div>
+<div style="text-align:center; width:100%; color:#AAA">哟！TA 已经分享了 <?=$video_count?> 部视频作品！</div>
 
 <div class="container">
 <div class="row"> <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">用户</a> > <a href="#"><?=$user->username?></a></div></div>
@@ -31,6 +29,9 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
                     </div>    
                 </div>
         		<div id="card-button">
+                <?php if (!$visitor->id){?>
+        <a href="#login" role="button" data-toggle="modal" class="btn btn-red btn-block" >登录后可关注 TA</a>
+        <?php }?>
                 <?php if ($visitor->id){
 		if (Action::isLiked($visitor, $user)) {?>
         <a href="/ajax/like.php?id=<?=$user->id?>&cancel=1" role="button" class="btn btn-inverse btn-block" >取消收藏</a>
