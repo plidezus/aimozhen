@@ -27,7 +27,7 @@ class Mysql {
 	
 	public function load($id) {
 		$class_name = static::$class_name ?: get_called_class();
-		
+		$id = self::client()->real_escape_string($id);
 		$result = $this->client()->query("select * from {$class_name} where `id` = '$id' limit 1");
 		
 		if ($result->num_rows) {
@@ -44,7 +44,7 @@ class Mysql {
 			return array();
 		}
 		$class_name = static::$class_name ?: get_called_class();
-		$ids_str = join(',', $ids);
+		$ids_str = self::client()->real_escape_string(join(',', $ids));
 		$result = self::client()->query("select * from {$class_name} where `id` IN ({$ids_str})");
 		$ret = array();
 		if ($result->num_rows) {
