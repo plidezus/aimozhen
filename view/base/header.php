@@ -10,6 +10,7 @@ $tags = Tag::getAllPreTags();
 <head>
 <meta charset="utf-8">
 <? if($pagename == "detail") ($sitedesc = $video->title . " | " . $sitedesc) ?>
+<? if($pagename == "user") ($sitedesc = $user->username . " | " . $sitedesc) ?>
 <title><?=$sitedesc?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="AIMOZHEN 艾墨镇 分享动画分享精彩">
