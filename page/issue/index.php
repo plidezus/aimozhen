@@ -1,5 +1,5 @@
 <?php
-include "../../include/init.php";
+include "../../include/init.php"; $pagename = "issue";
 include '../../view/base/header.php';
 
 ?>

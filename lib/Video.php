@@ -97,7 +97,7 @@ CONTENT;
 	}
 
 	private function _56_content() {
-		if (preg_match("/v_(.*?)\.html/", $this->url, $matches)) {
+		if (preg_match("/v_(.*?)\.html$/", $this->url, $matches)) {
 			$id = $matches[1];
 		} else
 			return $this->url;

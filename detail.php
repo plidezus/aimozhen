@@ -34,13 +34,11 @@ include 'view/base/header.php';
 		<?php }}?>
       		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
        	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'我在@艾墨镇 看到一部不错的动画： <?=$video->title?>  '}">
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->url?> 我在@艾墨镇 看到一部不错的动画： <?=$video->title?>  '}">
 <a class="bds_tsina"></a>
 <a class="bds_renren"></a>
 <a class="bds_douban"></a>
-<a class="bds_diandian"></a>
-<a class="bds_twi"></a>
-<a class="bds_fbook"></a>
+<a class="bds_qzone"></a>
 <a class="bds_mshare"></a>
 <span class="bds_more"></span>
 <a class="shareCount"></a>

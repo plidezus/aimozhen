@@ -54,6 +54,8 @@ $tags = Tag::getAllPreTags();
                         </ul>
               </li>
               <?php if ($pagename=="hot"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/hot">热榜</a></li>
+              <?php if ($pagename=="issue"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/issue/">反馈</a></li>
+              <?php if ($pagename=="register"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/register/">内测申请</a></li>
             </ul>
             
 			<ul class="nav nav-pills pull-right">
@@ -62,12 +64,15 @@ $tags = Tag::getAllPreTags();
                       <input type="text" class="search-query" id="search" name="search" placeholder="搜索 ^_^">
                     </form>
       </div>
-				<div id="card-button" style="float:right; margin:-1px 5px 0 5px;">
+				<? if (!$visitor->id) { ?>
+                <li><a href="#login" data-toggle="modal">登录</a></li> <? } ?>
+                <div id="card-button" style="float:right; margin:-1px 5px 0 5px;">
                 <!-- 分享 -->
 					<? if ($visitor->id) { ?>
 					<a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;" data-toggle="modal">分享视频</a> </div>
 					<? } else { ?>
-					<a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:40px;" data-toggle="modal">登录</a></div>
+                    
+					<a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;" data-toggle="modal">分享视频</a> </div>
 					<? } ?>
                     
 				<!-- 头像模块 -->
