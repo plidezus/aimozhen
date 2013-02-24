@@ -129,7 +129,7 @@ include 'view/base/header.php';
             <div style="margin-bottom:5px;"><strong>视频管理</strong></div>
             <ul class="nav nav-list">
 				<li><a href="/edit.php?id=<?=$old->id ?>"><i class="icon-pencil"></i> 编辑这个视频</a></li>
-				<li><a href="#" onClick="jbox_delete_video()"><i class="icon-trash"></i> 删除这个视频</a></li>
+				<li><a href="#delete_video" data-toggle="modal"><i class="icon-trash"></i> 删除这个视频</a></li>
 						
 			</ul>
             </div>
@@ -145,20 +145,20 @@ include 'view/base/header.php';
       </div>
     </div> <!-- /上方 -->
 
-<script type="text/javascript">
-function jbox_delete_video() {
-    var submit = function (v, h, f) {
-        if (v == true)
-            window.location.href='/ajax/delete_video.php?id=<?=$old->id?>';
-        else
-            jBox.tip("已经取消", 'info');
-
-        return true;
-    };
-    // 自定义按钮
-    $.jBox.confirm("亲！你真的打算删除这条分享吗？", "删除提示", submit, { buttons: { '是滴': true, '还是算了': false} });
-}
-</script>
+<!-- Modal -->
+<div id="delete_video" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">删除提示</h3>
+  </div>
+  <div class="modal-body">
+    <p>&nbsp;&nbsp;亲！你真的打算删除这条分享吗？三思啊~</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">还是算了</button>
+    <a href="/ajax/delete_video.php?id=<?=$old->id?>" role="button" class="btn btn-red">是滴</a>
+  </div>
+</div>
 <script type="text/javascript">
     var wumiiPermaLink = "http://aimozhen.com/detail.php?id=<?= $old->id ?>"; //请用代码生成文章永久的链接
     var wumiiTitle = "<?=$old->title?>"; //请用代码生成文章标题
