@@ -1,10 +1,11 @@
 <?php
 include "include/init.php";
-include 'view/base/header.php';
+
 $video = new Video($_GET['id']);
 $user = new User($video->userid);
 $tags = Tag::getAllPreTags();
 if(($visitor->id != $video->userid) && ($visitor->group != 1)) header("LOCATION:/?wrong");
+include 'view/base/header.php';
 ?>
     <div class="container" style="margin:0px auto 20px auto">
 <div class="row"> <div class="span8 breadcrumb" style="margin-bottom:15px;"> <a href="/"><?=$sitename?></a> > <a href="#">编辑视频</a> > <a href="#"><?=$video->title?></a></div></div>
@@ -48,6 +49,24 @@ if(($visitor->id != $video->userid) && ($visitor->group != 1)) header("LOCATION:
 					  <textarea placeholder="只转不评的同志不是好同志。" class="span4" name="description" style="min-height:200px;max-width: 356px;"  oninput="document.getElementById('postdes').innerHTML=this.value;" onpropertychange="document.getElementById('postdes').innerHTML=this.value;"><?=$video->description?></textarea>
 					</div>
 				</div>
+
+
+               <!-- 管理区域 -->
+
+               <? if($visitor->group == 1)  { ?> 
+               
+               <span style="color: #7F7F7F; font-weight: bold;">管理员专区</span>
+               <div class="hr2"></div>
+               
+               <div class="control-group">
+					<label class="control-label2" for="input01">浏览</label>
+					<div class="controls2">
+					  <input type="text" class="input span4" id="viewed" name="viewed" value="<?=$video->viewed?>" >
+					</div>
+				</div>
+                <? } ?>
+                
+
 				<div style="margin:10px 0 0 60px;">
 					<input type="submit" class="btn btn-red" value="恩，就这样吧！" />
 					

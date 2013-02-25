@@ -5,7 +5,7 @@ if (!$video->id) {
 	header("LOCATION:/page/404/");
 	exit;
 }
-$video->viewed += 1;
+if($visitor->id != $video->userid) $video->viewed += 1;
 $video->save();
 $user = new User($video->userid);
 $tag = new Tag($video->pre_tag);
@@ -146,6 +146,19 @@ include 'view/base/header.php';
     </div> <!-- /上方 -->
 
 <!-- Modal -->
+<div id="delete_video" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">删除提示</h3>
+  </div>
+  <div class="modal-body">
+    <p>&nbsp;&nbsp;亲！你真的打算删除这条分享吗？三思啊~</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">还是算了</button>
+    <a href="/ajax/delete_video.php?id=<?=$old->id?>" role="button" class="btn btn-red">是滴</a>
+  </div>
+</div>
 <div id="delete_video" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

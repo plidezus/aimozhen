@@ -16,6 +16,9 @@ $video->title = $_POST['title'];
 $video->pre_tag = $_POST['pre_tag'];
 $video->tags = $_POST['tags'];
 $video->description = $_POST['description'];
+
+if($_POST['viewed']) { $video->viewed = $_POST['viewed'] ; }
+
 $video->save();
 header('LOCATION:../detail.php?id=' . $video->id);
 ?>
