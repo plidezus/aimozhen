@@ -18,7 +18,12 @@ $video->tags = $_POST['tags'];
 $video->description = $_POST['description'];
 
 if($_POST['viewed']) { $video->viewed = $_POST['viewed'] ; }
-
+if(($_POST['url'] != $video->url) && ($_POST['viewed'])) { 
+	$video->url = $_POST['url'] ; 
+	$info = VideoUrlParser::parse($_POST['url']);
+	$video->imageUrl = $info['img'];
+	}
+	
 $video->save();
 header('LOCATION:../detail.php?id=' . $video->id);
 ?>

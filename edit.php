@@ -64,6 +64,13 @@ include 'view/base/header.php';
 					  <input type="text" class="input span4" id="viewed" name="viewed" value="<?=$video->viewed?>" >
 					</div>
 				</div>
+               <div class="control-group">
+					<label class="control-label2" for="input01">地址</label>
+					<div class="controls2">
+					  <input type="text" class="input span4" id="url" name="url" value="<?=$video->url?>" >
+					</div>
+				</div>
+                
                 <? } ?>
                 
 
