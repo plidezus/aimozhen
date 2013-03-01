@@ -6001,3 +6001,51 @@ float: left;
 	color: #424242;
 	text-decoration: none;
 	}
+	
+	
+#videoshare {
+	float:left;
+}
+#videoshare #bdshare a{
+	background: url(../../images/videoshare.png) no-repeat scroll 0 0 transparent;
+	margin-right:5px;
+	min-height: 32px;
+	min-width:32px;
+	display:block;
+	float:left;
+	padding:0
+}
+#videoshare #bdshare{
+	background: url(../../images/videoshare.png) repeat-x scroll 0 -178px transparent;
+	display: block;
+    float: left;
+    padding-bottom: 2px;
+    text-align: left !important;
+    z-index: 999999;
+}
+#videoshare #bdshare .bds_tsina{
+	background-position:0 0px !important;
+}
+#videoshare #bdshare .bds_qzone{
+	background-position:-33px 0  !important;
+}
+#videoshare #bdshare .bds_renren{
+	background-position:-66px 0 !important;
+}
+#videoshare #bdshare .bds_douban{
+	background-position:-99px 0 !important;
+}
+ 
+ 
+#videoshare #bdshare a.bds_tsina:hover{
+	background-position:0 -33px !important;
+}
+#videoshare #bdshare a.bds_qzone:hover{
+	background-position:-33px -33px !important;
+}
+#videoshare #bdshare a.bds_renren:hover{
+	background-position:-66px -33px !important;
+}
+#videoshare #bdshare a.bds_douban:hover{
+	background-position:-99px -33px !important;
+}

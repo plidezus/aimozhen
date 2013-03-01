@@ -19,38 +19,44 @@ include 'view/base/header.php';
                     <div class="span8"> 
       <!-- 观看区域-->
       <div id="thumbnail" style="display:none;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;"><img src="<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>" /></div>
-      <div id="content-video" class="shadow" style="padding:10px;">
-     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold; font-size:18px;"><?=$video->title?></div>
-      	<?=$video->content()?>
-      	<div id="content-others" style="margin-top:10px;">
-        <?php if (!$visitor->id){?>
-        <a href="#login" role="button" data-toggle="modal" class="btn btn-red" >登录后可收藏</a>
+      <?=$video->content()?>
+      
+      <div id="video-detail" class="shadow" style="padding:10px;">
+      
+      <div id="content-others" style="position:relative;float:left;">
+     	 <div id="content-title" style="font-weight: bold; font-size:14px;"><?=$video->title?></div>
+ 		 <span style="color: #999;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span>
+	  </div>         
+      <div id="fenxiang" style="position:relative; float:right; margin-top:5px;">
+      <?php if (!$visitor->id){?>
+        <a href="#login" role="button" data-toggle="modal" class="btn btn-red" style="float:left; margin-top:1px">登录后可收藏</a>
         <?php }?>
 		<?php if ($visitor->id){
 		if (Action::isFav($visitor, $video)) {?>
-        <a href="ajax/fav.php?id=<?=$video->id?>&cancel=1" role="button" class="btn btn-inverse ajax" >取消收藏</a>
+        <a href="ajax/fav.php?id=<?=$video->id?>&cancel=1" role="button" class="btn btn-inverse ajax" style="float:left; margin-top:1px">取消收藏</a>
 		<? } else { ?>
-        <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" >点此收藏</a>
+        <a href="ajax/fav.php?id=<?=$video->id?>" role="button" class="btn btn-red ajax" style="float:left; margin-top:1px">点此收藏</a>
 		<?php }}?>
-      		<span style="color: #999; margin-left:10px;">被围观<?=intval($video->viewed)?>次 | 被收藏<?=intval($video->like)?>次</span> 
-       	  <div id="fenxiang" style="position:relative; float:right; "><!-- Baidu Button BEGIN -->
-<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->url?> 我在@艾墨镇 看到一部不错的动画： <?=$video->title?>  '}">
-<a class="bds_tsina"></a>
-<a class="bds_renren"></a>
-<a class="bds_douban"></a>
-<a class="bds_qzone"></a>
-<a class="bds_mshare"></a>
-<span class="bds_more"></span>
-<a class="shareCount"></a>
+      <div style="height:32px; width:1px; border-left:1px #ccc solid; float:left; margin:0 15px;"></div>
+            <!-- Baidu Button BEGIN -->
+<div id="videoshare" >
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->url?> 我在@艾墨镇 看到一部不错的动画： <?=$video->title?>  '}">
+    <a class="bds_tsina"></a>
+    <a class="bds_qzone"></a>
+    <a class="bds_renren"></a>
+    <a class="bds_douban"></a>
+    </div>
 </div>
 
-<!-- Baidu Button END --></div></div>
-        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;text-indent :0px;">
-		 <? if($video->description==""){ ?> 这个ATer很懒，什么也没留下 <? }else{ echo nl2br($video->description); } ?>
-	</div>
+<!-- Baidu Button END -->
+      
+      </div>
+      <div id"des" style=" margin-top:60px;padding-bottom:10px;color: #666;text-indent :0px;">
+		 <? if($video->description==""){ ?> 这个ATer很懒，什么也没留下 <? }else{ echo nl2br($video->description); } ?>	</div>
       </div>
       <!-- /观看区域-->
       
+   
       
       <!-- 相关-->
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">相关动画推荐：</div>
