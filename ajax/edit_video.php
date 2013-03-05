@@ -24,6 +24,11 @@ if(($_POST['url'] != $video->url) && ($_POST['viewed'])) {
 	$video->imageUrl = $info['img'];
 	}
 	
+if(($_POST['verify'] == 1)&&($_POST['pre_tag'] == 99)){
+	$video->verify = 1;
+} else {
+	$video->verify = 0; }
+	
 $video->save();
 header('LOCATION:../detail.php?id=' . $video->id);
 ?>

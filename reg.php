@@ -56,6 +56,30 @@ if ($exists_user->count()){
                         <span class="help-inline" id="pass2Info"></span>
 					</div>
 				</div>
+               
+      <div id="title" style=" padding-bottom:20px;">
+      	<span style="color: #7F7F7F; font-weight: bold;">选填内容：</span>
+		<div class="hr2"></div>
+	  </div>
+                <div class="control-group">
+					<label class="control-label2" for="input01">电子邮件 </label>
+					<div class="controls2">
+                        <input class="input-xlarge" id="exteremail" name="exteremail" type="text" placeholder="　　　　　　　　　@　　　　　.com" />
+					</div>
+				</div>
+               <div class="control-group">
+					<label class="control-label2" for="input01">新浪微博 </label>
+					<div class="controls2">
+                        <input class="input-xlarge" id="exterweibo" name="exterweibo" type="text" placeholder="http://weibo.com/　<-- 记得填写这个" />
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label2" for="input01">网站博客 </label>
+					<div class="controls2">
+                        <input class="input-xlarge" id="exterblog" name="exterblog" type="text" placeholder="http://　　　　　　　<-- 记得填写这个" />
+					</div>
+				</div>
+                
 				<div style="margin:10px 0 0 60px;">
 					<input id="send" name="send" type="submit" class="btn btn-red" value="恩，就这样吧！" />
 					

@@ -31,5 +31,5 @@ if ($url[$num]=="reemail") {
 if ($url[$num]=="regwrong") {
 	echo "<script> $(function(){ $.jBox.tip('对不起！验证地址有误，请核实后再注册！', 'error');}); </script>";}
 if ($url[$num]=="rereg") {
-	echo "<script> $(function(){ $.jBox.tip('你好！您的信息已经成功变更，请你使用新的信息重新登录！', 'success');}); </script>";}
+	echo "<script> $(function(){ $.jBox.tip('你好！您的信息已经成功变更！', 'success');}); </script>";}
  ?>

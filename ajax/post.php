@@ -11,6 +11,7 @@ if ($exists_video->count()){
 	$video->url = $_POST['url'];
 	$video->createdTime = time();
 	$video->userid = Visitor::user()->id;
+	$video->pre_tag = 1;
 	$video->save();
 		
 	$new_tag = new Tag(1);

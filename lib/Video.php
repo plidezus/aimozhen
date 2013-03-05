@@ -9,6 +9,7 @@ class Video extends Mysql{
 	public $tags;
 	public $pre_tag;
 	public $createdTime;
+	public $verify;
 	public $imageUrl;
 	
 	const VIDEO_TYPE_YOUKU = 1;
@@ -71,7 +72,7 @@ class Video extends Mysql{
 			return '';
 		
 		return <<<CONTENT
-   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf?VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="770" height="443" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
+   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf?VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="770" height="474" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
 CONTENT;
 	}
 

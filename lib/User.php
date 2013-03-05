@@ -5,8 +5,14 @@ class User extends Mysql{
 	public $email;
 	public $group;
 	public $createdTime;
-	public $first;
-
+	public $verify;
+	public $verifyinfo;
+	public $exteremail;
+	public $exterweibo;
+	public $exterblog;
+	
+	
+	
 	public function avatar() {
 		return new Avatar($this->email);
 	}

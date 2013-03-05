@@ -130,6 +130,24 @@ include 'view/base/header.php';
       		</div>
             
             <!-- 视频管理-->
+            <? if(!$old->verify == 0) {  
+				if (($user->exteremail)||($user->exteremail)||($user->exteremail)) {
+				?>
+                <div id="my-sites" class="shadow" style="padding:10px; margin-bottom:20px;">
+                <div style="margin-bottom:5px;"><strong>我的名片</strong></div>
+                <ul class="nav nav-list">
+                    <? if ($user->exteremail) { ?>
+                    <li><a href="#extre_email" data-toggle="modal"><i class="icon-envelope"></i> 我的电子邮件</a></li>
+                    <? }; if ($user->exterblog) {?>
+                    <li><a href="<?=$user->exterblog?>" target="_blank"><i class="icon-globe"></i> 我的网站/博客</a></li>
+                    <? }; if ($user->exterweibo) {?>
+                    <li><a href="<?=$user->exterweibo?>" target="_blank"><i class="icon-star-empty"></i> 我的新浪微博</a></li>	
+                    <? };?>
+                </ul>
+                </div>
+            <?  }} ?>
+            
+            <!-- 视频管理-->
             <? if(($visitor->id == $old->userid)||($visitor->group==1)) {  ?>
         	<div id="my-list" class="shadow" style="padding:10px; margin-bottom:20px;">
             <div style="margin-bottom:5px;"><strong>视频管理</strong></div>
@@ -165,19 +183,19 @@ include 'view/base/header.php';
     <a href="/ajax/delete_video.php?id=<?=$old->id?>" role="button" class="btn btn-red">是滴</a>
   </div>
 </div>
-<div id="delete_video" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="extre_email" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">删除提示</h3>
+    <h3 id="myModalLabel">联系作者</h3>
   </div>
   <div class="modal-body">
-    <p>&nbsp;&nbsp;亲！你真的打算删除这条分享吗？三思啊~</p>
+    <p>&nbsp;&nbsp;我的电子邮件<br />&nbsp;&nbsp;<?=$user->exteremail?></p>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">还是算了</button>
-    <a href="/ajax/delete_video.php?id=<?=$old->id?>" role="button" class="btn btn-red">是滴</a>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
   </div>
 </div>
+
 <script type="text/javascript">
     var wumiiPermaLink = "http://aimozhen.com/detail.php?id=<?= $old->id ?>"; //请用代码生成文章永久的链接
     var wumiiTitle = "<?=$old->title?>"; //请用代码生成文章标题

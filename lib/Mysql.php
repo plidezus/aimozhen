@@ -103,6 +103,10 @@ class Mysql {
 			$option_str .= "`title` LIKE '%".trim($option['search'])."%'";
 			$where_str = '';
 		}
+		if (isset($option['verify'])) {
+			$option_str .= '`verify` = ' . $option['verify'];
+			$where_str = '';
+		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
 		}
