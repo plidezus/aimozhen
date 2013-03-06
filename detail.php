@@ -130,7 +130,7 @@ include 'view/base/header.php';
       		</div>
             
             <!-- 视频管理-->
-            <? if(!$old->verify == 0) {  
+            <? if(!$old->card == 0) {  
 				if (($user->exteremail)||($user->exteremail)||($user->exteremail)) {
 				?>
                 <div id="my-sites" class="shadow" style="padding:10px; margin-bottom:20px;">

@@ -43,30 +43,16 @@ $tags = Tag::getAllPreTags();
      		<!-- 左侧菜单栏 -->
             <div style="float:left; margin:7px 0 0 0"><a href="/"><img src="/images/logo.png" /></a></div>
      		<ul class="nav nav-pills">
-              <?php if ($pagename=="tag"){ echo '<li class="active dropdown">';}else{echo '<li class="dropdown">';} ?>
-                        <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">分类<b class="caret"></b></a>
-                        <ul class="dropdown-menu">   
-                        	<li><a href="/">全部视频<span style="float:right; color:#ABABAB">(<?=$video_count?>)</span></a></li>              
-                        	<li class="divider"></li>
-							<? foreach ($tags as $each_tag) { ?>
-							<li><a href="/tag/?id=<?=$each_tag->id?>"><?=$each_tag->name?> <span style="float:right; color:#ABABAB">(<?=$each_tag->count?>)</span></a></li>
-							<? } ?>
-                        </ul>
-              </li>
-              <?php if ($pagename=="hot"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/hot">热榜</a></li>
+              <?php if ($pagename=="discover"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/?v=discover">发现</a></li>
               <?php if ($pagename=="issue"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/issue/">反馈</a></li>
               <?php if ($pagename=="register"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/register/">内测申请</a></li>
             </ul>
             
 			<ul class="nav nav-pills pull-right">
-                <div class="nav-collapse collapse" style="float:right;margin:-1px 30px 0 5px;">
-<form class="navbar-search pull-left" action="/ajax/search.php" method="POST">
-                      <input type="text" class="search-query" id="search" name="search" placeholder="搜索 ^_^">
-                    </form>
-      </div>
+           		
 				<? if (!$visitor->id) { ?>
                 <li><a href="#login" data-toggle="modal">登录</a></li> <? } ?>
-                <div id="card-button" style="float:right; margin:-1px 5px 0 5px;">
+                <div id="card-button" style="float:right; margin:-1px 30px 0 5px;">
                 <!-- 分享 -->
 					<? if ($visitor->id) { ?>
 					<a href="#share" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;" data-toggle="modal">分享视频</a> </div>
@@ -74,6 +60,13 @@ $tags = Tag::getAllPreTags();
                     
 					<a href="#login" role="button" class="btn btn-block btn-red" style="height:30px;width:80px;" data-toggle="modal">分享视频</a> </div>
 					<? } ?>
+                    
+                <!-- 搜索 -->
+               <div class="nav-collapse collapse" style="float:right;margin:-1px 10px 0 5px;">
+<form class="navbar-search pull-left" action="/ajax/search.php" method="POST">
+                      <input type="text" class="search-query" id="search" name="search" placeholder="搜索 ^_^">
+                    </form>
+      			</div>
                     
 				<!-- 头像模块 -->
                     <? if ($visitor->id) { ?>

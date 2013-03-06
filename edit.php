@@ -31,18 +31,14 @@ include 'view/base/header.php';
 				<div class="control-group">
 					<label class="control-label2" for="input01">标签</label>
 					<div class="controls2">
-						<select name="pre_tag" id="pre_tag" class="span1" style="width:110px" onChange="hiden()">
+						<select name="pre_tag" id="pre_tag" class="span1" style="width:110px" >
 							<?php
 								//主循环
 								foreach ($tags as $each_tag) {
-								if($each_tag->id == 99) { // 声明特殊项
-								      if(!$visitor->verify == 0)  { ?>
+							 ?>
 									  <option value=<?=$each_tag->id?> <? if($video->pre_tag==$each_tag->id){ ?> selected="selected" <? } ?>><?=$each_tag->name?></option> 
-								      <? } else { break; }
-								} else {
-							?>
-								<option value=<?=$each_tag->id?> <? if($video->pre_tag==$each_tag->id){ ?> selected="selected" <? } ?>><?=$each_tag->name?></option>
-							<? } ; } ?>
+
+							<?  } ?>
 						</select>
 					  <input type="text" class="input span3" id="input01" name="tags" style="width:243px" placeholder="用空格分开哦亲！" value="<?=$video->tags?>">
 					</div>
@@ -57,25 +53,37 @@ include 'view/base/header.php';
                <? if(!$visitor->verify == 0)  { ?>  
                
                <!-- 认证区域 -->
-               <div id="verifydiv" style="display:none">
+               
                <span style="color: #7F7F7F; font-weight: bold;">认证用户专区</span>
                <div class="hr2"></div>
-                <div class="control-group">
-					<label class="control-label2" for="input01">名片 </label>
-					<div class="controls2">
-                    <label class="checkbox" style=" padding-top:5px">
-                        <input name="verify" type="checkbox" value="1" <? if ($video->verify == 1){ ?> checked="CHECKED" <? }?>>
-                          是否在此视频页面显示你的联系方式？
-                        </label>
-					</div>
-				</div>
+               
+               <div class="control-group">
+                        <label class="control-label2" for="input01">原创 </label>
+                        <div class="controls2">
+                        <label class="checkbox" style=" padding-top:5px">
+                            <input id="verify" name="verify" type="checkbox" value="1" <? if ($video->verify == 1){ ?> checked="CHECKED" <? }?> onclick="hiden()" >
+                              这部视频是否是你的原创作品？
+                            </label>
+                        </div>
+                    </div>
+               
+               <div id="verifydiv" style="display:none">
+                    <div class="control-group">
+                        <label class="control-label2" for="input01">名片 </label>
+                        <div class="controls2">
+                        <label class="checkbox" style=" padding-top:5px">
+                            <input id="card" name="card" type="checkbox" value="1" <? if ($video->card == 1){ ?> checked="CHECKED" <? }?> >
+                              是否在此视频页面显示你的联系方式？
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 
     <script type="text/javascript">
 		$(document).ready(  function(){});
 		function hiden(){
-		var selectval = $('#pre_tag').val();
-		if(selectval==99) {
+		var selectval = $("#checkbox_id").attr("checked");
+		if (!!$("#verify").attr("checked")) {
 			$("#verifydiv").show(500);
 		}else{
 			$("#verifydiv").hide(200); 

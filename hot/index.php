@@ -1,16 +1,18 @@
 <?php
 include "../include/init.php"; $pagename = "hot" ;
 include '../view/base/header.php';
-$page_size = 23;
+$page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
-	<div style="text-align:center; width:100%; color:#AAA"><?=$sitename?>共有 <?=$video_count?> 部视频作品与您分享</div>
-    <div class="container" style="margin:20px auto 20px auto">
 
+
+    <div class="container" style="margin:0 auto">
+
+    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
       <div class="row">
-      
+            
               <div class="span12" style="margin:0"> 
-         <?php include HTDOCS_DIR . "/view/base/login.php"; ?>
+
 			<?
 			$video = new Video();
 			$videos = $video->find(array('order' => '`viewed` desc, id desc', 'limit' =>($page-1)* $page_size . ', ' . $page_size));

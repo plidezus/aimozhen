@@ -40,9 +40,40 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 		<?php }}?>
       		</div>	
 
-        </div></div>
+        </div>
+        
+        
+        <? if(($visitor->id != $user->id)&&($visitor->group==1)) {  ?>
+        <!--管理权限 -->
+
+        <div class="shadow" style="padding:15px; margin-top:30px">
+		<strong>用户组</strong>  <? if($user->group == 1){ echo "管理员" ; } else { echo "普通镇民" ;}; ?><br />
+		<strong>认证组</strong>  <? if($user->verify == 1){ echo "认证作者" ; } else { echo "普通镇民" ;}; ?>
+        <p> </p>
+			  <div class="btn-group">
+              
+                <a href="#" role="button" class="btn btn-inverse btn dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" style="width:153px">管理员无敌按钮 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                <li class="nav-header">用户组</li>
+                  <li><a href="ajax/adminaction.php?id=<?=$user->id?>&type=1">管理员权限</a></li>
+                  <li><a href="ajax/adminaction.php?id=<?=$user->id?>&type=2">普通镇民</a></li>
+                  <li class="divider"></li>
+                <li class="nav-header">认证组</li>
+                  <li><a href="ajax/adminaction.php?id=<?=$user->id?>&type=3">认证组成员</a></li>
+                  <li><a href="ajax/adminaction.php?id=<?=$user->id?>&type=4">普通镇民</a></li>
+                </ul>
+              </div>
+</div>
+
+        <!--管理权限 -->
+        <?  } ?>
+        
+        
+        
+        </div>
       
       <!--左侧个人名片 -->
+      
               <div class="span9"> 
      	<?
 		$video = new Video();

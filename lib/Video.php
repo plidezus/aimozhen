@@ -10,6 +10,7 @@ class Video extends Mysql{
 	public $pre_tag;
 	public $createdTime;
 	public $verify;
+	public $card;
 	public $imageUrl;
 	
 	const VIDEO_TYPE_YOUKU = 1;

@@ -7,17 +7,19 @@ $video_count = $tag->count;
 
 $video = new Video();
 
-$page_size = 23;
+$page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
-	<div style="text-align:center; width:100%; color:#AAA">共有 <?=$video_count?> 部视频作品被标记为 <?=$tag->name?></div>
+    <div class="container" style="margin:0 auto">
 
-<div class="container">
-<div class="row"> <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">标签分类</a> > <a href="#"><?=$tag->name?></a></div></div>
+    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+      <div class="row">
+      
+<div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">标签分类</a> > <a href="#"><?=$tag->name?></a></div></div>
     
       <div class="row">
   <div class="span12" style="margin:0"> 
-  <?php include HTDOCS_DIR . "/view/base/login.php"; ?>
+  
      	<?
 		$video = new Video();
 		$video->pre_tag = $tag_id;

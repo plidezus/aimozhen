@@ -5887,6 +5887,29 @@ a.badge:hover {
 .float-left {
 float: left;
 }
+#headerbar a {
+	margin-right:20px;
+	float:left;
+	font-weight:bold;
+	text-decoration:none;
+	color: #999;
+}
+
+#headerbar a:hover {
+	color:#333;
+}
+
+#tagbar {
+	float:left;
+	font-weight:bold;
+	text-decoration:none;
+	color: #999;
+}
+
+#tagbar:hover {
+	color:#333;
+}
+
 .playbutton {
 
 	z-index:3;
@@ -5991,7 +6014,8 @@ float: left;
 	z-index:100;
 }
 .breadcrumb {
-	margin-bottom: 10px;
+	margin-top:-20px;
+	margin-bottom: 30px;
 	color: #818181;
 	}
 .breadcrumb a {
@@ -6049,3 +6073,4 @@ float: left;
 #videoshare #bdshare a.bds_douban:hover{
 	background-position:-99px -33px !important;
 }
+
