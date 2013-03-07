@@ -1,6 +1,10 @@
 <?php
 include "../include/init.php"; $pagename = "verify" ;
 include '../view/base/header.php';
+$video = new Video();
+$video->verify = 1;
+$video_count = $video->count();
+
 $page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
@@ -31,7 +35,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 		<div class="row">
             <div class="pagination pagination-small pagination-centered">
                 <?php require_once HTDOCS_DIR . "/include/page.php";;
-                    $subPagess=new SubPages($page_size,$video_count,$page,10,"/hot/?p=",2);
+                    $subPagess=new SubPages($page_size,$video_count,$page,10,"/verify/?p=",2);
                 ?>
             </div>
  		</div>

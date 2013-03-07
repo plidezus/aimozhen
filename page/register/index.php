@@ -26,12 +26,13 @@ include '../../view/base/header.php';
           <p>一定要真实填写哟~<br />
           我们会定期审核并予以恢复<br />
           谢谢你对我们喜爱与支持！</p>
-        </div>
+        <span style="margin-top: 20px; size: 14px; color: #666666">你可以在下方直接填写，也可以通过自己的邮箱将申请信发送至 admin@aimozhen.com</span></div>
       </div>
       <!-- /观看区域-->
       
             <!-- 评论-->
-      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">申请区：</div>
+      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">申请区：<br />
+      </div>
       <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
       
       	 <iframe marginheight="0" marginwidth="0"  frameborder="0" width="100%" height="600" src="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=waCvqKyktaCytaSBsLDvoq6s" allowtransparency="true" ></iframe>

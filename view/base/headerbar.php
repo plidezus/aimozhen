@@ -1,14 +1,12 @@
 ﻿   	  <div style="width:100%; height:20px;">
           <div id="headerbar" style="color:#AAA; float:left;margin:-14px 0 0 0">
-            <?php if ($pagename=="index"){ echo '<a style="color:#333"';}else{echo '<a';} ?> href="/">最新</a>
+            <?php if ($pagename=="new"){ echo '<a style="color:#333"';}else{echo '<a';} ?> href="/?v=new">最新</a>
             <?php if ($pagename=="hot"){ echo '<a style="color:#333"';}else{echo '<a';} ?> href="/hot">热门</a>
             <?php if ($pagename=="verify"){ echo '<a style="color:#333"';}else{echo '<a';} ?> href="/verify">原创</a>    
           </div>
           <div class="btn-group" style="margin:-16px 0 0 -10px">
             <?php if ($pagename=="tag"){ echo '<a style="color:#333"';}else{echo '<a';} ?> href="#" role="button" id="tagbar" class="btn btn-link dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">分类 <b class="caret"></b></a>
             <ul class="dropdown-menu">   
-                        	<li><a href="/">全部视频<span style="float:right; color:#ABABAB">(<?=$video_count?>)</span></a></li>              
-                        	<li class="divider"></li>
 							<? foreach ($tags as $each_tag) { ?>
 							<li><a href="/tag/?id=<?=$each_tag->id?>"><?=$each_tag->name?> <span style="float:right; color:#ABABAB">(<?=$each_tag->count?>)</span></a></li>
 							<? } ?>

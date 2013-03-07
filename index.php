@@ -1,7 +1,7 @@
 <?php
 include "include/init.php";
 if (isset($_GET['v'])) {
-	if ($_GET['v'] == 'discover') { $pagename = "discover";$page_size = 24; }
+	if ($_GET['v'] == 'new') { $pagename = "new";$page_size = 24; }
 	}else{ $pagename = "index";$page_size = 23; }
 	
 include 'view/base/header.php';
@@ -24,10 +24,10 @@ function MM_callJS(jsStr) { //v2.0
       <?
 				$video = new Video();
 				if (isset($_GET['v'])) {
-					if (($_GET['v']) == 'discover') {
-					$videos = $video->find(array('order' => 'RAND( )', 'limit' => ($page-1) * $page_size . ', ' . $page_size));} 
+					if (($_GET['v']) == 'new') {
+					$videos = $video->find(array('order' => 'id desc', 'limit' => ($page-1) * $page_size . ', ' . $page_size));} 
 				} else {
-				$videos = $video->find(array('order' => 'id desc', 'limit' => ($page-1) * $page_size . ', ' . $page_size));
+				$videos = $video->find(array('order' => 'RAND( )', 'limit' => ($page-1) * $page_size . ', ' . $page_size));
 				}
 
 				foreach ($videos as $video) {
@@ -42,10 +42,10 @@ function MM_callJS(jsStr) { //v2.0
 		  </div>
       </div>
 		<div class="row">
-        <? if ($pagename == "index") { ?>
+        <? if ($pagename == "new") { ?>
             <div class="pagination pagination-small pagination-centered">
                 <?php require_once HTDOCS_DIR . "/include/page.php";
-				$subPagess=new SubPages($page_size,$video_count,$page,10,"/?p=",2);  
+				$subPagess=new SubPages($page_size,$video_count,$page,10,"/?v=new&p=",2);  
                 ?>
             </div>
          <? } else { ?>
