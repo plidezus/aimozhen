@@ -1,5 +1,6 @@
 <?php
-include "../include/init.php";$pagename = "tag";
+include "../include/init.php";
+$pagename = "tag";$headname = "discover";
 include '../view/base/header.php';
 $tag_id = $_GET['id'];
 $tag = new Tag($tag_id);

@@ -1,5 +1,6 @@
 <?php
-include "../include/init.php"; $pagename = "hot" ;
+include "../include/init.php"; 
+$pagename = "hot" ;$headname = "discover";
 include '../view/base/header.php';
 $page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;

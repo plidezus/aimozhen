@@ -69,13 +69,31 @@
     <div class="modal-body">
     <form action="/login.php" method="POST">
         <div class="modal-body">
-				邮件&nbsp;&nbsp;<input type="text" name="email" /> <br />
-				密码&nbsp;&nbsp;<input type="password" name="password" /> <br />
-            <input type="submit" value="登录" class="btn btn-red"/>
+				邮件&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" /> <br />
+				密码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" /> &nbsp;&nbsp; <a href="#forget" data-toggle="modal" style="font-size:80%">找回密码</a> <br /></div>
+            &nbsp;&nbsp;<input type="submit" value="登录" class="btn btn-red"/>
         </div>
     </form>
     </div>
 </div>
+
+<div id="forget" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" style="color: #FFFFFF" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">找回密码</h3>
+  </div>
+    <div class="modal-body">
+    <form action="/ajax/forget/validate.php" method="POST">
+        <div class="modal-body">
+   		  <p>请填写用来登录的邮件地址 我们将向你发送一份身份确认邮件<br />
+			<span style="font-size: 80%">如果提交多次仍没有收到邮件请与我们联系 admin@aimozhen.com</span></p>
+			<input type="text" name="email" placeholder="电子邮件地址"/> <br />
+            <input type="submit" value="确认" class="btn btn-red"/>
+        </div>
+    </form>
+    </div>
+</div>
+
 <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" style="color: #FFFFFF" aria-hidden="true" data-dismiss="modal">×</button>

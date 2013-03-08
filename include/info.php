@@ -32,4 +32,9 @@ if ($url[$num]=="regwrong") {
 	echo "<script> $(function(){ $.jBox.tip('对不起！验证地址有误，请核实后再注册！', 'error');}); </script>";}
 if ($url[$num]=="rereg") {
 	echo "<script> $(function(){ $.jBox.tip('你好！您的信息已经成功变更！', 'success');}); </script>";}
+//Email相关
+if ($url[$num]=="mailok") {
+	echo "<script> $(function(){ $.jBox.tip('申请发送成功！请查收邮件！', 'success');}); </script>";}
+if ($url[$num]=="mailerr") {
+	echo "<script> $(function(){ $.jBox.tip('对不起 申请发送失败！ 请重试', 'error');}); </script>";}
  ?>

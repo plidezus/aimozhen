@@ -1,6 +1,6 @@
 <?php
 
-$pagename = "index" ;
+$pagename = "index" ;$headname = "index" ;
 $sitename = "艾墨镇" ;
 $sitedesc = "艾墨镇，分享视频，创造梦想" ;
 session_start();

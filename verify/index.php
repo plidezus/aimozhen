@@ -1,5 +1,6 @@
 <?php
-include "../include/init.php"; $pagename = "verify" ;
+include "../include/init.php"; 
+$pagename = "verify" ;$headname = "discover";
 include '../view/base/header.php';
 $video = new Video();
 $video->verify = 1;
@@ -19,7 +20,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 
 			<?
 			$video = new Video();
-			$videos = $video->find(array('verify' => '1', 'limit' =>($page-1)* $page_size . ', ' . $page_size));
+			$videos = $video->find(array('verify' => '1 ORDER BY `id` DESC', 'limit' =>($page-1)* $page_size . ', ' . $page_size));
 					foreach ($videos as $video) {
 						$user = new User($video->userid);
 			?>

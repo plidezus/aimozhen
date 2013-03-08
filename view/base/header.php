@@ -43,7 +43,7 @@ $tags = Tag::getAllPreTags();
      		<!-- 左侧菜单栏 -->
             <div style="float:left; margin:7px 0 0 0"><a href="/"><img src="/images/logo.png" /></a></div>
      		<ul class="nav nav-pills">
-              <?php if ($pagename=="index"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/">发现</a></li>
+              <?php if ($headname=="discover"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/">发现</a></li>
               <?php if ($pagename=="issue"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/issue/">反馈</a></li>
               <?php if ($pagename=="register"){ echo '<li class="active">';}else{echo '<li>';} ?><a href="/page/register/">内测申请</a></li>
             </ul>

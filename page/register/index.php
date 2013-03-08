@@ -33,11 +33,41 @@ include '../../view/base/header.php';
             <!-- 评论-->
       <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">申请区：<br />
       </div>
-      <div id="content-video" class="shadow" style=" margin-top:20px;padding:10px;">
+      <div id="content-video" class="shadow" style=" margin-top:20px;padding:30px 0 0 30px;">
       
-      	 <iframe marginheight="0" marginwidth="0"  frameborder="0" width="100%" height="600" src="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=waCvqKyktaCytaSBsLDvoq6s" allowtransparency="true" ></iframe>
-         
-      </div>
+      	 <form class="form-horizontal" action="/ajax/register.php" method="POST">
+				<div class="control-group">
+					<label class="control-label2" for="input01">Email</label>
+					<div class="controls2">
+						<input type="text" class="input span4" id="email" name="email" placeholder="作为你登陆的用户名">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label2" for="input01">姓名</label>
+					<div class="controls2">
+					  <input type="text" class="input span4" id="name" name="name" placeholder="请填写真实姓名哟">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label2" for="input01">性别</label>
+					<div class="controls2">
+					  <input type="text" class="input span4" id="sex" name="sex">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label2" for="input01">原因</label>
+					<div class="controls2">
+					  <textarea placeholder="注册原因。" class="span4" name="reason" style="min-height:200px;max-width: 356px;" ></textarea>
+					</div>
+				</div>
+                
+				<div style="margin:10px 0 0 60px;">
+					<input type="submit" class="btn btn-red" value="恩，就这样吧！" />
+					
+				</div>
+		</form>
+        
+        </div>
       <!-- /评论-->
       
       

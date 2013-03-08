@@ -10,7 +10,7 @@ class User extends Mysql{
 	public $exteremail;
 	public $exterweibo;
 	public $exterblog;
-	
+	public $validate;
 	
 	
 	public function avatar() {
