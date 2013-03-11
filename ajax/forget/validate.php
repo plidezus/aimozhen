@@ -6,10 +6,8 @@ $exists_user->email = $_POST['email'];
 
 if ($exists_user->count()){
 	
-	$user = new User($exists_user->id);
-	$video->userid = $user->id;
-	$user->validate = md5(rand(10,100));
-	$user->save();
+	$exists_user->find();
+	echo $exists_user->id ;
 	
 	require("../../include/mail/class.phpmailer.php"); //下载的文件必须放在该文件所在目录
 	$mail = new PHPMailer(); //建立邮件发送类

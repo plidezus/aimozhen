@@ -107,6 +107,9 @@ class Mysql {
 			$option_str .= '`verify` = ' . $option['verify'];
 			$where_str = '';
 		}
+		if (isset($option['email'])) {
+			$where_str = "";
+		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
 		}

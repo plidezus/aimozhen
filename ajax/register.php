@@ -11,7 +11,7 @@ include '../include/init.php';
 	$mail->Username = "122748715@qq.com" ; // 邮局用户名(请填写完整的email地址)
 	$mail->Password = "FxP930311321"; // 邮局密码
 	$mail->From = "122748715@qq.com"; //邮件发送者email地址
-	$mail->FromName = "Gavin";
+	$mail->FromName = "艾墨镇网站";
 	$mail->AddAddress("admin@aimozhen.com", "艾墨镇");//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
 	//$mail->AddReplyTo("", "");
 	//$mail->AddAttachment("/var/tmp/file.tar.gz"); // 添加附件
