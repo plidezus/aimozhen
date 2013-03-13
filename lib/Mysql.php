@@ -108,7 +108,7 @@ class Mysql {
 			$where_str = '';
 		}
 		if (isset($option['email'])) {
-			$where_str = "";
+			$where_str = "`email` =  '" . $option['email'] . "'";
 		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
