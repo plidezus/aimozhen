@@ -162,7 +162,7 @@ body {
 	margin: 0;
 	padding-top: 60px;
     padding-bottom: 40px;
-	font-family: "微软雅黑", sans-serif;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	line-height: 180%;
 	color: #555;
@@ -2070,12 +2070,27 @@ table th[class*="span"],
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-top: 4px;
+  margin-top: 1px;
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
   background-image: url("../../images/glyphicons-halflings.png");
   background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+/* HD / Retina -------------------------*/
+[class^="icon-"],
+[class*=" icon-"]@media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (min-device-pixel-ratio:1.5),only screen and (min-resolution:200dpi)
+ {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../../images/glyphicons-halflings@2x.png;background-size:469px 159px;");
+  background-position: 28px 28px;
   background-repeat: no-repeat;
 }
 
@@ -5876,10 +5891,10 @@ a.badge:hover {
 	background-position:0 -46px;
 }
 .shadow {
-	border-style: solid;
+	/*border-style: solid;*/
 	background-color: #FFFFFF;
 	border-color: #E0E0E0;
-	box-shadow: 0px 2px 5px #E0E0E0;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 	/*filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);ie*/ 
 	border-width: 1px;
   }
@@ -5890,7 +5905,6 @@ float: left;
 #headerbar a {
 	margin-right:20px;
 	float:left;
-	font-weight:bold;
 	text-decoration:none;
 	color: #999;
 }
@@ -5926,11 +5940,11 @@ float: left;
 }
 .post-title {
 	margin-top: 170px;
-	font-size: 16px;
+	font-size: 14px;
 	height: 22px;
 	max-width: 210px;
 	color: #181818;
-	font-weight: 600;
+	font-weight: 500;
 	overflow: hidden;
 	}
 .post-title a {
@@ -5938,7 +5952,7 @@ float: left;
 	}
 .post-title a:hover,
 .post-title a:active {
-	color: #424242;
+	color: #333;
 	}
 .post-author {
 	color: #666666;font-size: 12px
@@ -5958,26 +5972,28 @@ float: left;
 	height: 160px;
 	}
 .post-explain {
-	margin:10px 0 0 0;
-	height:45px;
-	font-size:12px;overflow:hidden;
+	margin: 5px 0 0 0;
+	height: 40px;
+	font-size: 12px;
+	overflow: hidden;
+	line-height: 20px;
 	}
 .post-infor {
-	margin:9px 0 13px 0;
+	margin:5px 0 10px 0;
 	height:20px;
-	color: #8c8c8c;
+	color: #bbb;
 	font-size:12px;overflow:hidden;
 	}
 .hr2{
 	height: 10px;
 	border: none;
-	border-top: 1px solid #D3D3D3;
+	border-top: 1px solid #dddddd;
 	margin: 0 0;
 }
 .hr1{
 	height: 1px;
 	border: none;
-	border-top: 1px solid #e3e3e3;
+	border-top: 1px dotted #e3e3e3;
 	margin: 0 0;
 }
 #issue{
@@ -6015,7 +6031,7 @@ float: left;
 }
 .breadcrumb {
 	margin-top:-20px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	color: #818181;
 	}
 .breadcrumb a {
@@ -6074,3 +6090,13 @@ float: left;
 	background-position:-99px -33px !important;
 }
 
+
+.avatar img {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.avatar {
+	float: left;
+	}
