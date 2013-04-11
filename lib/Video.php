@@ -54,6 +54,21 @@ class Video extends Mysql{
 		}
 	}
 	
+	public function padcontent() {
+		switch ($this->type()) {
+			case self::VIDEO_TYPE_YOUKU:
+				return $this->youku_padcontent();
+			case self::VIDEO_TYPE_TUDOU:
+				return $this->tudou_padcontent();
+			case self::VIDEO_TYPE_SINA:
+				return $this->sina_content();
+			case self::VIDEO_TYPE_56:
+				return $this->_56_content();
+			default :
+				return $this->url;
+		}
+	}
+	
 	public function save() {
 		if (!$this->id) {
 			$info = VideoUrlParser::parse($this->url);
@@ -76,6 +91,17 @@ class Video extends Mysql{
    <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf?VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="770" height="474" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
 CONTENT;
 	}
+	
+	private function youku_padcontent() {
+		if (preg_match("/id_(.*?)\.html/", $this->url, $matches)) {
+			$id = $matches[1];
+		} else
+			return '';
+		
+		return <<<CONTENT
+   		<iframe height=443 width=770 src="http://player.youku.com/embed/{$id}" frameborder=0 allowfullscreen></iframe>
+CONTENT;
+	}
 
 	private function tudou_content() {
 		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
@@ -89,6 +115,20 @@ CONTENT;
 		}
 
 	}
+	
+	private function tudou_padcontent() {
+		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
+			return <<<CONTENT
+<iframe width="770" height="443" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[0]}"></iframe>
+CONTENT;
+		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
+			return <<<CONTENT
+<iframe width="770" height="443" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[1]}"></iframe>
+CONTENT;
+		}
+
+	}
+	
 
 	private function sina_content() {
 			$info = VideoUrlParser::parse($this->url);

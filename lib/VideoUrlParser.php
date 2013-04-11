@@ -105,7 +105,7 @@ class VideoUrlParser
             $data = false;
         }
 
-        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" wmode=\"opaque\" quality=\"high\" width=\"750\" height=\"443\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
+        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" wmode=\"opaque\" quality=\"high\" width=\"770\" height=\"459\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
         return $data;
     }
     /**
