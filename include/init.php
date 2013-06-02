@@ -1,4 +1,6 @@
 <?php
+define('HTDOCS_DIR', __DIR__ . '/..');
+define('BASE_PATH',$_SERVER['DOCUMENT_ROOT']);
 
 $pagename = "index" ;$headname = "index" ;
 $siteoption = new Siteoption(3);$siteurl = $siteoption->value ;
@@ -20,5 +22,3 @@ function __autoload($class) {
 	}
 }
 $visitor = Visitor::user();
-define('HTDOCS_DIR', __DIR__ . '/..');
-define('BASE_PATH',$_SERVER['DOCUMENT_ROOT']);
