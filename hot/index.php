@@ -5,14 +5,9 @@ include '../view/base/header.php';
 $page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
-
-
-    <div class="container" style="margin:0 auto">
-
     <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
       <div class="row">
-            
-              <div class="span12" style="margin:0"> 
+              <div class="span12" style="margin:0">
 
 			<?
 			$video = new Video();
