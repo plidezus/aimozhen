@@ -8,8 +8,8 @@ include '../../include/init.php';
 	$mail->CharSet='UTF-8';// 设置邮件的字符编码
 	$mail->Host = "smtp.exmail.qq.com"; // 您的企业邮局域名
 	$mail->SMTPAuth = true; // 启用SMTP验证功能
-	$mail->Username = "hello@aimozhen.net" ; // 邮局用户名(请填写完整的email地址)
-	$mail->Password = "tasteanime1"; // 邮局密码
+	$mail->Username = "user" ; // 邮局用户名(请填写完整的email地址)
+	$mail->Password = "password"; // 邮局密码
 	$mail->From = "hello@aimozhen.net"; //邮件发送者email地址
 	$mail->FromName = "艾墨镇网站";
 	$address = $_GET['email'] ;
