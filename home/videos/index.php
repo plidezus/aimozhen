@@ -6,8 +6,7 @@ include '../../view/base/header.php';
 
 	$video = new Video();
 	$video->userid = $visitor->id;
-	$videos = $video->find();
-	$video_count = count($videos);
+	$video_count = $video->count();
 
 $page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
