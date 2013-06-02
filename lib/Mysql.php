@@ -12,7 +12,8 @@ class Mysql {
 	 */
 	public static function client() {
 		if (!isset(self::$client)) {
-			self::$client = new mysqli('localhost', 'root', '');
+			$config = Config::get('env.mysql');
+			self::$client = new mysqli($config['host'], $config['user'], $config['password']);
 			self::$client->select_db('aimozhen');
 			self::$client->query('SET NAMES UTF8');
 		}
@@ -45,7 +46,7 @@ class Mysql {
 		}
 		$class_name = static::$class_name ?: get_called_class();
 		$ids_str = self::client()->real_escape_string(join(',', $ids));
-		$result = self::client()->query("select * from {$class_name} where `id` IN ({$ids_str})");
+		$result = self::client()->query("select * from {$class_name} where `id` IN ({$ids_str}) ORDER BY `createdTime` desc");
 		$ret = array();
 		if ($result->num_rows) {
 			while ($data = $result->fetch_object($class_name)) {
