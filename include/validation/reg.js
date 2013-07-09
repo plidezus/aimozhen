@@ -40,14 +40,14 @@ $(document).ready(function(){
 		if(name.val().length < 4){
 			namegroup.removeClass("info");
 			namegroup.addClass("error");
-			nameInfo.text("请不小少于三个字！");
+			nameInfo.text("请不小少于四个字！");
 			return false;
 		}
 		//if it's valid
 		else{
 			namegroup.removeClass("error");
 			namegroup.addClass("info");
-			nameInfo.text("输入正确");
+			nameInfo.text("响亮的名字！");
 			return true;
 		}
 	}
@@ -58,7 +58,7 @@ $(document).ready(function(){
 		//it's NOT valid
 		if(pass1.val().length <5){
 			pass1group.addClass("error");
-			pass1Info.text("请不小少于五个字！");
+			pass1Info.text("请不小少于5个字符！");
 			return false;
 		}
 		//it's valid

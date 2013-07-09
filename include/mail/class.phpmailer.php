@@ -850,7 +850,7 @@ class PHPMailer {
   function SetLanguage($langcode = 'en', $lang_path = 'language/') {
     //Define full set of translatable strings
     $PHPMAILER_LANG = array(
-      'provide_address' => 'You must provide at least one recipient email address.',
+      'provide_address' => '请提供正确的Email地址',
       'mailer_not_supported' => ' mailer is not supported.',
       'execute' => 'Could not execute: ',
       'instantiate' => 'Could not instantiate mail function.',
@@ -865,7 +865,7 @@ class PHPMailer {
       'signing' => 'Signing Error: ',
       'smtp_error' => 'SMTP server error: ',
       'empty_message' => 'Message body empty',
-      'invalid_address' => 'Invalid address',
+      'invalid_address' => '地址错误',
       'variable_set' => 'Cannot set or reset variable: '
     );
     //Overwrite language-specific strings. This way we'll never have missing translations - no more "language string failed to load"!

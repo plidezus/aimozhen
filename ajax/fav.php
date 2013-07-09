@@ -12,6 +12,10 @@ if (!empty($_GET['cancel'])) {
 			$video = new Video($_GET['id']);
 			$video->like --;
 			$video->save();
+			
+			$user = new User($visitor->id);
+			$user->fav --;
+			$user->save();
 		}
 		echo '取消收藏成功';
 	}
@@ -25,6 +29,11 @@ if (!empty($_GET['cancel'])) {
 		$video = new Video($_GET['id']);
 		$video->like ++;
 		$video->save();
+		
+		$user = new User($visitor->id);
+		$user->fav ++;
+		$user->save();
+		
 	}
 	echo '收藏成功';
 }

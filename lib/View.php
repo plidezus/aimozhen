@@ -1,5 +1,5 @@
-<?php
-//lianghonghao@baixing.com 
-class View {
-
-}
+<?php
+//lianghonghao@baixing.com 
+class View {
+
+}

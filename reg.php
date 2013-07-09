@@ -53,6 +53,7 @@ if (isset($_GET['v']))
 
 
 <? } else {	
+
 	$exists_user = new User();
 	$exists_user->email = $_GET['email'];
 	if ($exists_user->count()){
@@ -71,8 +72,8 @@ if (isset($_GET['v']))
 		  <div class="row">
 		  <div class="span11 shadow" style="width:990px"> 
 		  <div id="title" style="padding:20px;">
-			<span style="color: #2C2C2C; font-size: 18px; font-weight: bold;">加入我们</span><br />
-			<span style="color: #7F7F7F; font-weight: bold;">欢迎来到<?=$sitename?>！</span>
+			<span style="color: #2C2C2C; font-size: 18px; font-weight: bold;">欢迎来到<?=$sitename?>！</span><br />
+			<span style="color: #7F7F7F;">填写居住证，永久有效无需暂住^_^</span><br />
 			<div class="hr2"></div>
 		  </div>
 		  <!-- 编辑区域--> 
@@ -110,27 +111,27 @@ if (isset($_GET['v']))
 					</div>
 				   
 		  <div id="title" style=" padding-bottom:20px;">
-			<span style="color: #7F7F7F; font-weight: bold;">选填内容：</span>
+			<span style="color: #7F7F7F; font-weight: bold;">如果有邀请码请填写在下方（选填）</span>
 			<div class="hr2"></div>
 		  </div>
 					<div class="control-group">
-						<label class="control-label2" for="input01">电子邮件 </label>
+						<label class="control-label2" for="input01">邀请 </label>
 						<div class="controls2">
-							<input class="input-xlarge" id="exteremail" name="exteremail" type="text" placeholder="　　　　　　　　　@　　　　　.com" />
+							<input class="input-xlarge" id="invitecode" name="invitecode" type="text" />
 						</div>
-					</div>
-				   <div class="control-group">
-						<label class="control-label2" for="input01">新浪微博 </label>
+					</div> 
+				  <!-- <div class="control-group">
+						<label class="control-label2" for="input01" >微博 </label>
 						<div class="controls2">
-							<input class="input-xlarge" id="exterweibo" name="exterweibo" type="text" placeholder="http://weibo.com/　<-- 记得填写这个" />
+							<input placeholder="http://weibo.com/你的名字" class="input-xlarge" id="exterweibo" name="exterweibo" type="text" />
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label2" for="input01">网站博客 </label>
+						<label class="control-label2" for="input01">博客 </label>
 						<div class="controls2">
-							<input class="input-xlarge" id="exterblog" name="exterblog" type="text" placeholder="http://　　　　　　　<-- 记得填写这个" />
+							<input class="input-xlarge" id="exterblog" name="exterblog" type="text" />
 						</div>
-					</div>
+					</div>-->
 					
 					<div style="margin:10px 0 0 60px;">
 						<input id="send" name="send" type="submit" class="btn btn-red" value="恩，就这样吧！" />

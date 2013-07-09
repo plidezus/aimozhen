@@ -6,8 +6,10 @@ class Video extends Mysql{
 	public $userid ;
 	public $like;
 	public $viewed;
+	public $weekviewed;
 	public $tags;
 	public $pre_tag;
+	public $collection;
 	public $createdTime;
 	public $verify;
 	public $card;
@@ -69,6 +71,21 @@ class Video extends Mysql{
 		}
 	}
 	
+	public function phonecontent() {
+		switch ($this->type()) {
+			case self::VIDEO_TYPE_YOUKU:
+				return $this->youku_phonecontent();
+			case self::VIDEO_TYPE_TUDOU:
+				return $this->tudou_phonecontent();
+			case self::VIDEO_TYPE_SINA:
+				return $this->sina_content();
+			case self::VIDEO_TYPE_56:
+				return $this->_56_content();
+			default :
+				return $this->url;
+		}
+	}
+	
 	public function save() {
 		if (!$this->id) {
 			$info = VideoUrlParser::parse($this->url);
@@ -88,7 +105,7 @@ class Video extends Mysql{
 			return '';
 		
 		return <<<CONTENT
-   <embed src="http://player.youku.com/player.php/sid/{$id}/v.swf?VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="770" height="474" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
+   <embed src="/include/player/youku.swf?showAd=0&VideoIDS={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="1002" height="604" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
 CONTENT;
 	}
 	
@@ -99,27 +116,34 @@ CONTENT;
 			return '';
 		
 		return <<<CONTENT
-   		<iframe height=443 width=770 src="http://player.youku.com/embed/{$id}" frameborder=0 allowfullscreen></iframe>
+   		<iframe height=564 width=1002 src="http://player.youku.com/embed/{$id}" frameborder=0 allowfullscreen></iframe>
+CONTENT;
+	}
+	
+		private function youku_phonecontent() {
+		if (preg_match("/id_(.*?)\.html/", $this->url, $matches)) {
+			$id = $matches[1];
+		} else
+			return '';
+		
+		return <<<CONTENT
+   		<iframe height=250 width=300 src="http://player.youku.com/embed/{$id}" frameborder=0 allowfullscreen></iframe>
 CONTENT;
 	}
 
 	private function tudou_content() {
-		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
+			$info = VideoUrlParser::parse($this->url);
+			$iid=$info['iid'];
 			return <<<CONTENT
-<embed src="http://www.tudou.com/l/{$matches[0]}/&resourceId=0_05_05_99&iid=141206757&autoPlay=true/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" mode="transparent" width="770" height="443"></embed>
+<embed src="/include/player/olc_8.swf?tvcCode=-1&swfPath=/include/player/sp.swf&iid=$iid&autoPlay=true" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="1002" height="564"></embed>
 CONTENT;
-		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
-			return <<<CONTENT
-<embed src="http://www.tudou.com/v/$matches[1]/&resourceId=0_05_05_99&bid=05&autoPlay=true/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="770" height="443"></embed>
-CONTENT;
-		}
-
 	}
 	
 	private function tudou_padcontent() {
 		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
 			return <<<CONTENT
-<iframe width="770" height="443" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[0]}"></iframe>
+<iframe width="1002" height="564" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[0]}"></iframe>
+
 CONTENT;
 		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
 			return <<<CONTENT
@@ -129,13 +153,23 @@ CONTENT;
 
 	}
 	
+		private function tudou_phonecontent() {
+		if (preg_match("/(\w+)\/\w+\.html$/", $this->url, $matches)) {
+			return <<<CONTENT
+<iframe width="300" height="250" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[0]}"></iframe>
+CONTENT;
+		} elseif (preg_match('#/view/(\S+)/#', $this->url, $matches)) {
+			return <<<CONTENT
+<iframe width="300" height="250" frameborder="0" src="http://www.tudou.com/programs/view/html5embed.action?code={$matches[1]}"></iframe>
+CONTENT;
+		}
+
+	}
+	
 
 	private function sina_content() {
-			$info = VideoUrlParser::parse($this->url);
-			$content = $info['object'];
-		return <<<CONTENT
-			$content
-CONTENT;
+		$info = VideoUrlParser::parse($this->url);
+		return $info['object'];
 	}
 
 	private function _56_content() {
@@ -145,7 +179,7 @@ CONTENT;
 			return $this->url;
 
 		return <<<CONTENT
-<embed src='http://player.56.com/renrenshare_$id.swf'  type='application/x-shockwave-flash' width='770' height='443' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
+<embed src='http://player.56.com/renrenshare_$id.swf'  type='application/x-shockwave-flash' width='1002' height='564' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
 CONTENT;
 	}
 }

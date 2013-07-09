@@ -8,56 +8,51 @@ include '../../view/base/header.php';
       
                     <div class="span8"> 
       <!-- 观看区域-->
-      <div id="content-video" class="shadow" style="padding:10px;">
-     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;"><?=$sitename?> 申请内测页面</div>
-        <div id"des" style="margin-top: 20px; padding-bottom:10px;color: #666;">
-		      	<p>亲爱的ATer们欢迎来到
-		      	<?=$sitename?>！<br />
-我们的站点正在内测中。<br />
-如果你也希望参与内测，请给我们留言，我们将定期审核。
+      <div id="content-video" class="shadow" style="padding:15px;">
+     	 <div id="content-title" style="margin-bottom: 10px;font-weight: bold;">申请<?=$sitename?>内测</div>
+        <div id"des" style="margin-top: 20px; padding-bottom:15px;color: #666;">
+		      	<p>欢迎你来到	<?=$sitename?>！<br />
+如果你也愿意一起来分享，欢迎申请我们的内测资格。<br/>当然测试期间我们还有很多缺陷，也希望你在测试之后，能给我们反馈和建议，让我们做的更好。<br/>
+申请内测用户后会有以下好处：
+<li> 分享精彩内容</li>
+<li> 记录喜欢的内容</li>
+<li> 关注有趣的人</li>
+<li> 独立动画人还能享受专属名片和身份认证</li>
+
+
+
 		      	</p>
-          <p><strong>申请邮件的标题</strong><br />
-          【内测申请】艾墨镇内测用户申请</p>
-          <p><strong>申请邮件的基本内容包括</strong>（下面为示例）<br />
-            【Email】 admin@aimozhen.com<br />
-            【真实姓名】 艾墨镇<br />
-            【性别】 男<br />
-            【注册原因】 我是艾墨镇工作室的小编，平时喜爱观看各种动画作品……</p>
-          <p>一定要真实填写哟~<br />
-          我们会定期审核并予以恢复<br />
-          谢谢你对我们喜爱与支持！</p>
-        <span style="margin-top: 20px; size: 14px; color: #666666">你可以在下方直接填写，也可以通过自己的邮箱将申请信发送至 admin@aimozhen.com</span></div>
-      </div>
+          </div>
+      
       <!-- /观看区域-->
-      
+      <? if($visitor->id) { ?>
             <!-- 评论-->
-      <div id="common-title" style="margin-top: 20px; size: 14px; color: #666666">申请区：<br />
-      </div>
-      <div id="content-video" class="shadow" style=" margin-top:20px;padding:30px 0 0 30px;">
-      
-      	 <form class="form-horizontal" action="/ajax/register.php" method="POST">
+         <div style="border-top:1px solid rgba(0, 0, 0, 0.13);margin:15px 0 ;padding:10px 0 ;"></div>
+      	 <form class="form-horizontal" action="/ajax/register.php" id="register" method="POST">
+         <input id="uid" name="uid" type="hidden" value="<?=$visitor->id?>" />
 				<div class="control-group">
 					<label class="control-label2" for="input01">Email</label>
 					<div class="controls2">
-						<input type="text" class="input span4" id="email" name="email" placeholder="作为你登陆的用户名">
+						<input type="text" class="input span4" id="email" name="email" readonly value="<?=$visitor->email?>" />
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label2" for="input01">姓名</label>
+				<div class="control-group" id="namegroup">
+					<label class="control-label2" for="name">姓名</label>
 					<div class="controls2">
 					  <input type="text" class="input span4" id="name" name="name" placeholder="请填写真实姓名哟">
+                      <span class="help-inline" id="nameInfo"></span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label2" for="input01">性别</label>
 					<div class="controls2">
-					  <input type="text" class="input span4" id="sex" name="sex">
+					  男 <input name="sex" type="radio" value="男" checked>&nbsp;&nbsp;&nbsp;女 <input name="sex" type="radio" value="女">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label2" for="input01">原因</label>
 					<div class="controls2">
-					  <textarea placeholder="注册原因。" class="span4" name="reason" style="min-height:200px;max-width: 356px;" ></textarea>
+					  <textarea placeholder="说说从哪里知道我们，想来分享点什么内容……" class="span4" name="reason" style="min-height:200px;max-width: 356px;" ></textarea>
 					</div>
 				</div>
                 
@@ -66,18 +61,35 @@ include '../../view/base/header.php';
 					
 				</div>
 		</form>
+        <script src="/include/validation/register.js"></script>
         
         </div>
       <!-- /评论-->
-      
+      <? } else { ?>
+      		 <!-- 评论-->
+         <div style="border-top:1px solid rgba(0, 0, 0, 0.13);margin:15px 0 ;padding:10px 0 ;"></div>
+      	 <div style="font-size: 14px; color: #666666; margin: 10px 0 20px 0;"><strong>你好 如果你想在艾墨镇分享视频请申请内测<br />
+			    <a href="#reg" data-toggle="modal">点击这里</a>注册账号并登陆<br /></strong></div>
+        </div>
+      <!-- /评论-->
+      <? ;} ?>
       
       
 			  </div>
       
       <!--左侧 -->
-        <div class="span3"> 	
-
-        </div>
+        <div class="span3">
+		     		<div class="shadow" style="padding:10px; margin-bottom:20px;">
+		     		<?php if ($pagename=="tag") { ?><div>共有 <strong><?=$video_count?></strong> 部作品被标记为 <?=$tag->name?></div>
+            <? } elseif ($pagename=="verify") { ?>
+            <div><?=$sitename?>共有 <strong><?=$video_count?></strong> 部原创作品
+            </div>
+            <? } else { ?>
+            <div><?=$sitename?>共有 <strong><?=$video_count?></strong> 部作品
+            </div>            <? } ?>用微信扫描在手机上看：
+            <img src="/images/qrcode_for_gh_25dc9fb5375c_430.jpg">
+            
+    	</div>
       
       <!--左侧 -->
       </div>

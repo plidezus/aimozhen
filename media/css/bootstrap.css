@@ -161,8 +161,8 @@ textarea {
 body {
 	margin: 0;
 	padding-top: 60px;
-    padding-bottom: 40px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding-bottom: 40px;
+	font-family: "微软雅黑", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 180%;
 	color: #555;
@@ -767,7 +767,7 @@ address {
 code,
 pre {
 	padding: 0 3px 2px;
-	font-family: "微软雅黑", sans-serif;
+	font-family: "微软雅黑", Arial, sans-serif;
 	font-size: 12px;
 	color: #333333;
 	-webkit-border-radius: 3px;
@@ -858,7 +858,7 @@ input,
 button,
 select,
 textarea {
-	font-family: "微软雅黑", sans-serif;
+	font-family: "微软雅黑", Arial, sans-serif;
 }
 
 label {
@@ -3110,11 +3110,11 @@ button.close {
 }
 
 .btn-mini {
-  padding: 1px 6px;
-  font-size: 10.5px;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
+  padding: 0px 6px;
+  font-size: 10px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 
 .btn-block {
@@ -4274,7 +4274,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
 	padding: 4px 8px;
 	margin-bottom: 0;
-	font-family: "微软雅黑", sans-serif;
+	font-family: "微软雅黑", Arial, sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	line-height: 1;
@@ -5944,14 +5944,24 @@ float: left;
 	height: 22px;
 	max-width: 210px;
 	color: #181818;
-	font-weight: 500;
+	font-weight: bold;
 	overflow: hidden;
 	}
-.post-title a {
+.collection-title {
+	margin-top: 170px;
+	font-size: 14px;
+	line-height:16px;
+	height: 16px;
+	max-width: 210px;
+	color: #181818;
+	font-weight: bold;
+	overflow: hidden;
+	}
+.post-title a ,.collection-title a {
 	color: #181818;
 	}
-.post-title a:hover,
-.post-title a:active {
+.post-title a:hover, .collection-title a:hover
+.post-title a:active, .collection-title  a:active {
 	color: #333;
 	}
 .post-author {
@@ -5981,6 +5991,10 @@ float: left;
 .post-infor {
 	margin:5px 0 10px 0;
 	height:20px;
+	color: #bbb;
+	font-size:12px;overflow:hidden;
+	}
+.collection-infor {
 	color: #bbb;
 	font-size:12px;overflow:hidden;
 	}
@@ -6042,56 +6056,91 @@ float: left;
 	text-decoration: none;
 	}
 	
+#video-detail #information {
+	color: #999;font-size:12px;
+	}
+#video-detail #information a {
+	color: #999; text-decoration: none;
+	}
+#video-detail #information  a#edit:hover {
+	color: #360;
+	}
+#video-detail #information  a#delete:hover {
+	color: #900;
+	}
+#video-detail #information a#copyright {
+	color: #2d8fcc;
+	}
+#video-detail #information  a#copyright:hover {
+	color: #0CC;
+	}
+	
+#usertop #contact {
+	color: #999;font-size:12px;
+	}
+#usertop #contact a {
+	color: #999; text-decoration: none;
+	}
+#usertop #contact a:hover {
+	color: #3A3A3A;
+	}
 	
 #videoshare {
 	float:left;
 }
-#videoshare #bdshare a{
-	background: url(../../images/videoshare.png) no-repeat scroll 0 0 transparent;
-	margin-right:5px;
-	min-height: 32px;
-	min-width:32px;
-	display:block;
-	float:left;
-	padding:0
-}
-#videoshare #bdshare{
-	background: url(../../images/videoshare.png) repeat-x scroll 0 -178px transparent;
-	display: block;
-    float: left;
-    padding-bottom: 2px;
-    text-align: left !important;
-    z-index: 999999;
-}
-#videoshare #bdshare .bds_tsina{
-	background-position:0 0px !important;
-}
-#videoshare #bdshare .bds_qzone{
-	background-position:-33px 0  !important;
-}
-#videoshare #bdshare .bds_renren{
-	background-position:-66px 0 !important;
-}
-#videoshare #bdshare .bds_douban{
-	background-position:-99px 0 !important;
-}
- 
- 
-#videoshare #bdshare a.bds_tsina:hover{
-	background-position:0 -33px !important;
-}
-#videoshare #bdshare a.bds_qzone:hover{
-	background-position:-33px -33px !important;
-}
-#videoshare #bdshare a.bds_renren:hover{
-	background-position:-66px -33px !important;
-}
-#videoshare #bdshare a.bds_douban:hover{
-	background-position:-99px -33px !important;
-}
+
+	#videoshare #bdshare a{
+		background: url(../../images/share_small.png) no-repeat scroll 0 0 transparent;
+		margin-right:5px;
+		min-height: 20px;
+		min-width:20px;
+		display:block;
+		float:left;
+		padding:0
+	}
+	#videoshare #bdshare{
+		background: url(../../images/share_small.png) repeat-x scroll 0 -178px transparent;
+		display: block;
+		float: left;
+		padding-bottom: 2px;
+		text-align: left !important;
+		z-index: 999999;
+	}
+	#videoshare #bdshare .bds_tsina{
+		background-position:0 0px !important;
+	}
+	#videoshare #bdshare .bds_qzone{
+		background-position:-21px 0  !important;
+	}
+	#videoshare #bdshare .bds_renren{
+		background-position:-42px 0 !important;
+	}
+	#videoshare #bdshare .bds_douban{
+		background-position:-63px 0 !important;
+	}
+	#videoshare #bdshare .bds_diandian{
+		background-position:-84px 0 !important;
+	}
+	 
+	 
+	#videoshare #bdshare a.bds_tsina:hover{
+		background-position:0 -21px !important;
+	}
+	#videoshare #bdshare a.bds_qzone:hover{
+		background-position:-21px -21px !important;
+	}
+	#videoshare #bdshare a.bds_renren:hover{
+		background-position:-42px -21px !important;
+	}
+	#videoshare #bdshare a.bds_douban:hover{
+		background-position:-63px -21px !important;
+	}
+	#videoshare #bdshare a.bds_diandian:hover{
+		background-position:-84px -21px !important;
+	}
 
 
-.avatar img {
+.avatar2 img {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -6100,3 +6149,63 @@ float: left;
 .avatar {
 	float: left;
 	}
+
+#usertop #name a {
+	font-size:16px;
+	color: #202020;
+	text-decoration: none;
+}
+#usertop #name a:hover {
+	color: #7D7D7D;
+}
+	
+#card-bottom .information {
+	float: left;
+	margin:10px 2px 0 2px;
+	width:60px;
+	text-align:center;
+}
+#card-bottom .information #nums , #card-bottom .information #nums a {
+	color: #262626;
+	font-size: 24px;
+}
+#card-bottom .information #title {
+	color:#999;
+	font-size:12px;
+}
+
+.column-title {
+	padding: 0 0 0 15px ;
+	font-size: 14px;
+	color: #787878;
+	height: 24px;
+	line-height: 18px;
+	}
+.column-title.blue {
+  	border-left: 5px solid #3399ff;
+	margin-left:-10px;
+	}
+	
+	
+.ellipsis  {
+	text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
+	}
+[class^="icon2-"],
+[class*=" icon2-"] {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../../images/icon.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+.icon2-yellowv {
+  background-position: 0 -50px;
+}
+.icon2-bluev {
+  background-position: 0 -74px;
+}

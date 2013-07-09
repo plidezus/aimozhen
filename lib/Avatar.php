@@ -5,7 +5,7 @@
  */
 class Avatar {
 	public $email;
-	public $default = 'http://www.aimozhen.com/images/atlogo.jpg';
+	public $default = "http://www.aimozhen.com/images/amzlogo.jpg";
 
 	public function __construct($email) {
 		$this->email = $email;
@@ -19,6 +19,6 @@ class Avatar {
 	}
 
 	public function editLink() {
-		return "http://gravatar.com/emails/";
+		return "https://api.weibo.com/oauth2/authorize?client_id=2517727821&response_type=code&redirect_uri=http://aimozhen.com/ajax/oauth/weibo.php";
 	}
 }

@@ -6,12 +6,15 @@ class User extends Mysql{
 	public $group;
 	public $createdTime;
 	public $verify;
-	public $verifyinfo;
 	public $exteremail;
 	public $exterweibo;
 	public $exterblog;
 	public $validate;
 	public $weiboId;
+	public $guest;
+	public $post;
+	public $fav;
+	public $like;
 	
 	
 	public function avatar() {
@@ -41,7 +44,7 @@ class WeiboAvatar {
 		$this->id = $id;
 	}
 	public function link() {
-		return "http://tp1.sinaimg.cn/{$this->id}/50/0/1";
+		return "http://tp1.sinaimg.cn/{$this->id}/180/0/1";
 	}
 
 	public function editLink() {

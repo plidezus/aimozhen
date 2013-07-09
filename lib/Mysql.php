@@ -69,10 +69,14 @@ class Mysql {
 		return $where_str;
 	}
 	
-	public function count() {
+	public function count($option = array()) {
 		$table_name = static::$class_name ?: get_called_class();
 
 		$where_str = $this->getQuery();
+		
+		if (isset($option['multiuser'])) {
+			$where_str = "`userid` IN (" . $option['multiuser'] . ")";
+		}
 
 		$sql = "SELECT COUNT(1) FROM {$table_name} WHERE {$where_str}";
 		
@@ -100,21 +104,15 @@ class Mysql {
 		
 		$option_str = '';
 
+		if (isset($option['multiuser'])) {
+			$where_str = "`userid` IN (" . $option['multiuser'] . ")";
+		}
 		if (isset($option['search'])) {
 			$option_str .= "`title` LIKE '%".trim($option['search'])."%'";
-			$where_str = '';
-		}
-		if (isset($option['verify'])) {
-			$option_str .= '`verify` = ' . $option['verify'];
-			$where_str = '';
-		}
-		if (isset($option['email'])) {
-			$where_str = "`email` =  '" . $option['email'] . "'";
 		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
 		}
-		
 		if (!isset($option['limit'])) {
 			$option['limit'] = 40;
 		}

@@ -105,7 +105,7 @@ class VideoUrlParser
             $data = false;
         }
 
-        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" wmode=\"opaque\" quality=\"high\" width=\"770\" height=\"459\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
+        if($data && $createObject) $data['object'] = "<embed src=\"{$data['swf']}\" wmode=\"opaque\" quality=\"high\" width=\"1002\" height=\"590\" align=\"middle\" allowNetworking=\"all\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\"></embed>";
         return $data;
     }
     /**
@@ -226,7 +226,7 @@ class VideoUrlParser
             $data['img'] = $val->pic;
             $data['title'] = $val->title;
             $data['url'] = $url;
-            $data['swf'] = "http://www.tudou.com/l/{$icode}/&iid={$iid}/v.swf";
+            $data['iid'] = $iid;
 
             return $data;
         }
@@ -239,10 +239,10 @@ class VideoUrlParser
         if (preg_match("#\nLocation: (.*)\n#", $ret, $mat)) {
             parse_str(parse_url(urldecode($mat[1]), PHP_URL_QUERY));
 
-            $data['img'] = $snap_pic;
+			$data['img'] = $snap_pic;
             $data['title'] = $title;
             $data['url'] = $url;
-            $data['swf'] = "http://www.tudou.com/v/{$matches[1]}/v.swf";
+            $data['iid'] = $iid;
 
             return $data;
         }
@@ -363,6 +363,17 @@ class VideoUrlParser
      * http://you.video.sina.com.cn/api/sinawebApi/outplayrefer.php/vid=48717043_1290055681_PUzkSndrDzXK+l1lHz2stqkP7KQNt6nki2O0u1ehIwZYQ0/XM5GdatoG5ynSA9kEqDhAQJA4dPkm0x4/s.swf
      */
     private function _parseSina($url){
+		$html = self::_fget($url);
+	    preg_match('#<meta name="description" content="(.*?)" />#', $html, $match);
+	    $data['title'] = $match[1];
+	    $data['url'] = $url;
+	    preg_match('#SCOPE\[\'video\']\s=\s({.*?});#s', $html, $match);
+	    $json = $match[1];
+	    preg_match('#pic:\s+\'(.*?)\'#', $json, $match);
+	    $data['img'] = $match[1];
+	    preg_match('#swfOutsideUrl:\s*\'(.*?)\'#', $json, $match);
+	    $data['swf'] = $match[1];
+	    return $data;
         preg_match("/(\d+)(?:\-|\_)(\d+)/", $url, $matches);
         $url = "http://video.sina.com.cn/v/b/{$matches[1]}-{$matches[2]}.html";
         $html = self::_fget($url);
@@ -372,10 +383,10 @@ class VideoUrlParser
         $str = preg_replace($find, $replace, $matches[1]);
         $arr = json_decode($str, true);
 
-        $data['img'] = $arr['pic'];
+        //$data['img'] = $arr['pic'];
         $data['title'] = $arr['title'];
         $data['url'] = $url;
-        $data['swf'] = $arr['swfOutsideUrl'];
+        $data['swf'] = $str;
         
         return $data;
     }

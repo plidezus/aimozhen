@@ -1,3 +1,6 @@
 */_note/
 /.idea/*
-*/config/env.php
+/config/env.php
+/config/env.old.php
+/include/mail/test.php
+/admin/*

@@ -1,0 +1,27 @@
+RewriteEngine On
+
+ErrorDocument 404 /page/404/
+
+
+
+RewriteRule ^admin/$ /admin/index.php
+
+
+RewriteRule ^([0-9]+)/$ /?p=$1
+
+RewriteRule ^([a-zA-Z]+)/$ /page/$1.php
+
+RewriteRule ^video/([0-9]+)/$ /page/detail.php?id=$1
+
+RewriteRule ^edit/([0-9]+)/$ /page/edit.php?id=$1
+
+
+
+
+
+RewriteRule ^([a-zA-Z]+)/([0-9]+)/([a-zA-Z]+)/$ /page/$1_detail.php?id=$2&type=$3
+
+
+RewriteRule ^([a-zA-Z]+)/([0-9]+)/$ /page/$1_list.php?id=$2
+
+RewriteRule ^api/([a-zA-Z]+)/([A-Za-z0-9]+)/$ /data/api.php?type=$1&value=$2
