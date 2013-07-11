@@ -7,7 +7,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
 
     <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
-      <div class="row">
+      <div class="row amzcontent">
             
               <div class="span12" style="margin:0"> 
 
@@ -26,13 +26,30 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 			  </div>
       </div>
         
-		<div class="row">
-            <div style="text-align:center">
-            <a href="/discover/">再换一批</a> </div>
+		<div class="row amznavigation">
+            <div class="amznext" style="text-align:center">
+            <a href="/discovert/">再换一批</a> </div>
  		</div>
         
     </div> <!-- /上方 -->
     
+    <script type="text/javascript">
+        $(document).ready(function() {
+            jQuery.ias({
+                container : '.amzcontent',
+                item: '.amzvideo',
+                pagination: '.amznavigation',
+                next: '.amznext a',
+				loaderDelay: 1500 ,
+				triggerPageThreshold: 2 ,
+				trigger: '<div class="row"><div style="text-align:center"><a href="#">再换一批</a> </div></div>',
+                loader: '<img style="margin-left:30px" src="http://static.xiangqu.com/res1/images/core/loading_xq.gif"/>',
+            });
+        });
+    </script>
+
+
 <?php
+
 require_once '../view/base/footer.php';
 ?>

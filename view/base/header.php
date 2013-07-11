@@ -21,31 +21,18 @@ $tags = Tag::getAllPreTags();
 <meta name="author" content="艾墨镇,aimozhen">
 <meta name="keywords" content="aimozhen,艾墨镇,动画,animetaste,独立动画,视频,微电影,V电影,短片,原创,animation,动漫" />
 <meta property="wb:webmaster" content="dbd6a845d21f945c" />
-
-
-<!-- Le styles -->
-<link href="/media/css/bootstrap.css" rel="stylesheet">
-<link href="/media/css/bootstrap-responsive.css" rel="stylesheet">
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link href="/media/css/bootstrap-ie.css" rel="stylesheet">
-	<![endif]-->
-
 <link rel="shortcut icon" href="/favicon.ico">
+<!-- CSS -->
+<link href="/media/css/bootstrap.min.css?t=20130712" rel="stylesheet">
+<link href="/media/css/bootstrap-responsive.min.css?t=20130712" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<link href="/media/css/bootstrap-ie.css" rel="stylesheet">
+<![endif]-->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2517727821" type="text/javascript" charset="utf-8"></script>
-
-<meta property="og:type" content="webpage" />
-<meta property="og:url" content="<? echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
-<meta property="og:title" content="<?=$sitetitle; ?>" />
-<meta property="og:description" content="<?=$sitedescription;?>" />
-<? if($pagename == "detail") { ?>
-<meta property="og:image" content="<?=$video->imageUrl ;?>" />
-<meta name="weibo:webpage:create_at" content="<?=date("Y-n-d G:i:s",$video->createdTime) ;?>" />
-<? ; } ?>
 
 <?php include BASE_PATH."/include/info.php";?>
 

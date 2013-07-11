@@ -1,4 +1,4 @@
-﻿<div class="span3 shadow" style="height:318px;padding:10px; margin-bottom:20px;">
+﻿<div class="span3 shadow amzvideo" style="height:318px;padding:10px; margin-bottom:20px;">
 	<div class="playbutton">
 		<span>
 			<a href="/video/<?= $video->id ?>/" target="_blank" title="<?= $video->title ?>" >

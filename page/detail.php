@@ -90,7 +90,7 @@ include '../view/base/header.php';
                 
                 <!-- 多说评论 开始 -->
                 <div class="ds-thread" data-thread-key="<?=$video->id?>" data-title="<?=$video->title?>" data-author-key="<?=$user->id?>" style="border-top:1px solid rgba(0, 0, 0, 0.13);margin:15px 0 0;padding:10px 0 0;"></div>
-                <? $duoshuoinfo = DuoShuo::syncPost($video->id);?>       
+                <? //$duoshuoinfo = DuoShuo::syncPost($video->id);?>       
                 <!-- 多说评论 结束 -->
       		</div>
             <!-- 视频详情 结束 -->

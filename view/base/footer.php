@@ -9,30 +9,12 @@
 </a>
 -->
 
-    <!-- javascript
-    ================================================== -->
-    <script src="/media/js/bootstrap.js"></script>
-    <script src="/media/js/amz.js"></script>
+    <!-- javascript ================================================== -->
+    <script src="/media/js/bootstrap.min.js?t=20130712"></script>
+    <script src="/media/js/amz.js?t=20130712"></script>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=652974" ></script>
 	<script type="text/javascript" id="bdshell_js"></script>
-	<script type="text/javascript">
-	var bds_config = {'wbUid':3163946864,'snsKey':{'tsina':'2517727821'}};
-	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-	</script>
-    
-    	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"aimozhen"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = 'http://static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		|| document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-    
-    
+
     <? if ($visitor->id) { ?>
 <div id="invite" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

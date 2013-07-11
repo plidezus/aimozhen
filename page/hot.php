@@ -19,7 +19,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 						$user = new User($video->userid);
 			?>
         <!-- 作品-->
-                <? require '../view/base/post.php';?>
+                <?php include HTDOCS_DIR . "/view/base/post.php"; ?>
         <!-- /作品--> 
 			<? } ?>
               
