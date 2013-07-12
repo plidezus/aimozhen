@@ -23,7 +23,7 @@ $tags = Tag::getAllPreTags();
 <meta property="wb:webmaster" content="dbd6a845d21f945c" />
 <link rel="shortcut icon" href="/favicon.ico">
 <!-- CSS -->
-<link href="/media/css/bootstrap.min.css?t=20130712" rel="stylesheet">
+<link href="/media/css/bootstrap.min.css?t=20130713" rel="stylesheet">
 <link href="/media/css/bootstrap-responsive.min.css?t=20130712" rel="stylesheet">
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>

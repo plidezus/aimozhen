@@ -11,7 +11,7 @@ include '../view/base/header.php';
 ?>
     <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
 	<div class="row"> 
-    	<div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="/tag/id<?=$video->pre_tag?>-1/"><?=$tag->name?></a> > <a href="#"><?=$video->title?></a></div>
+    	<div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="/tag/<?=$video->pre_tag?>/"><?=$tag->name?></a> > <a href="#"><?=$video->title?></a></div>
     </div>
 
 	<div class="row">

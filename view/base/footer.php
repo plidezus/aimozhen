@@ -1,4 +1,6 @@
-﻿
+﻿<a id="gotop" href="#">   
+  <span>▲<strong>TOP</strong></span> 
+</a>
       <div id="footer" style="text-align: center; font-size: 12px; color:#C0C0C0">
         <p>&copy; <a href="http://animetaste.org/" target="_blank">AnimeTaste.org</a> · <a href="/page/about/" target="_blank">About</a> ·  <a href="mailto:admin@aimozhen.com" class="Email">Contact</a> · Made with ❤ in Shanghai · Thanks <a href="http://twitter.github.com/bootstrap/" class="Bootstrap">Bootstrap</a> · <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备13003160号</a></p>
         <p>&nbsp;</p>
@@ -10,10 +12,14 @@
 -->
 
     <!-- javascript ================================================== -->
-    <script src="/media/js/bootstrap.min.js?t=20130712"></script>
-    <script src="/media/js/amz.js?t=20130712"></script>
+    <script src="/media/js/bootstrap.min.js?t=20130713"></script>
+    <script src="/media/js/amz.js?t=20130713.6"></script>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=652974" ></script>
 	<script type="text/javascript" id="bdshell_js"></script>
+	<script type="text/javascript">
+	var bds_config = {'wbUid':3163946864,'snsKey':{'tsina':'2517727821'}};
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+	</script>
 
     <? if ($visitor->id) { ?>
 <div id="invite" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

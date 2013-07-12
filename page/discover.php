@@ -7,7 +7,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
 
     <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
-      <div class="row">
+      <div class="row amzcontent">
             
               <div class="span12" style="margin:0"> 
 
@@ -26,13 +26,15 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 			  </div>
       </div>
         
-		<div class="row">
-            <div style="text-align:center">
+		<div id="realpagination"  class="row amznavigation" style=" margin-top:50px;">
+            <div class="amznext" style="text-align:center">
             <a href="/discover/">再换一批</a> </div>
  		</div>
         
     </div> <!-- /上方 -->
-    
+
+
 <?php
+
 require_once '../view/base/footer.php';
 ?>
