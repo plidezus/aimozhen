@@ -75,9 +75,11 @@ class Mysql {
 		$where_str = $this->getQuery();
 		
 		if (isset($option['multiuser'])) {
-			$where_str = "`userid` IN (" . $option['multiuser'] . ")";
+			$where_str .= "`userid` IN (" . $option['multiuser'] . ")";
 		}
-
+		if (isset($option['search'])) {
+			$where_str = "`title` LIKE '%".trim($option['search'])."%'";
+		}
 		$sql = "SELECT COUNT(1) FROM {$table_name} WHERE {$where_str}";
 		
 		$result = self::client()->query($sql);
@@ -109,6 +111,7 @@ class Mysql {
 		}
 		if (isset($option['search'])) {
 			$option_str .= "`title` LIKE '%".trim($option['search'])."%'";
+			$where_str = "";
 		}
 		if (isset($option['order'])) {
 			$option_str .= 'ORDER BY ' . $option['order'];
@@ -175,7 +178,15 @@ class Mysql {
 	protected function encode($v) {
 		return "'" . $this->client()->real_escape_string($this->{$v}) . "'";
 	}
+	
+	public function maxid($option = array()) {
+		$table_name = static::$class_name ?: get_called_class();
 
+		$sql = "SELECT MAX(id) as max FROM `{$table_name}` ";
+		$result = self::client()->query($sql);
+		return current($result->fetch_row());
+	}
+	
 	public static function loader() {
 		return new static();
 	}

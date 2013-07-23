@@ -27,4 +27,13 @@ if (($_GET['type']) == 'basic') {
 	$user->save();
 	echo "<script>window.location = '/home/settings/?rereg'</script>";
 
+} elseif (!$_GET['type']) {
+	
+	$user = new User($_POST['pk']);
+	if ($_POST['name']) { 
+		$nametitle = $_POST['name'];
+		$user->$nametitle = $_POST['value']; 
+	}
+	$user->save();
+
 }

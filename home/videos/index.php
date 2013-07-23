@@ -25,9 +25,7 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 		foreach ($videos as $video) {
 			$user = new User($video->userid);
 	?>
-      <!-- 作品-->
-		<?php include HTDOCS_DIR . "/view/base/post.php"; ?>
-      <!-- /作品--> 
+		<?php include HTDOCS_DIR . "/view/base/post/single.php"; ?>
       	<? } ?>
                 
 			  </div>

@@ -11,13 +11,12 @@ $page = isset($url[1]) ? intval($url[1]) : 1;
 ?>
 
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
       <div class="row">
       
 <div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">选辑</a> </div></div>
     
       <div class="row">
-  <div class="span12" style="margin:0"> 
   
      	<?
 		$collection = new Collection();
@@ -25,13 +24,11 @@ $page = isset($url[1]) ? intval($url[1]) : 1;
 		foreach ($collections as $collection) {
 			$user = new User($collection->userid);
 	?>
-      <!-- 作品-->
-		<?php if ($collection->id != 1) { include HTDOCS_DIR . "/view/base/post_collection.php"; }?>
-      <!-- /作品--> 
+		<?php if ($collection->id != 1) { include HTDOCS_DIR . "/view/base/post/collection.php"; }?>
 	<?
 		}
 	?>
-		  </div>
+
       </div>
         
 		<div class="row">

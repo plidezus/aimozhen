@@ -1,30 +1,6 @@
 <?php
 header('Content-type:application/json;charset=UTF-8');
 include "../include/init.php";
-
-function arrayRecursive(&$array, $function, $apply_to_keys_also = false)
-{
-    static $recursive_counter = 0;
-    if (++$recursive_counter > 1000) {
-        die('possible deep recursion attack');
-    }
-    foreach ($array as $key => $value) {
-        if (is_array($value)) {
-            arrayRecursive($array[$key], $function, $apply_to_keys_also);
-        } else {
-            $array[$key] = $function($value);
-        }
- 
-        if ($apply_to_keys_also && is_string($key)) {
-            $new_key = $function($key);
-            if ($new_key != $key) {
-                $array[$new_key] = $array[$key];
-                unset($array[$key]);
-            }
-        }
-    }
-    $recursive_counter--;
-}
  
 function DeleteHtml($str) 
 { 
@@ -38,113 +14,55 @@ $str = ereg_replace(" "," ",$str);
 return trim($str); 
 }
 
-//JSON 压缩转码
-function JSON($array) {
-	arrayRecursive($array, 'urlencode', true);
-	$json = json_encode($array);
-	return urldecode($json);
-}
-
-//视频信息
-function GetVideo($vid) {
-		$video = new Video($vid);
-		$vinfo = array
-       (
-          'id'=> $video->id,
-		  'title'=> $video->title,
-		  'description'=> DeleteHtml($video->description),
-		  'url'=> $video->url,
-		  'userid'=> $video->userid,
-		  'imageUrl'=> $video->imageUrl,
-		  'like'=> $video->like,
-		  'viewed'=> $video->viewed,
-		  'pre_tag'=> $video->pre_tag,
-		  'tags'=> $video->tags,
-		  'createdTime'=> $video->createdTime,
-		  'verify'=> $video->verify
-       );
-	return $vinfo;
-}
-
-//列出视频
-function ListVideo($videos) {
-		$num = 1;
-		foreach ($videos as $video) {
-			if ($num == 1) $v1 = $video->id;
-			if ($num == 2) $v2 = $video->id;
-			if ($num == 3) $v3 = $video->id;
-			if ($num == 4) $v4 = $video->id;
-			$num = $num + 1;
-		};
-	    $array =  array
-    		("data" => array
-				(
-				GetVideo($v1),
-				GetVideo($v2),
-				GetVideo($v3),
-				GetVideo($v4)
-				)
-     		);
-	return $array;
-}
-
-//用户信息
-function GetUser($uid) {
-		$user = new User($uid);
-		$uinfo = array
-       (
-          'id'=> $user->id,
-		  'username'=> DeleteHtml($user->username),
-		  'email'=> $user->email,
-		  'group'=> $user->group,
-		  'createdTime'=> $user->createdTime,
-		  'verify'=> $user->verify,
-		  'verifyinfo'=> $user->verifyinfo,
-		  'exteremail'=> $user->exteremail,
-		  'exterweibo'=> $user->exterweibo,
-		  'exterblog'=> $user->exterblog,
-		  'weiboId'=> $user->weiboId,
-		  'guest'=> $user->guest
-       );
-	return $uinfo;
-}
 
 //获取参数
 $value = $_GET['value']; 
-	
+if ( isset($_GET['limit'])) {
+	$limit = $_GET['limit']; } else { $limit = 10; }
 // 视频获取
-if ($_GET['type']=="video")  {	
+if ($_GET['type']=="video")  {
+	$video = new Video();
 	if ($value=="new") { 
-		$video = new Video();
-		$videos = $video->find(array('order' => 'id desc', 'limit' => 4));
-		$array = ListVideo($videos);
-	
+		$videos = $video->find(array('order' => 'id desc', 'limit' => $limit));
 	} elseif ($value=="hot") {
-		$video = new Video();
-		$videos = $video->find(array('order' => '`viewed` desc, id desc', 'limit' => 4));
-		$array = ListVideo($videos);
-		
+		$videos = $video->find(array('order' => '`viewed` desc, id desc', 'limit' => $limit));
 	} elseif ($value=="random") {
-		$video = new Video();
-		$videos = $video->find(array('order' => 'RAND( )', 'limit' => 4));
-		$array = ListVideo($videos);
-		
+		$videos = $video->find(array('order' => 'RAND( )', 'limit' => $limit));
 	} else {
-		$array = GetVideo($value);
+		$video->id = $value;
+		$videos = $video->find();
 	}   
-	
+	foreach($videos as $video) {
+		$output->data[] = $video;
+	}
 	
 
 // 用户获取
 }   elseif ($_GET['type']=="user") {
-	$array = GetUser($uid);
-}
+	$user = new User();
+	if ($value=="new") { 
+		$users = $user->find(array('order' => 'id desc', 'limit' => $limit));
+	} elseif ($value=="hot") {
+		$users = $user->find(array('order' => '`post` desc, id desc', 'limit' => $limit));
+	} elseif ($value=="random") {
+		$users = $user->find(array('order' => 'RAND( )', 'limit' => $limit));
+	} else {
+		$user->id = $value;
+		$users = $user->find();
+	}   
+	foreach($users as $user) {
+		$newuser[$user->id]->username = $user->username ;
+		$newuser[$user->id]->post = $user->post ;
+		$newuser[$user->id]->like = $user->like ;
+		$newuser[$user->id]->fav = $user->fav ;
+		$output->data[] = $newuser[$user->id];
+	}
 
 // 其他情况
-else {echo"未定义null";};
+} else {echo"未定义null";};
 
-echo JSON($array);
 
+echo json_encode($output);
 
 
 ?>

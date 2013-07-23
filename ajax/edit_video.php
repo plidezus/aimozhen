@@ -24,11 +24,15 @@ if($_POST['collection']) {
 		if ($old_collection->count > 0)  $old_collection->count --;
 		$old_collection->save();
 	}
-	$new_collection = new Collection($_POST['collection']);
-	$new_collection->count ++;
-	$new_collection->UpdateTime = time();
-	$new_collection->save();
-	$video->collection = $_POST['collection'];
+	if ($_POST['collection'] == 1) {
+		$video->collection = 1;
+	} else {
+		$new_collection = new Collection($_POST['collection']);
+		$new_collection->count ++;
+		$new_collection->UpdateTime = time();
+		$new_collection->save();
+		$video->collection = $_POST['collection'];
+	}
  }
 if($_POST['userid']) { 
 	if ($_POST['userid'] != $video->userid) {

@@ -26,6 +26,14 @@ class DuoShuo {
 			'created_at' => date('Y-m-d H:i:s', $user->createdTime)
 			);
 		$result = self::request_by_curl($url,http_build_query($data));
+		if (!$user->duoshuoId ) {
+			$user2 = new User($user_id);
+			$content = json_decode ($result);
+			$user2->duoshuoId = $content->response->$user_id;
+			$user2->save();
+			}
+		
+		
 		return  $result;
 	}
 
@@ -48,6 +56,86 @@ class DuoShuo {
 			);
 		$result = self::request_by_curl($url,http_build_query($data));
 		return  $result;
+	}
+
+
+	public function syncCommentNum($post_id) {
+		$config = Config::get('env.duoshuo');
+		$handle = fopen("http://api.duoshuo.com/threads/counts.json?short_name=".$config['short_name']."&threads=".$post_id,"rb");
+		$content = "";
+		while (!feof($handle)) {
+			$content .= fread($handle, 100000);
+		}
+		fclose($handle);
+		$content = json_decode($content);
+		//print_r ($content);
+		
+		foreach ($content->response as $key) { ;
+										 
+			$video = new Video($key->thread_key);
+			$video->comment = $key->comments;
+			$video->save();
+	     } 
+		 
+		 return 'ALL DONE !';
+	}
+	
+	public function syncComment($nums) {
+			$config = Config::get('env.duoshuo');
+		
+			$handle = fopen("http://api.duoshuo.com/log/list.json?short_name=".$config['short_name']."&secret=".$config['secret']."&limit=".$nums."&order=desc","rb");
+			$content = "";
+			$allid = '';
+			while (!feof($handle)) {
+				$content .= fread($handle, 10000);
+			}
+			fclose($handle);
+			$content = json_decode($content);
+			
+			foreach ($content->response as $key) { ;				
+				$allid .=  $key->meta->thread_key.",";
+		 }
+		 
+		 return $allid;
+	}
+
+
+
+
+	public function syncCommentContent($nums) {
+			$config = Config::get('env.duoshuo');
+		
+			$handle = fopen("http://api.duoshuo.com/log/list.json?short_name=".$config['short_name']."&secret=".$config['secret']."&limit=".$nums."&order=desc","rb");
+			$content = "";
+			$allid = '';
+			while (!feof($handle)) {
+				$content .= fread($handle, 10000);
+			}
+			fclose($handle);
+			$content = json_decode($content);
+			
+			foreach ($content->response as $key) { ;
+				$user = new User();
+				$user->duoshuoId = $key->user_id;
+				$comment = new Comment();
+				$comment->duoshuoId = $key->meta->post_id;
+				if ($comment->count()) {} else {
+					if ($user->count()) {
+						$the_user = current($user->find());
+							if ($the_user) {
+								$comment = new Comment();
+								$comment->comment = htmlentities($key->meta->message, 0, 'UTF-8');
+								$comment->userid = $the_user->id;
+								$comment->createdTime = strtotime($key->meta->created_at);
+								$comment->videoid = $key->meta->thread_key;
+								$comment->duoshuoId = $key->meta->post_id;
+								$comment->save();
+							}
+					}
+				}
+				$allid .=  $key->meta->thread_key.",";
+		 	}
+		 return $allid;
 	}
 
 

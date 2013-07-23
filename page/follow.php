@@ -19,10 +19,8 @@ $video_count = $video->count(array('multiuser' => $users));
 ?>
 
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
       <div class="row">
-      
-              <div class="span12" style="margin:0"> 
 
 			<?
             $video = new Video();
@@ -30,13 +28,9 @@ $video_count = $video->count(array('multiuser' => $users));
             foreach ($videos as $video) {
                 $user = new User($video->userid);
         ?>
-        <!-- 作品-->
-                <? require HTDOCS_DIR . '/view/base/post.php';?>
-        <!-- /作品--> 
+                <?php include HTDOCS_DIR . "/view/base/post/single.php"; ?>
 			<? } ?>
-              
 
-			  </div>
       </div>
         
 		<div class="row">

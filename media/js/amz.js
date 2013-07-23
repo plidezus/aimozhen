@@ -75,16 +75,118 @@ function iaspost(){
 		loaderDelay: 1500 ,
 		triggerPageThreshold: 3 ,
 		customTriggerProc: function(trigger) { jQuery("#realpagination").fadeIn(1200); },
-		onRenderComplete: function() { playbutton() },
-		loader: '<img style="margin-left:30px" src="http://static.xiangqu.com/res1/images/core/loading_xq.gif"/>',
+		onRenderComplete: function() { playbutton();Duoshou(); },
+		loader: '<div style="text-align:center">正在载入 <img style="margin:0 0 2px 5px" src="/images/preloader.gif"/></div>',
 	});
 };
 
-$(function(){ 
-	playbutton(); 
-	iaspost(); 
-	gotopbutton();
-});
+
+// 收藏视频
+function FavPost(vid, faved){
+	link = '/ajax/fav.php?id='+vid ;
+	if (faved == 1) { link = link + '&cancel=1'} ;
+	$.get(link,function(data,status){
+		//alert("选辑数据：" + data + "\n状态：" + status);
+		if ( data == '收藏成功') {
+		document.getElementById('favpoststatus').innerHTML = '<button onclick="FavPost('+ vid +', 1)" class="btn btn-mini btn-inverse ajax" >取消收藏</button>';
+		$.globalMessenger().post({ message: '收藏成功！',type: 'success',showCloseButton: true });
+		} ;
+		if ( data == '取消收藏成功') {
+		document.getElementById('favpoststatus').innerHTML =  '<button onclick="FavPost('+ vid +', 0)" class="btn btn-mini btn-red ajax" >收藏</button>';
+		$.globalMessenger().post({ message: '取消收藏成功！',type: 'success',showCloseButton: true });
+		}
+	});
+};
+
+
+// 关注用户
+function LikeUser(uid, liked){
+	link = '/ajax/like.php?id='+uid ;
+	if (liked == 1) { link = link + '&cancel=1'} ;
+	$.get(link,function(data,status){
+		//alert("选辑数据：" + data + "\n状态：" + status);
+		if ( data == '关注成功') {
+		document.getElementById('likeuserstatus').innerHTML = '<button onclick="LikeUser('+ uid +', 1)" class="btn btn-inverse btn-block ajax" >取消关注</button>';
+		$.globalMessenger().post({ message: '关注成功！',type: 'success',showCloseButton: true });
+		} ;
+		if ( data == '取消关注成功') {
+		document.getElementById('likeuserstatus').innerHTML =  '<button onclick="LikeUser('+ uid +', 0)" class="btn btn-red btn-block ajax" >关注 TA</button>';
+		$.globalMessenger().post({ message: '取消关注成功！',type: 'success',showCloseButton: true });
+		}
+	});
+};
+
+
+//选辑勾选
+function CollectionPost(cid, vid, uid){
+	var checkboxval = $("#collection"+ cid).attr("checked");
+	link = '/ajax/collect.php';
+	if (checkboxval == "checked") {
+			$.post(link,
+			{
+				colletionid: cid,
+				videoid: vid,
+				cancel: 0
+			},
+			function(data,status){
+				$.globalMessenger().post({ message: '添加选辑'+data+'成功',type: 'success',showCloseButton: true });
+			});
+		} else {
+			$.post(link,
+			{
+				colletionid: cid,
+				videoid: vid,
+				cancel: 1
+				
+			},function(data,status){
+				$.globalMessenger().post({ message: '移除选辑'+data+'成功',type: 'success',showCloseButton: true });
+			});
+		}
+}
+
+// 用户页面快速修改
+function UserEdit() {
+	$.fn.editable.defaults.url = '/ajax/edit_user.php'; 
+	$('#enable').click(function() {
+       $('.editable').editable('toggleDisabled');
+   }); 
+   
+    $('#username').editable({
+		type: 'text',
+	 	validate: function(value) {
+      	  if($.trim(value) == '') return '请不要留空哟~';
+        },
+	});
+	
+    $('#location').editable({
+		type: 'text',
+	 	validate: function(value) {
+      	  if($.trim(value) == '') return '请不要留空哟~';
+        },
+	});
+	
+    $('#career').editable({
+		type: 'text',
+	 	validate: function(value) {
+      	  if($.trim(value) == '') return '请不要留空哟~';
+        },
+	});
+	
+    $('#aboutme').editable({
+		type: 'textarea',
+	 	validate: function(value) {
+      	  if($.trim(value) == '') return '请不要留空哟~';
+		  if($.trim(value).length > 50) return '请不要超过50个字哟';
+        },
+	});
+	
+	 $('.editable').editable('toggleDisabled');
+
+};
+
+
+
+
 
 /*!
  * Infinite Ajax Scroll, a jQuery plugin
@@ -100,8 +202,9 @@ $(function(){
 
 
 //多说评论
+
 var duoshuoQuery = {short_name:"aimozhen"};
-(function() {
+(function Duoshou() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
     ds.src = 'http://static.duoshuo.com/embed.js';
@@ -110,13 +213,8 @@ var duoshuoQuery = {short_name:"aimozhen"};
 })();
 
 
-//Google统计
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-11082147-7']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+$(function(){ 
+	playbutton(); 
+	iaspost(); 
+	gotopbutton();
+});

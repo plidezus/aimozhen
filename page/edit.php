@@ -121,7 +121,6 @@ include '../view/base/header.php';
 									  <option value=<?=$each_collection->id?> <? if($video->collection==$each_collection->id){ ?> selected="selected" <? } ?>><?=$each_collection->name?></option> 
 
 							<?  } ?>
-                            		<option value=1 <? if($video->collection == 1){ ?> selected="selected" <? } ?>>无归属</option> 
 						</select>
 					</div></div>
                     

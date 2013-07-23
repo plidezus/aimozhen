@@ -9,12 +9,18 @@ class User extends Mysql{
 	public $exteremail;
 	public $exterweibo;
 	public $exterblog;
+	public $location;
+	public $career;
+	public $aboutme;
 	public $validate;
 	public $weiboId;
+	public $duoshuoId;
 	public $guest;
 	public $post;
+	public $postOriginal;
 	public $fav;
 	public $like;
+	public $viewed;
 	
 	
 	public function avatar() {

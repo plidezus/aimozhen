@@ -5900,18 +5900,27 @@ a.badge:hover {
   }
 
 .float-left {
-float: left;
-}
-#headerbar a {
-	margin-right:20px;
-	float:left;
-	text-decoration:none;
-	color: #999;
+	float: left;
 }
 
-#headerbar a:hover {
-	color:#333;
+#headerbar > li {
+	margin-right:20px;
+	float:left;
+	list-style:none;
+	color: #999;
 }
+#headerbar > li > a{
+	color: #999;
+	text-decoration:none;
+}
+#headerbar > li > a:hover{
+	color: #333;
+}
+#headerbar > .active > a{
+	color: #333;
+	font-weight:bold;
+}
+
 
 #tagbar {
 	float:left;

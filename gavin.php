@@ -2,15 +2,6 @@
 include "include/init.php"; 
 
 
-
-$action = new Action();
-$action->type = Action::TYPE_LIKE_USER;
-$action->userid = $visitor->id;
-$user_ids = array_map(function($action){return $action->target;}, $action->find());
-$users = join(',', $user_ids)
-
-
-
-
+echo(strtotime("2013-07-18T17:04:41+08:00"));
 
 ?>

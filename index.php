@@ -7,12 +7,11 @@ if (isset($_GET['amzpage'])) { $page = $_GET['amzpage']; } else { $page = ($amzp
 $page_size = 23;
 ?>
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php  include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
       <div class="row amzcontent">
-      
-              <div class="span12" style="margin:0"> 
+         
 
-      <?
+      <?php
 				$video = new Video();
 				$videos = $video->find(array('order' => 'id desc', 'limit' => ($page-1) * $page_size . ', ' . $page_size));
 
@@ -21,17 +20,23 @@ $page_size = 23;
 					$videonum = $videonum + 1 ;
 					$user = new User($video->userid);
 		?>
-        <!-- 作品-->
 
-        <? if ($videonum == 3) { require "view/base/post.php";?>
+        <? if ($videonum == 3) { include HTDOCS_DIR . "/view/base/post/single.php"; ?>
 		<!-- 新用户-->
-        ﻿<div class="span3 shadow amzvideo" style="height:318px; padding:10px; margin-bottom:20px;">
-          <span style="font-size: 14px; color: #2A2A2A; font-weight: bold;">新入创作者:</span>
+        ﻿<div class="span3 shadow amzvideo" style="height:318px; padding:10px; margin-bottom:20px; margin-right:3px">
+          <span style="font-size: 14px; color: #2A2A2A; font-weight: bold;"><? if (!isset($_GET['amzpage'])) { echo "新入创作者:"; } else { echo "更多创作者:" ;}?></span>
 			<div style="margin:10px -10px 15px -10px;" class="hr1"></div>	
             
-          <? 	$user = new User();
-		  		$user->verify = "1" ;
-				$users = $user->find(array('order' => 'id desc', 'limit' => '0, 4'));
+          <? 	
+				if (!isset($_GET['amzpage'])) {
+					$user = new User();
+		  			$user->verify = "1" ;
+					$users = $user->find(array('order' => 'id desc', 'limit' => '0, 4'));
+				} else {
+					$user = new User();
+		  			$user->verify = "1" ;
+					$users = $user->find(array('order' => 'RAND( )', 'limit' => '0, 4'));
+				}
 		   		foreach ($users as $user) {  
 		   		require "view/base/user.php";}
 		  ?>
@@ -39,12 +44,10 @@ $page_size = 23;
 
         </div>
         <!-- /新用户-->
-        <? } else { require "view/base/post.php"; }
-		;?>
+        <? } else { include HTDOCS_DIR . "/view/base/post/single.php"; } ?>
 
-        <!-- /作品--> 
 		<? }?>
-		  </div>
+		
       </div>
       
       

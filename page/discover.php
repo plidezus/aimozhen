@@ -6,10 +6,8 @@ $page_size = 24;
 $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 ?>
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
       <div class="row amzcontent">
-            
-              <div class="span12" style="margin:0"> 
 
 			<?
 			$video = new Video();
@@ -17,13 +15,9 @@ $page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 					foreach ($videos as $video) {
 						$user = new User($video->userid);
 			?>
-        <!-- 作品-->
-                <?php include HTDOCS_DIR . "/view/base/post.php"; ?>
-        <!-- /作品--> 
+                <?php include HTDOCS_DIR . "/view/base/post/single.php"; ?>
 			<? } ?>
-              
 
-			  </div>
       </div>
         
 		<div id="realpagination"  class="row amznavigation" style=" margin-top:50px;">

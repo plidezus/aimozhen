@@ -1,10 +1,10 @@
-﻿	<script type="text/javascript" src="/media/messenger/js/underscore-min.js"></script>
-    <script type="text/javascript" src="/media/messenger/js/backbone-min.js"></script>
-	<script type="text/javascript" src="/media/messenger/js/messenger.min.js"></script>
-    <script type="text/javascript" src="/media/messenger/js/messenger-theme-future.js"></script>
+﻿	<script type="text/javascript" src="http://amzstatic.b0.upaiyun.com/media/messenger/js/underscore-min.js"></script>
+    <script type="text/javascript" src="http://amzstatic.b0.upaiyun.com/media/messenger/js/backbone-min.js"></script>
+	<script type="text/javascript" src="http://amzstatic.b0.upaiyun.com/media/messenger/js/messenger.min.js"></script>
+    <script type="text/javascript" src="http://amzstatic.b0.upaiyun.com/media/messenger/js/messenger-theme-future.js"></script>
     
-	<link type="text/css" rel="stylesheet" href="/media/messenger/css/messenger.css"/>
-    <link type="text/css" rel="stylesheet" href="/media/messenger/css/messenger-theme-future.css"/>
+	<link type="text/css" rel="stylesheet" href="http://amzstatic.b0.upaiyun.com/media/messenger/css/messenger.css"/>
+    <link type="text/css" rel="stylesheet" href="http://amzstatic.b0.upaiyun.com/media/messenger/css/messenger-theme-future.css"/>
     <script type="text/javascript"> $(function(){ 
 
 

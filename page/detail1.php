@@ -5,11 +5,7 @@ if (!$video->id) { header("LOCATION:/page/404/"); exit;}
 if($visitor->id != $video->userid) {$video->viewed += 1; $video->weekviewed += 1;$video->save();}
 $user = new User($video->userid);
 $tag = new Tag($video->pre_tag);
-if ($visitor->group == 9){
-	$collections = new Collection();
-	$collections-> userid = $visitor->id;
-	$collections = $collections->find();
-	}else {$collections = Collection::getAllCollections();}
+
 
 include '../view/base/header.php';
 ?>
@@ -20,7 +16,7 @@ include '../view/base/header.php';
 
 	<div class="row">
 		<div class="span12"> 
-            <div id="thumbnail" style="display:none;background: url('<?php if (!$video->imageUrl){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;"><img src="<?php if (!$video->imageUrl){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>" /></div>
+            <div id="thumbnail" style="display:none;background: url('<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>') no-repeat center center;"><img src="<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>" /></div>
             <!-- 观看区域 开始 -->
             <? if(strpos($_SERVER["HTTP_USER_AGENT"],"iPad")) {
             echo $video->padcontent();
@@ -40,7 +36,7 @@ include '../view/base/header.php';
                 <div id="content-others" style="position:relative;float:left;">
 					<div id="content-title" style="font-weight: bold; font-size:16px;"><?=$video->title?></div>
 					<div id="information">
-					<?=(date("Y年m月d日",$video->createdTime));?>&nbsp; · 围观<?=intval($video->viewed)?>次 · 收藏<?=intval($video->like)?>次 · 评论<?=intval($video->comment)?>次&nbsp; | &nbsp;
+					<?=(date("Y年m月d日",$video->createdTime));?>&nbsp; · 围观<?=intval($video->viewed)?>次 · 收藏<?=intval($video->like)?>次&nbsp; | &nbsp;
                 <? if($visitor->id) {  ?>
                 	
 					<? if(($visitor->id == $video->userid)||($visitor->group < 99)) {  ?>
@@ -62,10 +58,10 @@ include '../view/base/header.php';
 					
                     <!-- 百度分享按钮 开始 -->            
                     <div id="videoshare" >
-                        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if (!$video->imageUrl){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->url?> 我在艾墨镇看到一部不错的短片 《<?=$video->title?>》 | 去@艾墨镇网 看视频无广告：'}">
+                        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'<?=$video->url?> 我在艾墨镇看到一部不错的短片 《<?=$video->title?>》 | 去@艾墨镇网 看视频无广告：'}">
                         <a class="bds_tsina"></a>
                         </div>
-                         <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if (!$video->imageUrl){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'我在艾墨镇看到一部不错的短片 《<?=$video->title?>》 | 去@艾墨镇网 看视频无广告'}">
+                         <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'pic':'<?php if ($video->imageUrl==""){ echo '/images/noimage.jpg';}else{echo $video->imageUrl;} ?>','text':'我在艾墨镇看到一部不错的短片 《<?=$video->title?>》 | 去@艾墨镇网 看视频无广告：'}">
                     <a class="bds_renren"></a>
                     <a class="bds_douban"></a>
                     <a class="bds_diandian"></a>
@@ -80,43 +76,26 @@ include '../view/base/header.php';
                     <div id="favpoststatus" style="float:left; margin-top:-1px">
 						<?php if ($visitor->id){
                         if (Action::isFav($visitor, $video)) {?>
-                        <button onclick="FavPost('<?=$video->id?>', 1)" class="btn btn-mini btn-inverse ajax" >取消收藏</button>
+                        <button onclick="FavPost('<?=$video->id?>', 1);" class="btn btn-mini btn-inverse ajax" >取消收藏</button>
                         <? } else { ?>
-                        <button onclick="FavPost('<?=$video->id?>', 0)" class="btn btn-mini btn-red ajax" >收藏</button>
+                        <button onclick="FavPost('<?=$video->id?>', 0);" class="btn btn-mini btn-red ajax" >收藏</button>
                         <?php }}?>
 					</div>
 					<!-- 收藏视频 结束 --> 
-                     <?php if ($visitor->group == 1){ ?>
-                        <button style="float:left; margin-top:-1px; margin-left:5px" class="btn btn-mini btn-red ajax" data-toggle="collapse" data-target="#demo">选辑</button>
-                     <?php  }?>
+                    
 				</div>
                 <!-- 分享收藏 结束 -->
+                
                 <!-- 视频说明 开始 -->
-                <div id="des" style=" margin-top:60px;padding-bottom:10px;color: #666;text-indent :0px;">
-                	<div id="demo" class="collapse"> 
-                    <?php foreach ($collections as $each_collection) { 
-					$cid = $each_collection->id;
-					$cname = $each_collection->name;
-					$vcollection = explode(",",$video->collection);
-					?>
-                        <label class="checkbox inline">
-                          <input type="checkbox" id="collection<?=$cid?>" value="<?=$cid?>" <? if(in_array($cid,$vcollection)){ ?> checked="checked" <? } ?> onclick="CollectionPost(<?=$cid?>, <?=$video->id?>, <?=$visitor->id?>)"> <?=$cname?>
-                        </label>
-					<?  } ?>
-                    <div style="height:20px;"></div>
-                    </div>
-                	<? if(!$video->description){ ?> 暂时还没有资料，欢迎留言补充 <? }else{ echo nl2br($video->description); } ?>	</div>
+                <div id="des" style=" margin-top:60px;padding-bottom:10px;color: #666;text-indent :0px;">	<? if($video->description==""){ ?> 暂时还没有资料，欢迎留言补充 <? }else{ echo nl2br($video->description); } ?>	</div>
                 <!-- 视频说明 结束 -->
                 
                 <!-- 多说评论 开始 -->
                 <div class="ds-thread" data-thread-key="<?=$video->id?>" data-title="<?=$video->title?>" data-author-key="<?=$user->id?>" style="border-top:1px solid rgba(0, 0, 0, 0.13);margin:15px 0 0;padding:10px 0 0;"></div>
-                <? $duoshuoinfo = DuoShuo::syncPost($video->id);?>       
+                <? //$duoshuoinfo = DuoShuo::syncPost($video->id);?>       
                 <!-- 多说评论 结束 -->
       		</div>
             <!-- 视频详情 结束 -->
-            
-
-            
 		</div> 
 
 		<div class="span4">
@@ -127,9 +106,12 @@ include '../view/base/header.php';
                     <div class="avatar" ><a href="/user/<?=$video->userid?>/"><img src="<?=$user->avatar()->link(50)?>" style="width:50px; height:50px" /></a></div>
                     <div id="usertop" class="float-left" style="margin-left:10px">
                     	<div id="name">
-                    <? if ($user->verify) { ?>
+                    <? if ($user->verify==1) { ?>
                         	<div class="ellipsis float-left" style=" max-width:100px"><a href="/user/<?=$video->userid?>/"  title="<?=$user->username?>"><?=$user->username?></a></div>
-                        	<i title="认证用户" class="icon2-verify float-left" style="margin-left:5px"></i>
+                        	<i title="认证作者" class="icon2-yellowv float-left"></i>
+                    <? } elseif ($user->verify==2) { ?>
+                        	<div class="ellipsis float-left" style=" max-width:100px"><a href="/user/<?=$video->userid?>/"  title="<?=$user->username?>"><?=$user->username?></a></div>
+                        	<i title="认证机构" class="icon2-bluev float-left"></i>
                     <? } else { ?>
                         	<div class="ellipsis float-left" style=" max-width:120px"><a href="/user/<?=$video->userid?>/"  title="<?=$user->username?>"><?=$user->username?></a></div>
                     <? } ?>   
@@ -150,7 +132,7 @@ include '../view/base/header.php';
                 <!-- 下半部分 开始 -->
                 <div id="card-bottom" style="height:60px">
                   <div class="information">
-						<div id="nums"> <a href="/user/<?=$video->userid?>/" target="_blank"><?=$user->post?></a></div>
+						<div id="nums"> <a href="/user/<?=$video->userid?>/videos/" target="_blank"><?=$user->post?></a></div>
                         <div id="title"> 分享 </div>
                     </div>   
                     <div class="information">

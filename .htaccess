@@ -5,7 +5,7 @@ ErrorDocument 404 /page/404/
 
 
 RewriteRule ^admin/$ /admin/index.php
-
+RewriteRule ^api/$ /data/api.php$1
 
 RewriteRule ^([0-9]+)/$ /?p=$1
 
@@ -19,9 +19,9 @@ RewriteRule ^edit/([0-9]+)/$ /page/edit.php?id=$1
 
 
 
-RewriteRule ^([a-zA-Z]+)/([0-9]+)/([a-zA-Z]+)/$ /page/$1_detail.php?id=$2&type=$3
+RewriteRule ^([a-zA-Z]+)/([0-9]+)/([a-zA-Z]+)/$ /page/detail/$1.php?id=$2&type=$3
 
 
-RewriteRule ^([a-zA-Z]+)/([0-9]+)/$ /page/$1_list.php?id=$2
+RewriteRule ^(tag|hot|user|collection)/([A-Za-z0-9]+)/$ /page/list/$1.php?id=$2
 
-RewriteRule ^api/([a-zA-Z]+)/([A-Za-z0-9]+)/$ /data/api.php?type=$1&value=$2
+

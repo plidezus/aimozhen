@@ -58,7 +58,7 @@ class VideoUrlParser
 {
     const USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko)
         Chrome/8.0.552.224 Safari/534.10";
-    const CHECK_URL_VALID = "/(youku\.com|tudou\.com|ku6\.com|56\.com|letv\.com|video\.sina\.com\.cn|(my\.)?tv\.sohu\.com|v\.qq\.com)/";
+    const CHECK_URL_VALID = "/(youku\.com|tudou\.com|ku6\.com|56\.com|letv\.com|yinyuetai\.com|video\.sina\.com\.cn|(my\.)?tv\.sohu\.com|v\.qq\.com)/";
 
     /**
      * parse 
@@ -86,6 +86,9 @@ class VideoUrlParser
             break;
         case '56.com':
             $data = self::_parse56($url);
+            break;
+        case 'yinyuetai.com':
+            $data = self::_parseYinyuetai($url);
             break;
         case 'letv.com':
             $data = self::_parseLetv($url);
@@ -257,8 +260,8 @@ class VideoUrlParser
      * http://player.ku6.com/refer/3X93vo4tIS7uotHg/v.swf
      */
     private function _parseKu6($url){
-        if(preg_match("/show\_/", $url)){
-            preg_match("#/([\w\.]*?)\.html#", $url, $matches);
+        if(preg_match("/show/", $url)){
+            preg_match("#/([\w\.]*?)\...html#", $url, $matches);
 			var_dump($matches);
             $url = "http://v.ku6.com/fetchVideo4Player/{$matches[1]}.html";
             $html = self::_fget($url);
@@ -267,8 +270,8 @@ class VideoUrlParser
                 $json = json_decode($html, true);
                 if(!$json) return false;
                 
-                $data['img'] = $json['data']['picpath'];
-                $data['title'] = $json['data']['t'];
+                $data['img'] = $json['data']['bigpicpath'] ;
+                $data['title'] = $json['data']['t'] ;
                 $data['url'] = $url;
                 $data['swf'] = "http://player.ku6.com/refer/{$matches[1]}/v.swf";
 
@@ -327,20 +330,54 @@ class VideoUrlParser
         } 
     }
 
+
+    /**
+     * 音悦台
+     * http://www.yinyuetai.com/video/713721
+     * http://player.yinyuetai.com/video/player/713721/v_0.swf
+     */
+    private function _parseyinyuetai($url){
+        preg_match("#/video/(\d+)#", $url, $matches);
+		$yid = $matches[1];
+
+        if (empty($matches)) return false;
+
+        $html = self::_fget($url);
+
+        preg_match("/<meta property=\"og\:image\" content=\"(.*)\?t=(.*)\"\/>/", $html, $matches);
+		$ypic = $matches[1];
+		
+        $data['img'] = $ypic;
+        $data['title'] = $title;
+        $data['url'] = $url;
+        $data['swf'] = "http://player.yinyuetai.com/video/player/{$yid}/v_0.swf";
+
+        return $data;
+		
+    }
+
+
+
+
     /**
      * 乐视网 
      * http://www.letv.com/ptv/vplay/1168109.html
      * http://www.letv.com/player/x1168109.swf
      */
     private function _parseLetv($url){
-        $html = self::_fget($url);
-        preg_match("#http://v.t.sina.com.cn/([^'\"]*)#", $html, $matches);
-        parse_str(parse_url(urldecode($matches[0]), PHP_URL_QUERY));
-        preg_match("#vplay/(\d+)#", $url, $matches);
-        $data['img'] = $pic;
-        $data['title'] = $title;
+		$html = self::_fget($url);
+		preg_match("/title:\"(.*)\"/", $html, $matches);
+		$ltitle = $matches[1];
+		
+		preg_match("/share:\{pic:\"(.*)\"/", $html, $matches);
+		
+		$lpic = $matches[1];
+
+        preg_match("#(vplay|pplay)/(\d+)#", $url, $matches);
+        $data['img'] = $lpic;
+        $data['title'] = $ltitle;
         $data['url'] = $url;
-        $data['swf'] = "http://www.letv.com/player/x{$matches[1]}.swf";
+        $data['swf'] = "http://www.letv.com/player/x{$matches[2]}.swf";
 
         return $data;
     }

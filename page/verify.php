@@ -11,11 +11,9 @@ $amzpage = isset($_GET['p']) ? intval($_GET['p']) : 1;
 if (isset($_GET['amzpage'])) { $page = $_GET['amzpage']; } else { $page = ($amzpage-1)*3+1 ;}
 ?>
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
       <div class="row amzcontent">
       
-              <div class="span12" style="margin:0"> 
-
 			<?
 			$video = new Video();
 			$video->verify = '1';
@@ -23,13 +21,10 @@ if (isset($_GET['amzpage'])) { $page = $_GET['amzpage']; } else { $page = ($amzp
 					foreach ($videos as $video) {
 						$user = new User($video->userid);
 			?>
-        <!-- 作品-->
-                <? require '../view/base/post.php';?>
-        <!-- /作品--> 
+                <?php include HTDOCS_DIR . "/view/base/post/single.php"; ?>
 			<? } ?>
               
 
-			  </div>
       </div>
         
 		

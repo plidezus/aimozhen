@@ -28,7 +28,7 @@ if (!empty($_GET['cancel'])) {
 
 		}
 
-		header('LOCATION:/user/'.$_GET['id'].'/');
+		echo '取消关注成功';
 
 	}
 
@@ -50,6 +50,5 @@ if (!empty($_GET['cancel'])) {
 			$user->save();
 	}
 
-	header('LOCATION:/user/'.$_GET['id'].'/');
-
+	echo '关注成功';
 }

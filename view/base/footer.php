@@ -1,19 +1,21 @@
 ﻿<a id="gotop" href="#">   
   <span>▲<strong>TOP</strong></span> 
 </a>
-      <div id="footer" style="text-align: center; font-size: 12px; color:#C0C0C0">
+      <div id="footer" class="container" style="text-align: center; font-size: 12px; color:#C0C0C0">
         <p>&copy; <a href="http://animetaste.org/" target="_blank">AnimeTaste.org</a> · <a href="/page/about/" target="_blank">About</a> ·  <a href="mailto:admin@aimozhen.com" class="Email">Contact</a> · Made with ❤ in Shanghai · Thanks <a href="http://twitter.github.com/bootstrap/" class="Bootstrap">Bootstrap</a> · <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备13003160号</a></p>
         <p>&nbsp;</p>
 </div>
 
-    </div> <!-- /下方     <a id="issue" href="/page/issue/">   
+     <!-- /下方     <a id="issue" href="/page/issue/">   
   <span>用户<br />反馈</span> 
 </a>
 -->
 
     <!-- javascript ================================================== -->
-    <script src="/media/js/bootstrap.min.js?t=20130713"></script>
-    <script src="/media/js/amz.js?t=20130713.6"></script>
+    <script src="/media/js/bootstrap.min.js?t=20130724"></script>
+    <script src="/media/js/amz.js?t=20130724"></script>
+    <script src="http://amzstatic.b0.upaiyun.com/media/js/bootstrap-editable.min.js"></script>
+	<?php include BASE_PATH."/include/info.php";?>
     <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=652974" ></script>
 	<script type="text/javascript" id="bdshell_js"></script>
 	<script type="text/javascript">
@@ -120,7 +122,7 @@
   </div>    <div class="modal-body">
     <form action="/ajax/post.php" id="post" method="POST" >
         <div class="modal-body">
-                <div class="control-group" id="urlgroup">
+            <div class="control-group" id="urlgroup">
             <input type="text" name="url" id="url" class="input-block-level share-video" placeholder="请输入你想要分享的视频页面地址"/>
             <span class="help-inline" id="urlInfo"></span>
 			<div style="font-size: 14px; color: #919191; margin: 10px 0 20px 0;"><strong>支持优酷，土豆，56，新浪博客等视频网站<br />艾墨镇的氛围和你息息相关，希望你能给我们带来更多精彩的分享</strong></div>
@@ -145,7 +147,20 @@
 
   <? ; } ?>
 </div></div>  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0123a2f162a7829ef691d1b9702258e3' type='text/javascript'%3E%3C/script%3E"));
 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11082147-7']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 
 </body>
 </html>

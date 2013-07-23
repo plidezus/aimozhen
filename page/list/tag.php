@@ -1,7 +1,7 @@
 <?php
-include "../include/init.php";
+include "../../include/init.php";
 $pagename = "tag";$headname = "discover";
-include '../view/base/header.php';
+include '../../view/base/header.php';
 $tag_id = $_GET['id'];
 $tag = new Tag($tag_id);
 $video_count = $tag->count;
@@ -16,13 +16,12 @@ if (isset($url2[1])) { $page = $url2[1]; } else { $page = ($amzpage-1)*3+1 ;}
 ?>
 
 
-    <?php include HTDOCS_DIR . "/view/base/headerbar.php"; ?>
+    <?php include HTDOCS_DIR . "/view/base/headerbar/page.php"; ?>
 	<div class="row">
 		<div class="span8 breadcrumb"> <a href="/"><?=$sitename?></a> > <a href="#">标签</a> > <a href="#"><?=$tag->name?></a></div>
 	</div>
     
 	<div class="row amzcontent">
-		<div class="span12" style="margin:0"> 
   
      	<?
 		$video = new Video();
@@ -31,13 +30,11 @@ if (isset($url2[1])) { $page = $url2[1]; } else { $page = ($amzpage-1)*3+1 ;}
 		foreach ($videos as $video) {
 			$user = new User($video->userid);
 	?>
-      <!-- 作品-->
-		<?php include HTDOCS_DIR . "/view/base/post.php"; ?>
-      <!-- /作品--> 
+		<?php include HTDOCS_DIR . "/view/base/post/single.php"; ?>
 	<?
 		}
 	?>
-		  </div>
+
 	</div>
         
 		<div class="row amznavigation">
@@ -57,5 +54,5 @@ if (isset($url2[1])) { $page = $url2[1]; } else { $page = ($amzpage-1)*3+1 ;}
     
 
 <?php
-include '../view/base/footer.php';
+include '../../view/base/footer.php';
 ?>

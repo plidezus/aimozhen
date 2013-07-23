@@ -48,13 +48,9 @@ include '../../view/base/header.php';
       
       <!--左侧 --> <div class="span3">
 		     		<div class="shadow" style="padding:10px; margin-bottom:20px;">
-		     		<?php if ($pagename=="tag") { ?><div>共有 <strong><?=$video_count?></strong> 部作品被标记为 <?=$tag->name?></div>
-            <? } elseif ($pagename=="verify") { ?>
-            <div><?=$sitename?>共有 <strong><?=$video_count?></strong> 部原创作品
-            </div>
-            <? } else { ?>
+		     		
             <div><?=$sitename?>共有 <strong><?=$video_count?></strong> 部作品
-            </div>            <? } ?>用微信扫描在手机上看：
+            </div>           用微信扫描在手机上看：
             <img src="/images/qrcode_for_gh_25dc9fb5375c_430.jpg">
             
     	</div>

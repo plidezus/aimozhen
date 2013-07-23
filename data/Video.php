@@ -11,6 +11,7 @@ class Video extends Mysql{
 	public $pre_tag;
 	public $collection;
 	public $createdTime;
+	public $comment;
 	public $verify;
 	public $card;
 	public $imageUrl;
@@ -19,6 +20,9 @@ class Video extends Mysql{
 	const VIDEO_TYPE_TUDOU = 2;
 	const VIDEO_TYPE_SINA = 3;
 	const VIDEO_TYPE_56 = 4;
+	const VIDEO_TYPE_KU6 = 5;
+	const VIDEO_TYPE_LETV = 6;
+	const VIDEO_TYPE_YINYUETAI = 7;
 	const VIDEO_TYPE_UNKNOW = -1;
 
 	public function comments() {
@@ -36,6 +40,12 @@ class Video extends Mysql{
 			return self::VIDEO_TYPE_SINA;
 		} elseif (strpos($this->url, '56.com')) {
 			return self::VIDEO_TYPE_56;
+		} elseif (strpos($this->url, 'ku6.com')) {
+			return self::VIDEO_TYPE_KU6;
+		} elseif (strpos($this->url, 'letv.com')) {
+			return self::VIDEO_TYPE_LETV;
+		} elseif (strpos($this->url, 'yinyuetai.com')) {
+			return self::VIDEO_TYPE_YINYUETAI;
 		} else {
 			return self::VIDEO_TYPE_UNKNOW;
 		}
@@ -51,6 +61,12 @@ class Video extends Mysql{
 				return $this->sina_content();
 			case self::VIDEO_TYPE_56:
 				return $this->_56_content();
+			case self::VIDEO_TYPE_KU6:
+				return $this->ku6_content();
+			case self::VIDEO_TYPE_LETV:
+				return $this->letv_content();
+			case self::VIDEO_TYPE_YINYUETAI:
+				return $this->yinyuetai_content();
 			default :
 				return $this->url;
 		}
@@ -179,9 +195,48 @@ CONTENT;
 			return $this->url;
 
 		return <<<CONTENT
-<embed src='http://player.56.com/renrenshare_$id.swf'  type='application/x-shockwave-flash' width='1002' height='564' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
+<embed src='http://player.56.com/renrenshare_$id.swf'  type='application/x-shockwave-flash' width='1002' height='564' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always' wmode="opaque" mode="transparent"></embed>
 CONTENT;
 	}
+	
+	
+	private function ku6_content() {
+		if(preg_match("/show/", $this->url)){
+			preg_match("#/([\w\.]*?)\...html#", $this->url, $matches);
+			$id = $matches[1];
+		} else
+			return $this->url;
+
+		return <<<CONTENT
+   <embed src="/include/player/ku6.swf?vid={$id}&isAutoPlay=true" allowFullScreen="true" quality="high" width="1002" height="604" align="middle" allowScriptAccess="always" wmode="opaque" mode="transparent" type="application/x-shockwave-flash"></embed>
+CONTENT;
+	}
+	
+	private function letv_content() {
+		if (preg_match("#(vplay|pplay)/(\d+)#", $this->url, $matches)) {
+			$id = $matches[2];
+		} else
+			return $this->url;
+
+		return <<<CONTENT
+<embed src='http://www.letv.com/player/x{$matches[2]}.swf'  type='application/x-shockwave-flash' width='1002' height='564' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always' wmode="opaque" mode="transparent"></embed>
+CONTENT;
+	}
+	
+	private function yinyuetai_content() {
+		if (preg_match("#/video/(\d+)#", $this->url, $matches)) {
+			$yid = $matches[1];
+		} else
+			return $this->url;
+
+		return <<<CONTENT
+<embed src='http://player.yinyuetai.com/video/player/{$yid}/a_0.swf'  type='application/x-shockwave-flash' width='1002' height='564' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always' wmode="opaque" mode="transparent"></embed>
+CONTENT;
+	}
+	
+	
 }
+
+
 
 ?>
